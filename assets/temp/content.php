@@ -14,11 +14,11 @@
                 </div>
             </div>
 
-            <div class="header__adress d-none d-lg-flex text-start">
+            <div class="header__adress d-none d-xl-flex text-start">
                 г. Нижний Новгород,<br>ул. Июльских Дней, д. 1г
             </div>
 
-            <div class="header__work d-none d-md-flex flex-column text-start align-items-start">
+            <div class="header__work d-none d-xl-flex flex-column text-start align-items-start">
                 <span>Ежедневно с 9:00 до 22:00</span>
                 <a class="phone phone__header" href="tel:+79112223344">+7 (911) 222-33-44</a>
             </div>
@@ -52,7 +52,7 @@
                 <source srcset="<?= ASSETS . '/img/4.webp'?>" media="(max-width: 1920px)" />
                 <img class="img-fluid" src="<?= ASSETS . '/img/4.webp'?>" alt="banner" />
             </picture>
-            <div class="banner__data d-none d-lg-flex">
+            <div class="banner__data d-none d-xl-flex">
                 <form method="post" id="callback_form" class="form gap-3 p-4">
                     <input
                             name="form_subject"
@@ -151,7 +151,7 @@
                 </form>
         </div>
     </section>
-    <section>
+    <section id="timer-block">
         <div class="container">
             <div class="timer">
                 <h2>До 01.02 держим выгоды на CHANGAN до 25%!</h2>
