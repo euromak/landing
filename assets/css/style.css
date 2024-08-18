@@ -1,0 +1,200 @@
+@import url(../lib/bootstrap/css/bootstrap.css);
+@import url(../lib/bootstrap/css/bootstrap-reboot.css);
+@import url(../lib/bootstrap/css/bootstrap-grid.css);
+@import url(../lib/bootstrap/css/bootstrap-grid.css);
+@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+@font-face {
+  font-family: 'changan';
+  src: url("../font/ChangAnunitype-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'changan';
+  src: url("../font/ChangAnunitype-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'changan';
+  src: url("../font/ChangAnunitype-Bold.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; }
+body {
+  font-size: 16px;
+  font-family: changan; }
+
+input {
+  font-size: 1rem; }
+
+header {
+  user-select: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); }
+  header .header__top, header .header__bottom {
+    height: 6vh; }
+    header .header__top .logo, header .header__bottom .logo {
+      justify-content: start;
+      align-items: center; }
+      header .header__top .logo span, header .header__bottom .logo span {
+        width: 1px;
+        height: 60%;
+        margin: 0 .6rem;
+        background: black; }
+    header .header__top img.logo__brand, header .header__bottom img.logo__brand {
+      height: 3vh; }
+    header .header__top img.logo__avtohous, header .header__bottom img.logo__avtohous {
+      height: 3vh; }
+  header .hamburger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible; }
+  header .hamburger:hover {
+    opacity: 0.7; }
+  header .hamburger-box {
+    width: 30px;
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    top: 8px; }
+  header .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px; }
+  header .hamburger-inner, header .hamburger-inner::before, header .hamburger-inner::after {
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  header .hamburger-inner::before, header .hamburger-inner::after {
+    content: "";
+    display: block; }
+  header .hamburger-inner::before {
+    top: -10px; }
+  header .hamburger-inner::after {
+    bottom: -10px; }
+  header .hamburger--spring .hamburger-inner {
+    top: 2px;
+    transition: background-color 0s 0.13s linear; }
+  header .hamburger--spring .hamburger-inner::before {
+    top: 10px;
+    transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  header .hamburger--spring .hamburger-inner::after {
+    top: 20px;
+    transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  header .hamburger--spring.is-active .hamburger-inner {
+    transition-delay: 0.22s;
+    background-color: transparent; }
+  header .hamburger--spring.is-active .hamburger-inner::before {
+    top: 0;
+    transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 10px, 0) rotate(45deg); }
+  header .hamburger--spring.is-active .hamburger-inner::after {
+    top: 0;
+    transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 10px, 0) rotate(-45deg); }
+  header .header__adress:before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    margin-right: .4rem;
+    background: url("../img/point_grey.svg") center/cover no-repeat; }
+  header .header__work:before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    margin-right: 1rem;
+    background: url("../img/phone_grey.svg") center/cover no-repeat;
+    }
+  header .header__adress, header .header__work {
+    position: relative;
+    align-items: center;
+    line-height: normal; }
+
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold; }
+  .phone:before {
+    content: '';
+    display: inline-flex;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url("../img/phone.svg") center/cover no-repeat; }
+  .phone.phone__header:before {
+    content: none; }
+
+.banner__block {
+  position: relative;
+  text-align: center; }
+  .banner__block img {
+    width: 100%; }
+  .banner__block h1 {
+    position: absolute;
+    top: 5%; }
+  .banner__block .banner__data {
+    position: absolute;
+    top: 23%;
+    left: 60%;
+    right: 17%;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(18px);
+    background: rgba(227, 227, 227, 0.1); }
+    .banner__block .banner__data form {
+      display: flex;
+      flex-flow: column; }
+      .banner__block .banner__data form input {
+        height: 58px; }
+      .banner__block .banner__data form input[type='submit'] {
+        color: white;
+        border: 1px solid #005dd2;
+        background: #005dd2;
+        border-radius: 8px; }
+      .banner__block .banner__data form input[type='tel']:not(.is-invalid)::not(.is-valid) {
+        border: 1px solid #e0e0e0;
+        color: grey; }
+      .banner__block .banner__data form .form__politic-text {
+        color: #8f9496;
+        font-size: 12px;
+        text-align: left; }
+
+.form-control:focus {
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25); }
+
+#myCarousel {
+  height: 200px; }
+
+.callmodal {
+  color: white;
+  border: 1px solid #0066b5;
+  background: #0066b5;
+  border-radius: 8px;
+  max-width: 208px;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */
