@@ -291,9 +291,75 @@ header {
 .catalog h3 {
   font-weight: 600; }
 .catalog .model_item {
+  position: relative;
   border-radius: 8px;
   box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
   background: white;
   padding: 1rem; }
+  .catalog .model_item .model_item__name .n2 {
+    color: #005dd2; }
+  .catalog .model_item .model_item__name h3 {
+    font-size: clamp(30px, 1vw, 40px); }
+  .catalog .model_item .cart_action__item {
+    align-items: center;
+    flex: 1;
+    padding: .2rem .4rem;
+    font-size: clamp(12px, 1vw, 16px); }
+    .catalog .model_item .cart_action__item:before {
+      content: '';
+      display: inline-flex;
+      width: 25px;
+      height: 25px;
+      margin-right: .4rem; }
+    .catalog .model_item .cart_action__item.red {
+      border: 1px solid #ffcaca;
+      border-radius: 2px;
+      background: #ffdede;
+      color: #E83030; }
+      .catalog .model_item .cart_action__item.red:before {
+        background: url("../img/icons/icon_action.svg ") center/cover no-repeat; }
+    .catalog .model_item .cart_action__item.green {
+      border: 1px solid #bee3b8;
+      border-radius: 2px;
+      background: #d9f0d5;
+      color: #2AAF14; }
+      .catalog .model_item .cart_action__item.green:before {
+        background: url("../img/icons/icon_avn.svg ") center/cover no-repeat; }
+  .catalog .model_item .model_item__price {
+    display: flex;
+    justify-content: space-between; }
+    .catalog .model_item .model_item__price .price-value {
+      font-size: clamp(18px, 2vw, 34px);
+      font-weight: 700;
+      margin-right: 1rem; }
+    .catalog .model_item .model_item__price .price-old-value {
+      flex: 1;
+      font-size: clamp(16px, 1.6vw, 30px); }
+  .catalog .model_item .cart-btns-block .cart-btn {
+    margin-top: 1rem;
+    padding: .8rem 0; }
+    .catalog .model_item .cart-btns-block .cart-btn.n1 {
+      background-color: #005dd2;
+      border-color: #005dd2;
+      color: white;
+      border-radius: 8px; }
+    .catalog .model_item .cart-btns-block .cart-btn.n2 {
+      background-color: #333333;
+      border-color: #333333;
+      color: white;
+      border-radius: 8px; }
+    .catalog .model_item .cart-btns-block .cart-btn.n3 {
+      background-color: transparent;
+      border-color: #005dd2;
+      color: #005dd2;
+      border-radius: 8px; }
+    .catalog .model_item .cart-btns-block .cart-btn.n4 {
+      background-color: transparent;
+      border-color: #005dd2;
+      color: #005dd2;
+      border-radius: 8px; }
+  .catalog .model_item .info-car__item .n1 {
+    font-size: clamp(12px, 2vw, 22px);
+    font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */

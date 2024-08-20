@@ -184,39 +184,52 @@
         </div>
     </section>
     <section class="catalog">
-        <div class="container py-4">
+        <div class="container p-4 my-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
             </div>
             <div class="row">
                 <div class="model_item" data-car="">
                     <div class="row cart_action__block">
-                        <span class="cart_action__item col-6">Акция до 01.02</span>
-                        <span class="cart_action__item col-6">Авто в наличии</span>
+                        <div class="col-12 col-md-6 order-2 order-md-0">
+                            <div class="model_item__name">
+                                <h3 class="mt-3 mb-1"><span class="n1">Changan</span> <span class="n2">UNI-T</span></h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
+                            <span class="d-flex cart_action__item red h-md-50 col-auto">Акция до 01.02</span>
+                            <span class="d-flex cart_action__item green h-md-50 col-auto">Авто в наличии</span>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
-                            <div class="model_item__name">
-                                <h3><span class="n1">Changan</span> <span class="n2">UNI-T</span></h3>
-                            </div>
-                            <div class="model_item__price">
-                                <span>от 1 922 000 Р</span><span><s>от 2 922 000 Р</s></span>
+                            <div class="model_item__price d-flex">
+                                <span class="price-value">от 1 922 000 Р</span>
+                                <span class="price-old-value d-flex align-items-center"><s>от 2 922 000 Р</s></span>
                             </div>
                             <div class="model_item__credit-rate">
                                 <span>в кредит от 18 990 Р</span>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <button>Получить спец. цену</button>
-                                    <button>Рассчитать кредит от 6,5%</button>
-                                    <button>В рассрочку 0%</button>
-                                    <button>Подобрать комплектацию</button>
+                                <div class="col-12 col-lg-8 cart-btns-block">
+                                    <button class="btn btn-lg w-100 cart-btn n1" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
+                                    <button class="btn btn-lg w-100 cart-btn n2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от 6,5%</button>
+                                    <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
+                                    <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
-                                <div class="col">
-                                    <span>1.5 л.</span><span>Двигатель</span>
-                                    <span>7 DCT</span><span>КПП</span>
-                                    <span>280 h/m</span><span>Крут. момент</span>
-                                    <span>167 л.с.</span><span>Мощность</span>
+                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block">
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">1.5 л.</span>
+                                        <span class="n2">Двигатель</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">7 DCT</span>
+                                        <span class="n2">КПП</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">280 h/m</span>
+                                        <span class="n2">Крут. момент</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">167 л.с.</span>
+                                        <span class="n2">Мощность</span></div>
                                 </div>
 
                             </div>
@@ -277,7 +290,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
     <section>
