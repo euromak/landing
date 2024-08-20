@@ -312,6 +312,7 @@ header {
       text-align: center;
     }
     .timer__block-name {
+      color: rgb(143, 148, 150);
       text-align: center;
     }
   }
@@ -320,7 +321,9 @@ header {
     height: 100%;
     background: rgb(224, 224, 224);
   }
-
+  input[type=tel] {
+    color: rgb(143, 148, 150);
+  }
   input[type="submit"] {
     @include btn-color($main_color);
     height: 58px;
@@ -328,4 +331,8 @@ header {
 }
 .action {
 
+}
+
+.form__politic-text {
+  color: rgb(143, 148, 150);
 }
