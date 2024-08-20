@@ -23,7 +23,7 @@
                 <a class="phone phone__header" href="tel:+79112223344">+7 (911) 222-33-44</a>
             </div>
 
-            <div class="callmodal d-none d-md-flex align-items-center justify-content-center">
+            <div class="callmodal d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Заказать звонок
             </div>
 
@@ -33,7 +33,16 @@
             <a class="phone " href="tel:+79112223344"> +7 (911) 222-33-44</a>
         </div>
         <nav class="navbar d-none d-md-flex justify-content-around">
-            <div class="nav-item">Модельный ряд</div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Модельный ряд
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Действие</a></li>
+                    <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                    <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+                </ul>
+            </div>
             <div class="nav-item">Авто в наличии</div>
             <div class="nav-item">Комплектации</div>
             <div class="nav-item">Автокредит</div>
@@ -145,27 +154,32 @@
     </section>
     <section id="swiper-actions">
         <div class="container">
-            <div class="action">
-                <div class="action__slide">
-                    <span>Большая семья</span>
-                    <span>Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
-                    <button>Получить предложение</button>
+            <div class="action d-flex f-carousel" id="actionsCarousel">
+                <div class="f-carousel__viewport">
+                    <div class="f-carousel__track">
+                        <div class="f-carousel__slide action__slide d-flex flex-column n1 rounded-4">
+                            <h3 class="action__slide-title">Большая семья</h3>
+                            <span class="action__slide-desc">Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
+                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+                        </div>
+                        <div class="f-carousel__slide action__slide d-flex flex-column n2 rounded-4">
+                            <h3 class="action__slide-title">Военным</h3>
+                            <span class="action__slide-desc">Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
+                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+                        </div>
+                        <div class="f-carousel__slide action__slide d-flex flex-column n3 rounded-4">
+                            <h3 class="action__slide-title">Песнионерам</h3>
+                            <span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
+                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+                        </div>
+                        <div class="f-carousel__slide action__slide d-flex flex-column n4 rounded-4">
+                            <h3 class="action__slide-title">Медработникам</h3>
+                            <span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
+                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="action__slide">
-                    <span>Военным</span>
-                    <span>Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
-                    <button>Получить предложение</button>
-                </div>
-                <div class="action__slide">
-                    <span>Песнионерам</span>
-                    <span>Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
-                    <button>Получить предложение</button>
-                </div>
-                <div class="action__slide">
-                    <span>Медработникам</span>
-                    <span>Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
-                    <button>Получить предложение</button>
-                </div>
+
             </div>
         </div>
     </section>
@@ -492,6 +506,29 @@
         </div>`
     </div>
 </footer>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Заказать звонок</h1>
+                    <p>Получите эксклюзивное предложение на автомобиль Changan</p>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" id="floatingInput" placeholder="999-99-99">
+                            <label for="floatingInput">Ваш телефон</label>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Получить предложение" class="btn btn-lg btn-form">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>

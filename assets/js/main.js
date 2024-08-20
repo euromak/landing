@@ -93,9 +93,17 @@ window.addEventListener('submit', function(e){
 })
 
 window.addEventListener('load', function(e) {
-
-    const cartSwiper = new Carousel(document.getElementById("myCarousel"), {
-        // Your custom options
+    const swiperActions = new Carousel(document.getElementById("actionsCarousel"), {
+        Dots: true,
+        Thumbs: {
+            type: "classic",
+        },
+        infinite: true,
+        center: false,
+        slidesPerPage: 'auto',
+        transition: true,
+    }, { Thumbs }),
+        cartSwiper = new Carousel(document.getElementById("myCarousel"), {
         Dots: false,
         Thumbs: {
             type: "classic",

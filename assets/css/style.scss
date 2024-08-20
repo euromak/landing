@@ -2,9 +2,9 @@
 @import "../lib/bootstrap/css/bootstrap-reboot.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
-//@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
-//@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
-//@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 
 @font-face {
   font-family: 'changan';
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'changan';
-  src: url("../font/ChangAnunitype-Bold.otf");
+  src: url("../font/ChangAnunitype-Light.otf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -32,16 +32,24 @@
 
 /*Переменные*/
 $fs: 16px;
-$main_color:rgb(0, 102, 181);
-$hover_color:rgb(0, 93, 210);
+$main_color:rgb(0, 93, 210);
+$hover_color: rgb(0, 102, 181);
+
+
 
 /*Миксины*/
 @mixin btn-color($color){
   background-color: $color;
   border-color: $color;
   color: white;
+  border-radius: 8px;
 }
-
+@mixin btn-transparent($color){
+  background-color: transparent;
+  border-color: $color;
+  color: $color;
+  border-radius: 8px;
+}
 
 body {
   font-size: $fs;
@@ -192,7 +200,12 @@ header {
     justify-content: center;
   }
   .navbar {
+    display: flex;
     height: 5vh;
+
+    .nav-item {
+      cursor: pointer;
+    }
   }
 }
 
@@ -330,9 +343,51 @@ header {
   }
 }
 .action {
+  --f-carousel-slide-padding: 1.4rem 1.2rem;
+  --f-carousel-spacing: 1rem;
+  &__slide {
+    width: 100%;
+    height: 230px;
+    padding-right: 10%;
+    &.n1 {
+      background: url("../img/swiper/1.jpeg") center/cover no-repeat;
+    }
+    &.n2 {
+      background: url("../img/swiper/2.jpeg") center/cover no-repeat;
+    }
+    &.n3 {
+      background: url("../img/swiper/3.jpeg") center/cover no-repeat;
+    }
+    &.n4 {
+      background: url("../img/swiper/4.jpeg") center/cover no-repeat;
+    }
+    .action__slide-title {
 
+    }
+    .action__slide-desc {
+      padding-right: 8rem;
+    }
+    .action__slide-btn {
+      @include btn-transparent($main_color);
+      border: 1px solid $main_color;
+      border-radius: 8px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &__slide {
+      width: calc(100% / 2);
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    &__slide {
+      width: calc(100% / 3);
+    }
+  }
 }
 
 .form__politic-text {
   color: rgb(143, 148, 150);
+}
+.btn-form {
+  @include  btn-color($main-color);
 }

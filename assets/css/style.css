@@ -3,6 +3,9 @@
 @import url(../lib/bootstrap/css/bootstrap-reboot.css);
 @import url(../lib/bootstrap/css/bootstrap-grid.css);
 @import url(../lib/bootstrap/css/bootstrap-grid.css);
+@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 @font-face {
   font-family: 'changan';
   src: url("../font/ChangAnunitype-Regular.otf");
@@ -17,7 +20,7 @@
   font-display: swap; }
 @font-face {
   font-family: 'changan';
-  src: url("../font/ChangAnunitype-Bold.otf");
+  src: url("../font/ChangAnunitype-Light.otf");
   font-weight: 400;
   font-style: normal;
   font-display: swap; }
@@ -134,7 +137,10 @@ header {
     line-height: normal;
     justify-content: center; }
   header .navbar {
+    display: flex;
     height: 5vh; }
+    header .navbar .nav-item {
+      cursor: pointer; }
 
 .phone {
   display: flex;
@@ -178,8 +184,8 @@ header {
         height: 58px; }
       .banner__block .banner__data form input[type='submit'] {
         color: white;
-        border: 1px solid #005dd2;
-        background: #005dd2;
+        border: 1px solid #0066b5;
+        background: #0066b5;
         border-radius: 8px; }
       .banner__block .banner__data form input[type='tel']:not(.is-invalid)::not(.is-valid) {
         border: 1px solid #e0e0e0;
@@ -197,8 +203,8 @@ header {
 
 .callmodal {
   color: white;
-  border: 1px solid #0066b5;
-  background: #0066b5;
+  border: 1px solid #005dd2;
+  background: #005dd2;
   border-radius: 8px;
   max-width: 208px;
   width: 100%;
@@ -223,7 +229,7 @@ header {
     justify-content: center; }
     .timer .timer__block .timer__block-value {
       font-size: clamp(38px, 5vw, 84px);
-      color: #0066b5;
+      color: #005dd2;
       text-align: center; }
     .timer .timer__block .timer__block-name {
       color: #8f9496;
@@ -235,12 +241,52 @@ header {
   .timer input[type=tel] {
     color: #8f9496; }
   .timer input[type="submit"] {
-    background-color: #0066b5;
-    border-color: #0066b5;
+    background-color: #005dd2;
+    border-color: #005dd2;
     color: white;
+    border-radius: 8px;
     height: 58px; }
+
+.action {
+  --f-carousel-slide-padding: 1.4rem 1.2rem;
+  --f-carousel-spacing: 1rem; }
+  .action__slide {
+    width: 100%;
+    height: 230px;
+    padding-right: 3%;
+    }
+    .action__slide.n1 {
+      background: url("../img/swiper/1.jpeg") center/cover no-repeat; }
+    .action__slide.n2 {
+      background: url("../img/swiper/2.jpeg") center/cover no-repeat; }
+    .action__slide.n3 {
+      background: url("../img/swiper/3.jpeg") center/cover no-repeat; }
+    .action__slide.n4 {
+      background: url("../img/swiper/4.jpeg") center/cover no-repeat; }
+    .action__slide .action__slide-desc {
+      padding-right: 3rem;
+      }
+    .action__slide .action__slide-btn {
+      background-color: transparent;
+      border-color: #005dd2;
+      color: #005dd2;
+      border-radius: 8px;
+      border: 1px solid #005dd2;
+      border-radius: 8px; }
+  @media screen and (min-width: 768px) {
+    .action__slide {
+      width: calc(100% / 2); } }
+  @media screen and (min-width: 1200px) {
+    .action__slide {
+      width: calc(100% / 3); } }
 
 .form__politic-text {
   color: #8f9496; }
+
+.btn-form {
+  background-color: #005dd2;
+  border-color: #005dd2;
+  color: white;
+  border-radius: 8px; }
 
 /*# sourceMappingURL=style.css.map */
