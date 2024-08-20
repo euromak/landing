@@ -83,7 +83,93 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="timer-block">
+        <div class="container">
+            <div class="timer p-3">
+                <h2>До 01.02 держим выгоды на CHANGAN до 25%!</h2>
+                <div class="row d-flex flex-row-reverse">
+                    <div class="col-lg-6 d-flex align-items-start">
+                        <div class="timer__block date">
+                            <span class="timer__block-value"></span>
+                            <span class="timer__block-name">дней</span>
+                        </div>
+                        <span class="timer__block-dec h-50"></span>
+                        <div class="timer__block hour">
+                            <span class="timer__block-value"></span>
+                            <span class="timer__block-name">часов</span>
+                        </div>
+                        <span class="timer__block-dec h-50"></span>
+                        <div class="timer__block minute">
+                            <span class="timer__block-value"></span>
+                            <span class="timer__block-name">минут</span>
+                        </div>
+                        <span class="timer__block-dec h-50"></span>
+                        <div class="timer__block second">
+                            <span class="timer__block-value"></span>
+                            <span class="timer__block-name">секунды</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 my-3">
+                        <form method="post" id="callback_form" class="form gap-3 d-flex flex-column">
+                            <input
+                                    name="form_subject"
+                                    type="hidden"
+                                    value="Обратная связь">
+                            <input
+                                    name="check_bot"
+                                    type="hidden"
+                                    id="form_name"
+                                    value="false"
+                            >
+                            <div class="form-floating">
+                                <input
+                                        name="tele`phone"
+                                        type="tel"
+                                        id="telephone"
+                                        class="form-control w-100"
+                                        placeholder="Ваш телефон"
+                                        autocomplete="off"
+                                >
+                                <label for="phone">Ваш телефон</label>
+                            </div>
+                            <input type="submit" class="form-control" value="Получить предложение">
+                            <span class="form__politic-text">* Отправляя данную форму, вы соглашаетесь с <u>политикой
+                            обработки персональных данных.</u>
+                    </span>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="swiper-actions">
+        <div class="container">
+            <div class="action">
+                <div class="action__slide">
+                    <span>Большая семья</span>
+                    <span>Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
+                    <button>Получить предложение</button>
+                </div>
+                <div class="action__slide">
+                    <span>Военным</span>
+                    <span>Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
+                    <button>Получить предложение</button>
+                </div>
+                <div class="action__slide">
+                    <span>Песнионерам</span>
+                    <span>Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
+                    <button>Получить предложение</button>
+                </div>
+                <div class="action__slide">
+                    <span>Медработникам</span>
+                    <span>Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
+                    <button>Получить предложение</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="form">
         <div class="container">
             <form class="row g-3 my-5 needs-validation" novalidate>
                     <div class="col-md-4">
@@ -151,61 +237,7 @@
                 </form>
         </div>
     </section>
-    <section id="timer-block">
-        <div class="container">
-            <div class="timer">
-                <h2>До 01.02 держим выгоды на CHANGAN до 25%!</h2>
-                <div class="timer__block date">
-                    <span>05</span>
-                    <span>дней</span>
-                </div>
-                <div class="timer__block hour">
-                    <span>11</span>
-                    <span>часов</span>
-                </div>
-                <div class="timer__block minute">
-                    <span>56</span>
-                    <span>минут</span>
-                </div>
-                <div class="timer__block secont">
-                    <span>44</span>
-                    <span>секунды</span>
-                </div>
-            </div>
-            <form action="/" method="post">
-                <input type="tel" name="phone" value="Ваш телефон">
-                <input type="submit" placeholder="Получить предложение">
-                <span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
-            </form>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-                <div class="action">
-                <div class="action__slide">
-                    <span>Большая семья</span>
-                    <span>Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
-                    <button>Получить предложение</button>
-                </div>
-                <div class="action__slide">
-                    <span>Военным</span>
-                    <span>Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
-                    <button>Получить предложение</button>
-                </div>
-                <div class="action__slide">
-                    <span>Песнионерам</span>
-                    <span>Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
-                    <button>Получить предложение</button>
-                </div>
-                <div class="action__slide">
-                    <span>Медработникам</span>
-                    <span>Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
-                    <button>Получить предложение</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
+    <section id="catalog-grid">
         <div class="container">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
