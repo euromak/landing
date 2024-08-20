@@ -14,6 +14,10 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css"
     />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
     <link rel="stylesheet" href="<?= ASSETS . '/css/style.css' ?>">
     <style>
         img {

@@ -108,7 +108,16 @@ window.addEventListener('load', function(e) {
         Thumbs: {
             type: "classic",
         },
+
     }, { Thumbs });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        Thumbs : {
+            type: "classic",
+        }
+    },{ Thumbs });
+    console.log(swiperActions);
+    console.log(cartSwiper);
 
     let hamburger = document.querySelector('.hamburger');
 

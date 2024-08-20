@@ -217,7 +217,7 @@
                                     <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
                                     <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
-                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block">
+                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block ps-3 ps-xl-5">
                                     <div class="row mt-3 info-car__item">
                                         <span class="n1">1.5 л.</span>
                                         <span class="n2">Двигатель</span></div>
@@ -235,51 +235,39 @@
                             </div>
                         </div>
                         <div class="model_item__info col-12 col-lg-6">
-                            <div class="swiper__big">
-                                <img src="assets/img/cars/0.png" alt="">
+                            <div class="swiper__big text-center py-5">
+                                <img src="assets/img/cars/unit.png" alt="" class="car_photo">
+                                <img src="assets/img/cars/unit_lable.png" alt="" class="label">
                             </div>
                             <div class="f-carousel" id="myCarousel">
                                 <div class="f-carousel__viewport">
                                     <div class="f-carousel__track">
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/1.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/1.jpg"
-                                            />
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/2.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/2.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/3.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/3.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/4.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/4.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/5.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/5.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/6.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/6.jpg"/>
-                                        </div>
+                                        <a href="assets/img/cars/1.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt="" src="assets/img/cars/1.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/2.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/2.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/3.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/3.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/4.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/4.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/5.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/5.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/6.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/6.jpg" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row utp">
-                        <h4>Подарки при покупке:</h4>
-                        <div class="utp_list d-flex flex-wrap">
+                        <h4 class="my-3 my-lg-1">Подарки при покупке:</h4>
+                        <div class="utp_list d-flex flex-wrap justify-content-between">
                             <div class="utp_list__i n1">Скидка 100 000₽ в день звонка</div>
                             <div class="utp_list__i n2">Полис КАСКО</div>
                             <div class="utp_list__i n3">Зимние шины</div>
@@ -477,6 +465,7 @@
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
 <script src="<?= 'app.js'?>"></script>
