@@ -1,3 +1,11 @@
+@import "../lib/bootstrap/css/bootstrap.css";
+@import "../lib/bootstrap/css/bootstrap-reboot.css";
+@import "../lib/bootstrap/css/bootstrap-grid.css";
+@import "../lib/bootstrap/css/bootstrap-grid.css";
+//@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+//@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+//@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+
 @font-face {
   font-family: 'changan';
   src: url("../font/ChangAnunitype-Regular.otf");
@@ -22,17 +30,17 @@
   font-display: swap;
 }
 
+/*Переменные*/
 $fs: 16px;
 $main_color:rgb(0, 102, 181);
 $hover_color:rgb(0, 93, 210);
 
-@import "../lib/bootstrap/css/bootstrap.css";
-@import "../lib/bootstrap/css/bootstrap-reboot.css";
-@import "../lib/bootstrap/css/bootstrap-grid.css";
-@import "../lib/bootstrap/css/bootstrap-grid.css";
-@import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
-@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
-@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+/*Миксины*/
+@mixin btn-color($color){
+  background-color: $color;
+  border-color: $color;
+  color: white;
+}
 
 
 body {
@@ -284,4 +292,40 @@ header {
   header .header__top {
     height: 8vh;
   }
+}
+
+.timer {
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+  background: rgb(255, 255, 255);
+  transform: translateY(-3vh);
+  transition: all .4s ease-in;
+
+  .timer__block {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    justify-content: center;
+    .timer__block-value {
+      font-size: clamp(38px, 5vw, 84px);
+      color: $main_color;
+      text-align: center;
+    }
+    .timer__block-name {
+      text-align: center;
+    }
+  }
+  .timer__block-dec {
+    width: 1px;
+    height: 100%;
+    background: rgb(224, 224, 224);
+  }
+
+  input[type="submit"] {
+    @include btn-color($main_color);
+    height: 58px;
+  }
+}
+.action {
+
 }
