@@ -183,89 +183,21 @@
             </div>
         </div>
     </section>
-    <section id="form">
-        <div class="container">
-            <form class="row g-3 my-5 needs-validation" novalidate>
-                    <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Имя</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="Иван" required>
-                        <div class="valid-feedback">
-                            Все хорошо!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Фамилия</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="Петров" required>
-                        <div class="valid-feedback">
-                            Все хорошо!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Имя пользователя</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Пожалуйста, выберите имя пользователя.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="validationCustom03" class="form-label">Город</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
-                        <div class="invalid-feedback">
-                            Укажите действующий город.
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom04" class="form-label">Область</label>
-                        <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Выберите...</option>
-                            <option>...</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Пожалуйста, выберите корректный город.
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom05" class="form-label">Индекс</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
-                        <div class="invalid-feedback">
-                            Пожалуйста, предоставьте действующий почтовый индекс.
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Примите условия и соглашения
-                            </label>
-                            <div class="invalid-feedback">
-                                Вы должны принять перед отправкой.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Отправить форму</button>
-                    </div>
-                </form>
-        </div>
-    </section>
-    <section id="catalog-grid">
-        <div class="container">
+    <section class="catalog">
+        <div class="container py-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
-                <div class="cart_action__block">
-                    <span>Акция до 01.02</span>
-                    <span>Авто в наличии</span>
-                </div>
             </div>
             <div class="row">
                 <div class="model_item" data-car="">
+                    <div class="row cart_action__block">
+                        <span class="cart_action__item col-6">Акция до 01.02</span>
+                        <span class="cart_action__item col-6">Авто в наличии</span>
+                    </div>
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
                             <div class="model_item__name">
-                                <span>Changan</span> <span>UNI-T</span>
+                                <h3><span class="n1">Changan</span> <span class="n2">UNI-T</span></h3>
                             </div>
                             <div class="model_item__price">
                                 <span>от 1 922 000 Р</span><span><s>от 2 922 000 Р</s></span>
@@ -334,7 +266,7 @@
                     </div>
                     <div class="row utp">
                         <h4>Подарки при покупке:</h4>
-                        <div class="utp_list">
+                        <div class="utp_list d-flex flex-wrap">
                             <div class="utp_list__i n1">Скидка 100 000₽ в день звонка</div>
                             <div class="utp_list__i n2">Полис КАСКО</div>
                             <div class="utp_list__i n3">Зимние шины</div>
@@ -434,7 +366,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="contact">
         <div class="container">
             <div class="map row">
                 <h2>Контакты</h2>
