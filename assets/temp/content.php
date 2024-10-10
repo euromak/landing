@@ -1,6 +1,6 @@
 <body>
-<header class="header">
-    <div class="container-fluid container-lg">
+<header class="header fixed-top bg-white    ">
+    <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
             <a class="logo d-flex" href="#">
                 <img class="logo__brand" src="<?= ASSETS . '/img/logo.svg'?>" alt="logo brand">
@@ -183,17 +183,22 @@
             </div>
         </div>
     </section>
+
+
+
     <section class="catalog">
         <div class="container p-4 my-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
             </div>
+
             <div class="row">
+                <?php foreach ($res as $value): ?>
                 <div class="model_item" data-car="">
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
-                                <h3 class="mt-3 mb-1"><span class="n1">Changan</span> <span class="n2">UNI-T</span></h3>
+                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span></h3>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
@@ -204,8 +209,8 @@
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
                             <div class="model_item__price d-flex">
-                                <span class="price-value">от 1 922 000 Р</span>
-                                <span class="price-old-value d-flex align-items-center"><s>от 2 922 000 Р</s></span>
+                                <span class="price-value">от <?=$value['price']['price_min']?> Р</span>
+                                <span class="price-old-value d-flex align-items-center"><s>от <?=$value['price_old']['price_old']?> Р</s></span>
                             </div>
                             <div class="model_item__credit-rate">
                                 <span>в кредит от 18 990 Р</span>
@@ -277,6 +282,7 @@
                         </div>
                     </div>
                 </div>
+                <? endforeach; ?>
             </div>
         </div>
     </section>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://C:/OSPanel/home/opencart.moscow-avtohous.local/public/catalog/.idea/catalog.iml" filepath="C:/OSPanel/home/opencart.moscow-avtohous.local/public/catalog/.idea/catalog.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/landing.iml" filepath="$PROJECT_DIR$/.idea/landing.iml" />
     </modules>
   </component>
