@@ -19,8 +19,8 @@
             </div>
 
             <div class="header__work d-none d-xl-flex flex-column text-start align-items-start">
-                <span>Ежедневно с 9:00 до 22:00</span>
-                <a class="phone phone__header" href="tel:+79112223344">+7 (911) 222-33-44</a>
+                <span><?=$work_time?></span>
+                <a class="phone phone__header" href="tel:+79112223344"><?=$phone?></a>
             </div>
 
             <div class="callmodal d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -30,10 +30,10 @@
         </div>
         <hr class="hr m-1">
         <div class="header__bottom d-flex align-items-center d-md-none">
-            <a class="phone " href="tel:+79112223344"> +7 (911) 222-33-44</a>
+            <a class="phone " href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
         <nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
-            <a class="nav-link" href="#s1">Модельный ряд</a>
+            <a class="nav-link" href="#s1" aria-current="page">Модельный ряд</a>
             <a class="nav-link" href="#s2">Авто в наличии</a>
             <a class="nav-link" href="#s3">Комплектации</a>
             <a class="nav-link" href="#s4">Автокредит</a>
@@ -42,7 +42,7 @@
         </nav>
     </div>
 </header>
-<main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2" tabindex="0">
+<main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2">
     <section class="banner">
         <div class="banner__block">
             <picture>
@@ -174,12 +174,11 @@
             </div>
         </div>
     </section>
-    <section id="s1" data-section="s1" class="catalog">
+    <section id="s1" class="catalog">
         <div class="container p-4 my-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
             </div>
-
             <div class="row">
                 <?php foreach ($res as $value): ?>
                 <div class="model_item" data-car="">
@@ -206,7 +205,7 @@
                             <div class="row">
                                 <div class="col-12 col-lg-8 cart-btns-block">
                                     <button class="btn btn-lg w-100 cart-btn n1" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
-                                    <button class="btn btn-lg w-100 cart-btn n2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от 6,5%</button>
+                                    <button class="btn btn-lg w-100 cart-btn n2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от <?=$credit_rate?>%</button>
                                     <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
                                     <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
@@ -229,7 +228,7 @@
                         </div>
                         <div class="model_item__info col-12 col-lg-6">
                             <div class="swiper__big text-center py-5">
-                                <img src="assets/img/cars/unit.png" alt="" class="car_photo">
+                                <img src="<?=$value['preview']?>" alt="" class="car_photo">
                                 <img src="assets/img/cars/unit_lable.png" alt="" class="label">
                             </div>
                             <div class="f-carousel" id="myCarousel">
@@ -281,7 +280,7 @@
             <h3>Уже есть предложение?</h3>
             <p>Оставьте заявку и мы сделаем выгоднее!</p>
             <form action="/" method="post">
-                <input type="tel" name="phone" value="Ваш телефон">
+                <input type="tel" name="telephone" value="Ваш телефон">
                 <input type="submit" placeholder="Получить предложение">
                 <span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
             </form>
@@ -457,7 +456,28 @@
         </div>
     </div>
 </div>
+<script>
+    var data_car = <?=json_encode($res)?>;
+    data_car.forEach((value)=>{
+        console.log(value.model);
+    })
 
+    // сортировка
+    var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
+    var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
+
+    // агрегирование значения из все значений
+    var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
+
+    // Возвращаяет первый объект где выполнен поиск по значению поля model
+    var data_car3 = data_car.find((item)=>{
+        return item.model == "CS35PLUS";
+    });
+
+    // Возвращаяет первый объект где выполнен поиск по значению поля model
+    var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
+
+</script>
 <script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
