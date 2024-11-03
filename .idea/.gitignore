@@ -6,8 +6,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-../1111
-./1111
-../resources
-./resources
+*/1111
+*/resources
+*/node_modules
 
