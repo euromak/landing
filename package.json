@@ -1,0 +1,23 @@
+{
+  "name": "landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euromak/landing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/euromak/landing/issues"
+  },
+  "homepage": "https://github.com/euromak/landing#readme",
+  "dependencies": {
+    "g": "^2.0.1",
+    "jquery": "^3.7.1"
+  }
+}

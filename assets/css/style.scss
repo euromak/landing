@@ -55,8 +55,14 @@ $black_color: rgb(51, 51, 51);
 body {
   font-size: $fs;
   font-family: changan;
+  width: 100%;
+  height: 100%;
 }
 
+section {
+  min-height: 50vh;
+  overflow-y: scroll;
+}
 input {
   font-size: 1rem;
 }
@@ -521,4 +527,13 @@ header {
 
     }
   }
+}
+
+//main {
+//  height: 100%;
+//  overflow-y: scroll;
+//}
+
+.catalog {
+
 }

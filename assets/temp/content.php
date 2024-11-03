@@ -1,5 +1,5 @@
-<body>
-<header class="header fixed-top bg-white    ">
+<body >
+<header class="header fixed-top bg-white">
     <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
             <a class="logo d-flex" href="#">
@@ -32,26 +32,17 @@
         <div class="header__bottom d-flex align-items-center d-md-none">
             <a class="phone " href="tel:+79112223344"> +7 (911) 222-33-44</a>
         </div>
-        <nav class="navbar d-none d-md-flex justify-content-around">
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Модельный ряд
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Действие</a></li>
-                    <li><a class="dropdown-item" href="#">Другое действие</a></li>
-                    <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
-                </ul>
-            </div>
-            <div class="nav-item">Авто в наличии</div>
-            <div class="nav-item">Комплектации</div>
-            <div class="nav-item">Автокредит</div>
-            <div class="nav-item">Трейд-in</div>
-            <div class="nav-item">Контакты</div>
+        <nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
+            <a class="nav-link" href="#s1">Модельный ряд</a>
+            <a class="nav-link" href="#s2">Авто в наличии</a>
+            <a class="nav-link" href="#s3">Комплектации</a>
+            <a class="nav-link" href="#s4">Автокредит</a>
+            <a class="nav-link" href="#s5">Трейд-in</a>
+            <a class="nav-link" href="#s6">Контакты</a>
         </nav>
     </div>
 </header>
-<main class="main">
+<main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2" tabindex="0">
     <section class="banner">
         <div class="banner__block">
             <picture>
@@ -183,10 +174,7 @@
             </div>
         </div>
     </section>
-
-
-
-    <section class="catalog">
+    <section id="s1" data-section="s1" class="catalog">
         <div class="container p-4 my-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
@@ -213,7 +201,7 @@
                                 <span class="price-old-value d-flex align-items-center"><s>от <?=$value['price_old']['price_old']?> Р</s></span>
                             </div>
                             <div class="model_item__credit-rate">
-                                <span>в кредит от 18 990 Р</span>
+                                <span>в кредит от <?=$value['payment']?> Р</span>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-lg-8 cart-btns-block">
@@ -286,8 +274,10 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s2" data-section="s2">
         <div class="container banner_block">
+            <p>Значимость этих проблем настолько очевидна, что выбранный нами инновационный путь требует определения и уточнения новых предложений. Кстати, ключевые особенности структуры проекта набирают популярность среди определенных слоев населения, а значит, должны быть описаны максимально подробно. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке набирают популярность среди определенных слоев населения, а значит, должны быть представлены в исключительно положительном свете. Равным образом, внедрение современных методик способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений. В рамках спецификации современных стандартов, активно развивающиеся страны третьего мира разоблачены. Однозначно, сторонники тоталитаризма в науке призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. С учётом сложившейся международной обстановки, сложившаяся структура организации напрямую зависит от своевременного выполнения сверхзадачи. Приятно, граждане, наблюдать, как многие известные личности объединены в целые кластеры себе подобных. Противоположная точка зрения подразумевает, что непосредственные участники технического прогресса описаны максимально подробно! А также предприниматели в сети интернет, превозмогая сложившуюся непростую экономическую ситуацию, функционально разнесены на независимые элементы.</p>
+            <h4 >Второй заголовок</h4>
             <h3>Уже есть предложение?</h3>
             <p>Оставьте заявку и мы сделаем выгоднее!</p>
             <form action="/" method="post">
@@ -297,7 +287,7 @@
             </form>
         </div>
     </section>
-    <section>
+    <section id="s3"data-section="s3">
         <div class="container">
             <h2>Подберите комплектацию</h2>
             <div class="row">
@@ -306,7 +296,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s4">
         <div class="container">
             <div class="row">
                 <img src="assets/img/modification/1.png" alt="">
@@ -335,7 +325,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s5">
         <div class="container">
             <div class="banner_credit">
                 <div class="row">
@@ -372,7 +362,7 @@
             </div>
         </div>
     </section>
-    <section class="contact">
+    <section id="s6" class="contact">
         <div class="container">
             <div class="map row">
                 <h2>Контакты</h2>
@@ -468,6 +458,7 @@
     </div>
 </div>
 
+<script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>

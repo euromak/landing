@@ -1,3 +1,23 @@
+/* основной функционал приложения */
+const app = {
+    element: document.querySelector('body'),
+    currentCordY: 0,
+    data: [],
+    scrollWatch: function(){
+        if(this.currentCordY > window.pageYOffset && window.pageYOffset > 300) {
+            // $('.navbar').removeClass('d-md-flex');
+            // $('.navbar').fadeOut();
+        }
+
+        this.currentCordY = window.pageYOffset;
+    },
+    init: function() {
+        window.addEventListener('scroll',(e)=>{
+            this.scrollWatch();
+        });
+    }
+};
+
 /* установка маски на инпуты формы */
 function setInputMask(el) {
     let inputPhone = document.querySelectorAll('input[type="tel"]');
@@ -73,7 +93,10 @@ function timer($value){
 
     return result;
 }
+
+app.init();
 timer();
+
 window.addEventListener('submit', function(e){
     e.preventDefault();
     let formValues = new FormData(e.target);
@@ -93,7 +116,8 @@ window.addEventListener('submit', function(e){
 })
 
 window.addEventListener('load', function(e) {
-    const swiperActions = new Carousel(document.getElementById("actionsCarousel"), {
+    const
+        swiperActions = new Carousel(document.getElementById("actionsCarousel"), {
         Dots: true,
         Thumbs: {
             type: "classic",
@@ -110,16 +134,13 @@ window.addEventListener('load', function(e) {
         },
 
     }, { Thumbs });
+    let hamburger = document.querySelector('.hamburger');
 
     Fancybox.bind('[data-fancybox="gallery"]', {
         Thumbs : {
             type: "classic",
         }
     },{ Thumbs });
-    console.log(swiperActions);
-    console.log(cartSwiper);
-
-    let hamburger = document.querySelector('.hamburger');
 
     hamburger.addEventListener('click',function(){
         this.classList.toggle('is-active');
