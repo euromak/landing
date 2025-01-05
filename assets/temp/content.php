@@ -344,11 +344,11 @@
             <div class="banner_tradein">
                 <div class="row">
                     <h2>Сдайте старый авто <span>в TRADE-IN</span></h2>
-                    <p>и получите выгоду до 250 000 ₽!</p>
+                    <p>и получите выгоду до <?=$trade_in?> ₽!</p>
                 </div>
                 <div class="row">
                     <div class="item">Скидка 100 000 ₽ в день звонка</div>
-                    <div class="item">Ставка от 6,5%</div>
+                    <div class="item">Ставка от <?=$credit_rate?>%</div>
                     <div class="item">3 платежа по кредиту в подарок</div>
                     <div class="item">Подарки на выбор</div>
                     <div class="item">Срок кредитования до 84 месяцев</div>
@@ -478,13 +478,16 @@
     var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
 
 </script>
+<script src="<?= 'app.js'?>"></script>
 <script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
-<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
+<!--<script src="--><?//= '/node_modules/dist/floating-ui.mjs'?><!--"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.min.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
-<script src="<?= 'app.js'?>"></script>
 <script src="<?= ASSETS . '/js/main.js'?>"></script>
 </body>
+</html>

@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/euromak/landing#readme",
   "dependencies": {
+    "floating-ui": "^5.2.8",
     "g": "^2.0.1",
+    "global": "^4.4.0",
     "jquery": "^3.7.1"
   }
 }
