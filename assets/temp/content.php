@@ -1,6 +1,6 @@
-<body>
-<header class="header">
-    <div class="container-fluid container-lg">
+<body >
+<header class="header fixed-top bg-white">
+    <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
             <a class="logo d-flex" href="#">
                 <img class="logo__brand" src="<?= ASSETS . '/img/logo.svg'?>" alt="logo brand">
@@ -19,8 +19,8 @@
             </div>
 
             <div class="header__work d-none d-xl-flex flex-column text-start align-items-start">
-                <span>Ежедневно с 9:00 до 22:00</span>
-                <a class="phone phone__header" href="tel:+79112223344">+7 (911) 222-33-44</a>
+                <span><?=$work_time?></span>
+                <a class="phone phone__header" href="tel:+79112223344"><?=$phone?></a>
             </div>
 
             <div class="callmodal d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -30,28 +30,19 @@
         </div>
         <hr class="hr m-1">
         <div class="header__bottom d-flex align-items-center d-md-none">
-            <a class="phone " href="tel:+79112223344"> +7 (911) 222-33-44</a>
+            <a class="phone " href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
-        <nav class="navbar d-none d-md-flex justify-content-around">
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Модельный ряд
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Действие</a></li>
-                    <li><a class="dropdown-item" href="#">Другое действие</a></li>
-                    <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
-                </ul>
-            </div>
-            <div class="nav-item">Авто в наличии</div>
-            <div class="nav-item">Комплектации</div>
-            <div class="nav-item">Автокредит</div>
-            <div class="nav-item">Трейд-in</div>
-            <div class="nav-item">Контакты</div>
+        <nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
+            <a class="nav-link" href="#s1" aria-current="page">Модельный ряд</a>
+            <a class="nav-link" href="#s2">Авто в наличии</a>
+            <a class="nav-link" href="#s3">Комплектации</a>
+            <a class="nav-link" href="#s4">Автокредит</a>
+            <a class="nav-link" href="#s5">Трейд-in</a>
+            <a class="nav-link" href="#s6">Контакты</a>
         </nav>
     </div>
 </header>
-<main class="main">
+<main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2">
     <section class="banner">
         <div class="banner__block">
             <picture>
@@ -183,158 +174,92 @@
             </div>
         </div>
     </section>
-    <section id="form">
-        <div class="container">
-            <form class="row g-3 my-5 needs-validation" novalidate>
-                    <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Имя</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="Иван" required>
-                        <div class="valid-feedback">
-                            Все хорошо!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Фамилия</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="Петров" required>
-                        <div class="valid-feedback">
-                            Все хорошо!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Имя пользователя</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Пожалуйста, выберите имя пользователя.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="validationCustom03" class="form-label">Город</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
-                        <div class="invalid-feedback">
-                            Укажите действующий город.
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom04" class="form-label">Область</label>
-                        <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Выберите...</option>
-                            <option>...</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Пожалуйста, выберите корректный город.
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom05" class="form-label">Индекс</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
-                        <div class="invalid-feedback">
-                            Пожалуйста, предоставьте действующий почтовый индекс.
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Примите условия и соглашения
-                            </label>
-                            <div class="invalid-feedback">
-                                Вы должны принять перед отправкой.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Отправить форму</button>
-                    </div>
-                </form>
-        </div>
-    </section>
-    <section id="catalog-grid">
-        <div class="container">
+    <section id="s1" class="catalog">
+        <div class="container p-4 my-4">
             <div class="row">
                 <h2>Модельный ряд CHANGAN</h2>
-                <div class="cart_action__block">
-                    <span>Акция до 01.02</span>
-                    <span>Авто в наличии</span>
-                </div>
             </div>
             <div class="row">
+                <?php foreach ($res as $value): ?>
                 <div class="model_item" data-car="">
+                    <div class="row cart_action__block">
+                        <div class="col-12 col-md-6 order-2 order-md-0">
+                            <div class="model_item__name">
+                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span></h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
+                            <span class="d-flex cart_action__item red h-md-50 col-auto">Акция до 01.02</span>
+                            <span class="d-flex cart_action__item green h-md-50 col-auto">Авто в наличии</span>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
-                            <div class="model_item__name">
-                                <span>Changan</span> <span>UNI-T</span>
-                            </div>
-                            <div class="model_item__price">
-                                <span>от 1 922 000 Р</span><span><s>от 2 922 000 Р</s></span>
+                            <div class="model_item__price d-flex">
+                                <span class="price-value">от <?=$value['price']['price_min']?> Р</span>
+                                <span class="price-old-value d-flex align-items-center"><s>от <?=$value['price_old']['price_old']?> Р</s></span>
                             </div>
                             <div class="model_item__credit-rate">
-                                <span>в кредит от 18 990 Р</span>
+                                <span>в кредит от <?=$value['payment']?> Р</span>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <button>Получить спец. цену</button>
-                                    <button>Рассчитать кредит от 6,5%</button>
-                                    <button>В рассрочку 0%</button>
-                                    <button>Подобрать комплектацию</button>
+                                <div class="col-12 col-lg-8 cart-btns-block">
+                                    <button class="btn btn-lg w-100 cart-btn n1" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
+                                    <button class="btn btn-lg w-100 cart-btn n2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от <?=$credit_rate?>%</button>
+                                    <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
+                                    <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
-                                <div class="col">
-                                    <span>1.5 л.</span><span>Двигатель</span>
-                                    <span>7 DCT</span><span>КПП</span>
-                                    <span>280 h/m</span><span>Крут. момент</span>
-                                    <span>167 л.с.</span><span>Мощность</span>
+                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block ps-3 ps-xl-5">
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">1.5 л.</span>
+                                        <span class="n2">Двигатель</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">7 DCT</span>
+                                        <span class="n2">КПП</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">280 h/m</span>
+                                        <span class="n2">Крут. момент</span></div>
+                                    <div class="row mt-3 info-car__item">
+                                        <span class="n1">167 л.с.</span>
+                                        <span class="n2">Мощность</span></div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="model_item__info col-12 col-lg-6">
-                            <div class="swiper__big">
-                                <img src="assets/img/cars/0.png" alt="">
+                            <div class="swiper__big text-center py-5">
+                                <img src="<?=$value['preview']?>" alt="" class="car_photo">
+                                <img src="assets/img/cars/unit_lable.png" alt="" class="label">
                             </div>
                             <div class="f-carousel" id="myCarousel">
                                 <div class="f-carousel__viewport">
                                     <div class="f-carousel__track">
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/1.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/1.jpg"
-                                            />
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/2.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/2.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/3.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/3.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/4.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/4.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/5.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/5.jpg"/>
-                                        </div>
-                                        <div class="f-carousel__slide" data-thumb-src="assets/img/cars/6.jpg" >
-                                            <img height="400"
-                                                 alt=""
-                                                 data-lazy-src="assets/img/cars/6.jpg"/>
-                                        </div>
+                                        <a href="assets/img/cars/1.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt="" src="assets/img/cars/1.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/2.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/2.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/3.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/3.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/4.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/4.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/5.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/5.jpg" />
+                                        </a>
+                                        <a href="assets/img/cars/6.jpg" class="f-carousel__slide" data-fancybox="gallery">
+                                            <img alt=""  src="assets/img/cars/6.jpg" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row utp">
-                        <h4>Подарки при покупке:</h4>
-                        <div class="utp_list">
+                        <h4 class="my-3 my-lg-1">Подарки при покупке:</h4>
+                        <div class="utp_list d-flex flex-wrap justify-content-between">
                             <div class="utp_list__i n1">Скидка 100 000₽ в день звонка</div>
                             <div class="utp_list__i n2">Полис КАСКО</div>
                             <div class="utp_list__i n3">Зимние шины</div>
@@ -344,22 +269,24 @@
                         </div>
                     </div>
                 </div>
+                <? endforeach; ?>
             </div>
-
         </div>
     </section>
-    <section>
+    <section id="s2" data-section="s2">
         <div class="container banner_block">
+            <p>Значимость этих проблем настолько очевидна, что выбранный нами инновационный путь требует определения и уточнения новых предложений. Кстати, ключевые особенности структуры проекта набирают популярность среди определенных слоев населения, а значит, должны быть описаны максимально подробно. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке набирают популярность среди определенных слоев населения, а значит, должны быть представлены в исключительно положительном свете. Равным образом, внедрение современных методик способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений. В рамках спецификации современных стандартов, активно развивающиеся страны третьего мира разоблачены. Однозначно, сторонники тоталитаризма в науке призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. С учётом сложившейся международной обстановки, сложившаяся структура организации напрямую зависит от своевременного выполнения сверхзадачи. Приятно, граждане, наблюдать, как многие известные личности объединены в целые кластеры себе подобных. Противоположная точка зрения подразумевает, что непосредственные участники технического прогресса описаны максимально подробно! А также предприниматели в сети интернет, превозмогая сложившуюся непростую экономическую ситуацию, функционально разнесены на независимые элементы.</p>
+            <h4 >Второй заголовок</h4>
             <h3>Уже есть предложение?</h3>
             <p>Оставьте заявку и мы сделаем выгоднее!</p>
             <form action="/" method="post">
-                <input type="tel" name="phone" value="Ваш телефон">
+                <input type="tel" name="telephone" value="Ваш телефон">
                 <input type="submit" placeholder="Получить предложение">
                 <span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
             </form>
         </div>
     </section>
-    <section>
+    <section id="s3"data-section="s3">
         <div class="container">
             <h2>Подберите комплектацию</h2>
             <div class="row">
@@ -368,7 +295,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s4">
         <div class="container">
             <div class="row">
                 <img src="assets/img/modification/1.png" alt="">
@@ -397,7 +324,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s5">
         <div class="container">
             <div class="banner_credit">
                 <div class="row">
@@ -417,11 +344,11 @@
             <div class="banner_tradein">
                 <div class="row">
                     <h2>Сдайте старый авто <span>в TRADE-IN</span></h2>
-                    <p>и получите выгоду до 250 000 ₽!</p>
+                    <p>и получите выгоду до <?=$trade_in?> ₽!</p>
                 </div>
                 <div class="row">
                     <div class="item">Скидка 100 000 ₽ в день звонка</div>
-                    <div class="item">Ставка от 6,5%</div>
+                    <div class="item">Ставка от <?=$credit_rate?>%</div>
                     <div class="item">3 платежа по кредиту в подарок</div>
                     <div class="item">Подарки на выбор</div>
                     <div class="item">Срок кредитования до 84 месяцев</div>
@@ -434,7 +361,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="s6" class="contact">
         <div class="container">
             <div class="map row">
                 <h2>Контакты</h2>
@@ -529,12 +456,38 @@
         </div>
     </div>
 </div>
+<script>
+    var data_car = <?=json_encode($res)?>;
+    data_car.forEach((value)=>{
+        console.log(value.model);
+    })
 
-<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.js'?>"></script>
+    // сортировка
+    var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
+    var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
+
+    // агрегирование значения из все значений
+    var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
+
+    // Возвращаяет первый объект где выполнен поиск по значению поля model
+    var data_car3 = data_car.find((item)=>{
+        return item.model == "CS35PLUS";
+    });
+
+    // Возвращаяет первый объект где выполнен поиск по значению поля model
+    var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
+
+</script>
+<script src="<?= 'app.js'?>"></script>
+<script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
+<!--<script src="--><?//= '/node_modules/dist/floating-ui.mjs'?><!--"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.min.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
-<script src="<?= 'app.js'?>"></script>
 <script src="<?= ASSETS . '/js/main.js'?>"></script>
 </body>
+</html>

@@ -34,6 +34,7 @@
 $fs: 16px;
 $main_color:rgb(0, 93, 210);
 $hover_color: rgb(0, 102, 181);
+$black_color: rgb(51, 51, 51);
 
 
 
@@ -54,6 +55,8 @@ $hover_color: rgb(0, 102, 181);
 body {
   font-size: $fs;
   font-family: changan;
+  width: 100%;
+  height: 100%;
 }
 
 input {
@@ -62,6 +65,7 @@ input {
 header {
   user-select: none;
   box-shadow: 0 0 4px rgba(0,0,0, .4);
+
 
   hr {
 
@@ -201,14 +205,16 @@ header {
   }
   .navbar {
     display: flex;
-    height: 5vh;
+    height: 6vh;
 
     .nav-item {
       cursor: pointer;
     }
   }
 }
-
+.main {
+  margin-top: 13vh;
+}
 .phone {
   display: flex;
   justify-content: center;
@@ -285,9 +291,7 @@ header {
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
-#myCarousel {
-  height: 200px;
-}
+#myCarousel {}
 
 .callmodal {
   color: white;
@@ -297,6 +301,7 @@ header {
   max-width: 208px;
   width: 100%;
   height: 48px;
+  cursor: pointer;
 }
 @media (min-width:991px) {
   body {
@@ -348,7 +353,7 @@ header {
   &__slide {
     width: 100%;
     height: 230px;
-    padding-right: 10%;
+    padding-right: 7%;
     &.n1 {
       background: url("../img/swiper/1.jpeg") center/cover no-repeat;
     }
@@ -365,7 +370,7 @@ header {
 
     }
     .action__slide-desc {
-      padding-right: 8rem;
+
     }
     .action__slide-btn {
       @include btn-transparent($main_color);
@@ -390,4 +395,148 @@ header {
 }
 .btn-form {
   @include  btn-color($main-color);
+}
+
+.catalog {
+  .f-carousel {
+    --f-carousel-slide-width: calc(100% / 4);
+    --f-carousel-slide-padding: .2rem;
+    //--f-carousel-spacing: 8px;
+    .f-carousel__slide {
+      max-height: 7rem;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  h2 {
+    font-size: clamp(30px,3vw,48px);
+    font-weight: 600;
+  }
+  h3 {
+    font-weight: 600;
+  }
+  .model_item {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 255, 255);
+    padding: 1rem;
+    .model_item__name {
+      .n2 {
+        color: $main-color;
+      }
+      h3 {
+        font-size: clamp(30px, 1vw, 40px);
+      }
+    }
+    .cart_action__item {
+      align-items: center;
+      flex: 1;
+      padding: .2rem .4rem;
+      font-size: clamp(12px,1vw,16px);
+      &:before {
+        content: '';
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        margin-right: .4rem;
+      }
+      &.red {
+        border: 1px solid rgb(255, 202, 202);
+        border-radius: 2px;
+        background: rgb(255, 222, 222);
+        color:#E83030;
+        &:before {
+          background: url("../img/icons/icon_action.svg ") center/cover no-repeat;
+        }
+      }
+      &.green {
+        border: 1px solid rgb(190, 227, 184);
+        border-radius: 2px;
+        background: rgb(217, 240, 213);
+        color: #2AAF14;
+        &:before {
+          background: url("../img/icons/icon_avn.svg ") center/cover no-repeat;
+        }
+      }
+    }
+    .model_item__price {
+      display: flex;
+      justify-content: space-between;
+      .price-value {
+        font-size: clamp(18px, 2vw, 34px);
+        font-weight: 700;
+        margin-right: 1rem;
+      }
+      .price-old-value {
+        flex: 1;
+        font-size: clamp(16px, 1.6vw, 30px);
+      }
+    }
+    .cart-btns-block {
+      .cart-btn{
+        margin-top: 1rem;
+        padding: .8rem 0;
+        &.n1 {
+          @include btn-color($main_color);
+        }
+        &.n2 {
+          @include btn-color($black_color);
+        }
+        &.n3 {
+          @include btn-transparent($main_color);
+        }
+        &.n4 {
+          @include btn-transparent($main_color);
+        }
+      }
+    }
+    .info-car__item {
+      .n1 {
+        font-size: clamp(12px, 2vw, 22px);
+        font-weight: 700;
+      }
+    }
+    .swiper__big {
+      position: relative;
+      img.label {
+        position: absolute;
+        top: 80%;
+        right: 5%;
+      }
+    }
+    .utp {
+      h4 {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .utp_list__i  {
+        border-radius: 2px;
+        box-shadow: 0px 1px 4px 0px rgba(0, 64, 114, 0.3);
+        background: #daefff;
+        padding: .2rem 1rem .2rem 2rem;
+      }
+
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#myCarousel {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#myCarousel .f-carousel__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
