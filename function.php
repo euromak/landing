@@ -1,21 +1,19 @@
 <?php
-$db = new mysqli('localhost', 'root', 'root', 'u430500_novgorod_avtohous');
-if($db->connect_error) die('Ошибка соединения');
-
 function get_min_price($db,$id){
     $query = "SELECT MIN(price) AS price_min FROM price WHERE body_id = $id";
-    $query = $db->query($query);
+    $res = $db->query($query);
 
-    foreach ($query as $row){
+    foreach ($res as $row){
+//        var_dump($row);
         return $row;
     }
 
 }
 function get_old_price($db,$id){
     $query = "SELECT price_old FROM price WHERE body_id = $id";
-    $query = $db->query($query);
+    $res = $db->query($query);
 
-    foreach ($query as $row){
+    foreach ($res as $row){
         return  $row;
     }
 }
@@ -34,8 +32,9 @@ WHERE
     $query = $db->query($query);
     $data = [];
 
-    foreach($query as $row){
 
+    foreach($query as $row){
+//        var_dump($row);
         $data[]=array(
             "id" => $row["body_id"],
             "mark" => $row["mark"],
@@ -44,7 +43,7 @@ WHERE
             "preview" => $row["preview"],
             "live_photo" => $row["live_photo"],
             "price" => get_min_price($db,$row["body_id"]),
-            "price_old" => get_old_price($db,$row["body_id"])
+            "price_old" => get_old_price($db,$row["body_id"]),
         );
     }
 
@@ -57,5 +56,3 @@ WHERE
 
     return $data;
 }
-
-$res = get_data_catalog($db);

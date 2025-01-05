@@ -177,7 +177,7 @@
     <section id="s1" class="catalog">
         <div class="container p-4 my-4">
             <div class="row">
-                <h2>Модельный ряд CHANGAN</h2>
+                <h2>Модельный ряд <span><?=$mark?></span></h2>
             </div>
             <div class="row">
                 <?php foreach ($res as $value): ?>
