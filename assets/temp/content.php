@@ -53,7 +53,7 @@
                 <img class="img-fluid" src="<?= ASSETS . '/img/4.webp'?>" alt="banner" />
             </picture>
             <div class="banner__data d-none d-xl-flex">
-                <form method="post" id="callback_form" class="form gap-3 p-4">
+                <form method="post" id="callback_form" class="form gap-3 p-4" enctype="multipart/form-data">
                     <input
                             name="form_subject"
                             type="hidden"
@@ -86,7 +86,7 @@
     <section id="timer-block">
         <div class="container">
             <div class="timer p-3">
-                <h2>До 01.02 держим выгоды на CHANGAN до 25%!</h2>
+                <h2>До <span class="timeless-value">01.02</span> держим выгоды на <?=$mark?> <b>до 25%!</b></h2>
                 <div class="row d-flex flex-row-reverse">
                     <div class="col-lg-6 d-flex align-items-start">
                         <div class="timer__block date">
@@ -180,12 +180,12 @@
                 <h2>Модельный ряд <span><?=$mark?></span></h2>
             </div>
             <div class="row">
-                <?php foreach ($res as $value): ?>
+                <?php foreach ($result_out as $index => $value): ?>
                 <div class="model_item" data-car="">
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
-                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span></h3>
+                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span> <?=$value['body']?></h3>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
@@ -195,13 +195,13 @@
                     </div>
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
-                            <div class="model_item__price d-flex">
-                                <span class="price-value">от <?=$value['price']['price_min']?> Р</span>
-                                <span class="price-old-value d-flex align-items-center"><s>от <?=$value['price_old']['price_old']?> Р</s></span>
-                            </div>
-                            <div class="model_item__credit-rate">
-                                <span>в кредит от <?=$value['payment']?> Р</span>
-                            </div>
+<!--                            <div class="model_item__price d-flex">-->
+<!--                                <span class="price-value">от --><?php //=$value['price']['price_min']?><!-- Р</span>-->
+<!--                                <span class="price-old-value d-flex align-items-center"><s>от --><?php //=$value['price_old']['price_old']?><!-- Р</s></span>-->
+<!--                            </div>-->
+<!--                            <div class="model_item__credit-rate">-->
+<!--                                <span>в кредит от --><?php //=$value['payment']?><!-- Р</span>-->
+<!--                            </div>-->
                             <div class="row">
                                 <div class="col-12 col-lg-8 cart-btns-block">
                                     <button class="btn btn-lg w-100 cart-btn n1" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
@@ -231,27 +231,22 @@
                                 <img src="<?=$value['preview']?>" alt="" class="car_photo">
                                 <img src="assets/img/cars/unit_lable.png" alt="" class="label">
                             </div>
-                            <div class="f-carousel" id="myCarousel">
+                            <div class="f-carousel" id="myCarousel<?=$index?>">
                                 <div class="f-carousel__viewport">
                                     <div class="f-carousel__track">
-                                        <a href="assets/img/cars/1.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt="" src="assets/img/cars/1.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/2.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/2.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/3.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/3.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/4.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/4.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/5.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/5.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/6.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/6.jpg" />
-                                        </a>
+										<?php if(!empty($value['live_photo'])):?>
+											<?php foreach($value['live_photo'] as $img):?>
+											<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
+												<img alt="" src="<?=$img?>" />
+											</a>
+											<?php endforeach; ?>
+                                        <?php else: ?>
+                                            <?php foreach($value['images'] as $img):?>
+												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>" />
+												</a>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -457,30 +452,30 @@
     </div>
 </div>
 <script>
-    var data_car = <?=json_encode($res)?>;
+    var data_car = <?=json_encode($result_out)?>;
     data_car.forEach((value)=>{
-        console.log(value.model);
+        // console.log(value.model);
     })
+    console.log(data_car)
 
-    // сортировка
-    var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
-    var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
-
-    // агрегирование значения из все значений
-    var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
-
-    // Возвращаяет первый объект где выполнен поиск по значению поля model
-    var data_car3 = data_car.find((item)=>{
-        return item.model == "CS35PLUS";
-    });
-
-    // Возвращаяет первый объект где выполнен поиск по значению поля model
-    var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
+    // // сортировка
+    // var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
+    // var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
+    //
+    // // агрегирование значения из все значений
+    // var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
+    //
+    // // Возвращаяет первый объект где выполнен поиск по значению поля model
+    // var data_car3 = data_car.find((item)=>{
+    //     return item.model == "CS35PLUS";
+    // });
+    //
+    // // Возвращаяет первый объект где выполнен поиск по значению поля model
+    // var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
 
 </script>
 <script src="<?= 'app.js'?>"></script>
 <script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
-<!--<script src="--><?//= '/node_modules/dist/floating-ui.mjs'?><!--"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.min.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>

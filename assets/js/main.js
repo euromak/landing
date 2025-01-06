@@ -126,14 +126,22 @@ window.addEventListener('load', function(e) {
         center: false,
         slidesPerPage: 'auto',
         transition: true,
-    }, { Thumbs }),
-        cartSwiper = new Carousel(document.getElementById("myCarousel"), {
-        Dots: false,
-        Thumbs: {
-            type: "classic",
-        },
-
     }, { Thumbs });
+
+    $('.f-carousel').each(function (item){
+        return new Carousel(this, {
+            Dots: false,
+            interval: 5,
+            ride: true,
+            transition: true,
+            infinite: true,
+            Thumbs: {
+                type: "classic",
+            },
+
+        }, { Thumbs });
+    })
+
     let hamburger = document.querySelector('.hamburger');
 
     Fancybox.bind('[data-fancybox="gallery"]', {
