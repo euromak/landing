@@ -1,11 +1,13 @@
 <?php
 require_once './class/DB.php';
 
+$ids = array();
+$params=array();
+$result_out = array();
 $db = new DB;
 $result = $db->getAll('body',);
 $result1 = $db->activeModals();
-$ids = array();
-$result_out = array();
+
 
 // преобразование данных
 foreach ($result as $row) {
@@ -27,12 +29,11 @@ foreach ($result as $row) {
     ];
 };
 
-
-
-$params=array();
+// получение цветов
 foreach ($ids as $row) {
     $params[] = $row;
 }
+
 $arr2 = implode(',', $params);
 $result2 = $db->query("SELECT * FROM color WHERE body_id IN($arr2)");
 $colors = array();
@@ -46,12 +47,42 @@ foreach($result2 as $index => $item) {
     ];
 
 }
+//var_dump($result2);
+//var_dump($colors);
+//var_dump($result_out);
 
 // добавление цвета в массив
 foreach ($result_out as $index => $item) {
-    $result_out[$index]['colors'] = $colors[$item['id']];
+
+    if($result_out[$index]['id'] == $item['id']) {
+//        var_dump($result_out[$index]);
+//        var_dump($item['id']);
+        $result_out[$index]["colors"] = $colors[$item['id']];
+        var_dump($result_out);
+    }
+
+
+
 }
+
+
+exit();
+// добавление цен
+$price_info = $db->query("SELECT * FROM price WHERE body_id IN($arr2) ");
+$price_info1 = $db->query("SELECT * FROM price WHERE body_id = 1241");
+
+//var_dump($price_info);
+//var_dump($result_out);
+exit();
+foreach ($result_out as $index => $item) {
+    $b = $item;
+    $result_out[$index]['price'] = array_filter($price_info,function($value){
+        return $value['id'];
+    });
+}
+
 
 
 include_once 'assets/temp/head.php';
 include_once 'assets/temp/content.php';
+include_once 'assets/temp/footer.php';

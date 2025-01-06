@@ -46,19 +46,20 @@ class DB
 
     function activeModals(){
         return $this->query("SELECT 
-body.id AS 'id',
-mark.name AS 'Марка', 
-model.name AS 'Модель', 
-modification.name AS 'Модификация', 
-price.price AS 'Цена', price.price_old AS 'Старая цена', 
-complectation.name AS 'Комплектация',body.active
-FROM mark
-INNER JOIN model ON mark.id = model.mark_id
-INNER JOIN body ON model.id = body.model_id
-INNER JOIN modification ON body.id = modification.body_id
-INNER JOIN price ON body.id = price.body_id
-INNER JOIN complectation ON body.id = complectation.body_id
-WHERE body.active = 1 AND  mark.name = 'changan'");
+            body.id AS 'id',
+            mark.name AS 'Марка', 
+            model.name AS 'Модель', 
+            modification.name AS 'Модификация', 
+            price.price AS 'Цена', price.price_old AS 'Старая цена', 
+            complectation.name AS 'Комплектация',body.active
+            FROM mark
+            INNER JOIN model ON mark.id = model.mark_id
+            INNER JOIN body ON model.id = body.model_id
+            INNER JOIN modification ON body.id = modification.body_id
+            INNER JOIN price ON body.id = price.body_id
+            INNER JOIN complectation ON body.id = complectation.body_id
+            WHERE body.active = 1 AND  mark.name = 'changan'"
+        );
     }
     public function getAll($table, $sql = '', $params = [])
     {
@@ -77,11 +78,10 @@ WHERE body.active = 1 AND  mark.name = 'changan'");
             body.preview AS 'preview',
             body.live_photo AS 'live_photo',
             body.video_link AS 'video_link'
-    
-FROM mark
+            FROM mark
          INNER JOIN model ON mark.id = model.mark_id
          INNER JOIN body ON model.id = body.model_id
-WHERE
+            WHERE
       mark.name = 'changan' AND model.active = 1 AND body.active = 1" . $sql, $params);
     }
 
