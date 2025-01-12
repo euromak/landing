@@ -73,11 +73,10 @@
     </div>
 </div>
 <script>
-    var data_car = <?=json_encode($result_out)?>;
-    data_car.forEach((value)=>{
+    var data_car ='<?= $result_out ?>';
 
-    })
-    console.log(data_car)
+    console.log(data_car);
+    console.log(1)
 
     // // сортировка
     // var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);

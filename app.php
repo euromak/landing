@@ -47,42 +47,30 @@ foreach($result2 as $index => $item) {
     ];
 
 }
-//var_dump($result2);
-//var_dump($colors);
-//var_dump($result_out);
 
 // добавление цвета в массив
 foreach ($result_out as $index => $item) {
-
-    if($result_out[$index]['id'] == $item['id']) {
-//        var_dump($result_out[$index]);
-//        var_dump($item['id']);
+    if($colors[$item['id']]) {
         $result_out[$index]["colors"] = $colors[$item['id']];
-        var_dump($result_out);
     }
-
-
-
 }
 
 
-exit();
+
 // добавление цен
 $price_info = $db->query("SELECT * FROM price WHERE body_id IN($arr2) ");
-$price_info1 = $db->query("SELECT * FROM price WHERE body_id = 1241");
 
-//var_dump($price_info);
-//var_dump($result_out);
-exit();
-foreach ($result_out as $index => $item) {
-    $b = $item;
-    $result_out[$index]['price'] = array_filter($price_info,function($value){
-        return $value['id'];
-    });
+$arr5 = [];
+foreach ($price_info as $ind => $value) {
+
 }
 
-
-
-include_once 'assets/temp/head.php';
-include_once 'assets/temp/content.php';
-include_once 'assets/temp/footer.php';
+$old_price = $db->get_old_price('1097');
+$min_price = $db->get_min_price('1097');
+var_dump($old_price[0]['max(price_old)']);
+var_dump($min_price[0]['price_min']);
+var_dump($old_price[0]['max(price_old)'] - $min_price[0]['price_min']);
+//exit();
+require_once 'assets/temp/head.php';
+require_once 'assets/temp/content.php';
+require_once 'assets/temp/footer.php';
