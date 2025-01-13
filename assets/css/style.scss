@@ -1,10 +1,8 @@
 @import "../lib/bootstrap/css/bootstrap.css";
 @import "../lib/bootstrap/css/bootstrap-reboot.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
-@import "../lib/bootstrap/css/bootstrap-grid.css";
 @import "../../node_modules/swiper/swiper-bundle.min.css";
 @import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
-@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 @import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 
 @font-face {
@@ -55,16 +53,16 @@ $border-radius:8px;
   border-radius: 8px;
 }
 * {
-  outline: 1px dotted rgba(229, 1, 1, 0.9);
+  //outline: 1px dotted rgba(229, 1, 1, 0.9);
 }
 body {
-  font-size: $fs;
+  //font-size: $fs;
   font-family: changan;
   width: 100%;
   height: 100%;
 }
-h1 {
-  font-size: clamp(45px,1vw,50px);
+h1, .h1 {
+  font-size: clamp(25px,3vw,75px);
   font-weight: 700;
 }
 h2 {
@@ -228,6 +226,27 @@ header {
     }
   }
 }
+.banner {
+  .banner__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .banner__data {
+      position: absolute;
+      z-index: 1;
+    }
+  }
+  .swiper-data {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+  .swiper-data.n2 {
+    color: white;
+  }
+}
+
 .main {
   margin-top: 13vh;
 }
@@ -253,76 +272,10 @@ header {
 
 }
 
-.banner__block {
-  position: relative;
-  background: url("../img/banner/offers-full.jpg") center / cover no-repeat;
-  width: 100%;
-  min-height: 340px;
-  border-radius: 20px;
 
-  .banner__data {
-    top: 7%;
-    left: 3%;
-    right: auto;
-    bottom: 7%;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    @media (min-width: 769px){
-      & {
-        position: absolute;
-      }
-    }
-    img {
-      width: 100%;
-    }
-    form {
-      display: flex;
-      flex-flow: column;
-
-      .row {
-        @media (min-width: 769px){
-          & {
-            flex-wrap: nowrap;
-            max-width: 93%;
-          }
-        }
-      }
-
-      input {
-        height: 58px;
-      }
-      span {
-        display: inline-flex;
-      }
-      input[type='submit'] {
-        color: white;
-        border: 1px solid $hover_color;
-        background: $hover_color;
-        border-radius: 8px;
-      }
-      input[type='tel']:not(.is-invalid):not(.is-valid) {
-        border: 1px solid rgb(224, 224, 224);
-        color: grey;
-      }
-      .form__politic-text {
-        color: rgb(143, 148, 150);
-        font-size: 12px;
-        text-align: left;
-      }
-
-    }
-    h2 {
-
-    }
-
-  }
-
-}
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
-#myCarousel {}
 
 .callmodal {
   color: white;
@@ -334,10 +287,11 @@ header {
   height: 48px;
   cursor: pointer;
 }
+
 @media (min-width:991px) {
-  body {
-    font-size: clamp(14px,1vw,16px);
-  }
+  //body {
+  //  font-size: clamp(14px,1vw,16px);
+  //}
   header .header__top {
     height: 8vh;
   }
@@ -386,16 +340,16 @@ header {
   &__slide {
     padding: 15px;
     &.n1 {
-      background: url("../img/swiper/1.jpeg") center/cover no-repeat;
+      background: url("../img/swiper/1.webp") center/cover no-repeat;
     }
     &.n2 {
-      background: url("../img/swiper/2.jpeg") center/cover no-repeat;
+      background: url("../img/swiper/2.webp") center/cover no-repeat;
     }
     &.n3 {
-      background: url("../img/swiper/3.jpeg") center/cover no-repeat;
+      background: url("../img/swiper/3.webp") center/cover no-repeat;
     }
     &.n4 {
-      background: url("../img/swiper/4.jpeg") center/cover no-repeat;
+      background: url("../img/swiper/4.webp") center/cover no-repeat;
     }
     .action__slide-title {
 
@@ -415,11 +369,7 @@ header {
     }
   }
 
-  @media (min-width: 1200px) {
-    .swiper-backface-hidden .swiper-slide {
-      padding-right: 13%;
-    }
-  }
+
 }
 
 .form__politic-text {
@@ -588,7 +538,12 @@ header {
 
     }
     .swiper {
-      height: 380px;
+      height: auto;
+      @media (min-width: 769px) {
+        & {
+          height: 380px;
+        }
+      }
 
       .swiper-slide {
         display: flex;
@@ -602,9 +557,82 @@ header {
     }
   }
 }
+.offer-banner {
+  .banner__block {
+    position: relative;
+    background: url("../img/banner/offers-full.webp") center / cover no-repeat;
+    width: 100%;
+    min-height: 340px;
+    border-radius: 20px;
 
+    .banner__data {
+      top: 7%;
+      left: 3%;
+      right: auto;
+      bottom: 7%;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column;
+      @media (min-width: 769px){
+        & {
+          position: absolute;
+        }
+      }
+      img {
+        width: 100%;
+      }
+      form {
+        display: flex;
+        flex-flow: column;
+
+        .row {
+          @media (min-width: 769px){
+            & {
+              flex-wrap: nowrap;
+              max-width: 93%;
+            }
+          }
+        }
+
+        input {
+          height: 58px;
+        }
+        span {
+          display: inline-flex;
+        }
+        input[type='submit'] {
+          color: white;
+          border: 1px solid $hover_color;
+          background: $hover_color;
+          border-radius: 8px;
+        }
+        input[type='tel']:not(.is-invalid):not(.is-valid) {
+          border: 1px solid rgb(224, 224, 224);
+          color: grey;
+        }
+        .form__politic-text {
+          color: rgb(143, 148, 150);
+          font-size: 12px;
+          text-align: left;
+        }
+
+      }
+      h2 {
+
+      }
+
+    }
+
+  }
+}
 img {
   max-width: 100%;
   height: auto;
 }
 
+
+@media (min-width: 1200px) {
+  .action .swiper-backface-hidden .swiper-slide {
+    padding-right: 13%;
+  }
+}

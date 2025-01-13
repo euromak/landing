@@ -127,8 +127,30 @@ window.addEventListener('submit', function(e){
 })
 
 window.addEventListener('load', function(e) {
-    const swiperAction = new Swiper('#actionsCarousel',{
+    const swiperMain = new Swiper('#main-swiper',{
         speed: 4000,
+        autoplay: {
+            delay: 5000
+        },
+        loop: true,
+        slidesPerView: 1,
+
+        pagination: {
+            el: '#main-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 1
+        },
+        navigation: {
+            nextEl: '#main-swiper .swiper-button-next',
+            prevEl: '#main-swiper .swiper-button-prev',
+        },
+        breakpoints: {
+
+        },
+    });
+    const swiperAction = new Swiper('#actionsCarousel',{
+        speed: 3000,
         spaceBetween: 10,
         autoplay: {
             delay: 5000
@@ -154,12 +176,12 @@ window.addEventListener('load', function(e) {
                 slidesPerView: 2.5,
             }
         },
-    })
+    });
+
     $('.model_item__info .swiper').each(function (index,item){
 
 
     })
-
     let swiper1 = new Swiper(".model_item__info .swiper",{
         speed: 4000,
         spaceBetween: 10,
@@ -167,10 +189,16 @@ window.addEventListener('load', function(e) {
         //     delay: 5000
         // },
         loop: true,
-        slidesPerView: 4,
-        direction: 'vertical',
+        slidesPerView: 2.5,
+
         freeMode: true,
         // autoHeight: true,
+        breakpoints: {
+            992: {
+                direction: 'vertical',
+                slidesPerView: 4,
+            }
+        },
     })
 
     Fancybox.bind('[data-fancybox="gallery"]', {

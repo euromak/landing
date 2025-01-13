@@ -45,20 +45,60 @@
 
 <main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2">
     <section class="banner">
-        <div class="banner__block">
-            <picture>
-                <source srcset="<?= ASSETS . '/img/1.webp'?>" media="(max-width: 640px)" />
-                <source srcset="<?= ASSETS . '/img/2.webp'?>" media="(max-width: 960px)" />
-                <source srcset="<?= ASSETS . '/img/3.webp'?>" media="(max-width: 1200px)" />
-                <source srcset="<?= ASSETS . '/img/4.webp'?>" media="(max-width: 1920px)" />
-                <img class="img-fluid" src="<?= ASSETS . '/img/4.webp'?>" alt="banner" />
-            </picture>
+        <div class="swiper banner__block" id="main-swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide n1">
+						<picture>
+							<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main_sm.webp'?>" media="(max-width: 640px)" />
+							<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main_md.webp'?>" media="(max-width: 1000px)" />
+							<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main_lg.webp'?>" media="(max-width: 1400px)" />
+							<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main.webp'?>" media="(max-width: 1920px)" />
+							<img class="img-fluid" src="<?= ASSETS . '/img/banner/slide_1/banner_main_4k.webp'?>" alt="banner" />
+						</picture>
+					<div class="swiper-data n1">
+						<h1>Эксклюзивные кредитные условия по программе CHANGAN FINANCE!</h1>
+						<p>+ РАССРОЧКА 0% на 24 месяца!</p>
+						<div class="sale">Скидка 100 000 ₽ в день звонка!</div>
+					</div>
+					<div class="row banner">
+						<div class="col n1">Ставка от 6.5%!</div>
+						<div class="col n2">
+							<p class="n1">Одобряем 99%</p>
+							<p class="n2">при наличии первого взноса</p>
+						</div>
+						<div class="col n3">
+							<p class="n1">Одобряем 99%</p>
+							<p class="n2">при наличии первого взноса</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide n2">
+					<picture>
+						<source srcset="<?= ASSETS . '/img/banner/slide_2/sm.webp'?>" media="(max-width: 640px)" />
+						<source srcset="<?= ASSETS . '/img/banner/slide_2/md.webp'?>" media="(max-width: 960px)" />
+						<source srcset="<?= ASSETS . '/img/banner/slide_2/lg.webp'?>" media="(max-width: 1200px)" />
+						<source srcset="<?= ASSETS . '/img/banner/slide_2/1920.webp'?>" media="(max-width: 1920px)" />
+						<img class="img-fluid" src="<?= ASSETS . '/img/banner/slide_2/full.webp'?>" alt="banner" />
+					</picture>
+					<div class="swiper-data n2">
+						<h5>Эксклюзивные условия до <?=$sale_date?></h5>
+						<div class="h1">Держим старый курс цены на новые <span><?=$mark?>!</span> </div>
+						<p>Ограниченная партия с выгодой до 25%!</p>
+					</div>
+
+				</div>
+			</div>
+
             <div class="banner__data d-none d-xl-flex">
                 <form method="post" id="callback_form" class="form gap-3 p-4" enctype="multipart/form-data">
                     <input
                             name="form_subject"
                             type="hidden"
                             value="Обратная связь">
+					<input
+							name="check"
+							type="hidden"
+							value="">
                     <input
                             name="check_bot"
                             type="hidden"
@@ -76,12 +116,15 @@
                         >
                         <label for="phone">Ваш телефон</label>
                     </div>
-                    <input type="submit" class="form-control" value="Получить предложение">
+                    <input type="submit" class="form-control btn btn-lg btn-primary" value="Получить предложение">
                     <span class="form__politic-text">* Отправляя данную форму, вы соглашаетесь с <u>политикой
                             обработки персональных данных.</u>
                     </span>
                 </form>
             </div>
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
         </div>
     </section>
     <section id="timer-block">
@@ -186,7 +229,7 @@
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
-                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span> <?=$value['body']?></h3>
+                                <h3 class="m-0"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span> <?=$value['body']?></h3>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
@@ -214,7 +257,7 @@
                                     <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
                                 <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block">
-                                    <div class="row mt-3 info-car__item">
+                                    <div class="row info-car__item">
                                         <span class="n1"><?= $value['complecation_data'][0]['engine_displacement']?> л.</span>
                                         <span class="n2">Двигатель</span>
 									</div>
@@ -283,7 +326,7 @@
             </div>
         </div>
     </section>
-    <section id="s2" data-section="s2">
+    <section id="s2" class="offer-banner" data-section="s2">
         <div class="container banner__block">
 			<div class="banner__data">
 				<h2>Уже есть предложение?</h2>

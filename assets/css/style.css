@@ -2,10 +2,8 @@
 @import "../lib/bootstrap/css/bootstrap.css";
 @import "../lib/bootstrap/css/bootstrap-reboot.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
-@import "../lib/bootstrap/css/bootstrap-grid.css";
 @import "../../node_modules/swiper/swiper-bundle.min.css";
 @import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
-@import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 @import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 @font-face {
   font-family: "changan";
@@ -30,19 +28,14 @@
 }
 /*Переменные*/
 /*Миксины*/
-* {
-  outline: 1px dotted rgba(229, 1, 1, 0.9);
-}
-
 body {
-  font-size: 16px;
   font-family: changan;
   width: 100%;
   height: 100%;
 }
 
-h1 {
-  font-size: clamp(45px, 1vw, 50px);
+h1, .h1 {
+  font-size: clamp(25px, 3vw, 75px);
   font-weight: 700;
 }
 
@@ -194,6 +187,24 @@ header .navbar .nav-item {
   cursor: pointer;
 }
 
+.banner .banner__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner .banner__block .banner__data {
+  position: absolute;
+  z-index: 1;
+}
+.banner .swiper-data {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+.banner .swiper-data.n2 {
+  color: white;
+}
+
 .main {
   margin-top: 13vh;
 }
@@ -217,61 +228,6 @@ header .navbar .nav-item {
   content: none;
 }
 
-.banner__block {
-  position: relative;
-  background: url("../img/banner/offers-full.jpg") center/cover no-repeat;
-  width: 100%;
-  min-height: 340px;
-  border-radius: 20px;
-}
-.banner__block .banner__data {
-  top: 7%;
-  left: 3%;
-  right: auto;
-  bottom: 7%;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column;
-}
-@media (min-width: 769px) {
-  .banner__block .banner__data {
-    position: absolute;
-  }
-}
-.banner__block .banner__data img {
-  width: 100%;
-}
-.banner__block .banner__data form {
-  display: flex;
-  flex-flow: column;
-}
-@media (min-width: 769px) {
-  .banner__block .banner__data form .row {
-    flex-wrap: nowrap;
-    max-width: 93%;
-  }
-}
-.banner__block .banner__data form input {
-  height: 58px;
-}
-.banner__block .banner__data form span {
-  display: inline-flex;
-}
-.banner__block .banner__data form input[type=submit] {
-  color: white;
-  border: 1px solid rgb(0, 102, 181);
-  background: rgb(0, 102, 181);
-  border-radius: 8px;
-}
-.banner__block .banner__data form input[type=tel]:not(.is-invalid):not(.is-valid) {
-  border: 1px solid rgb(224, 224, 224);
-  color: grey;
-}
-.banner__block .banner__data form .form__politic-text {
-  color: rgb(143, 148, 150);
-  font-size: 12px;
-  text-align: left;
-}
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
@@ -288,9 +244,6 @@ header .navbar .nav-item {
 }
 
 @media (min-width: 991px) {
-  body {
-    font-size: clamp(14px, 1vw, 16px);
-  }
   header .header__top {
     height: 8vh;
   }
@@ -341,16 +294,16 @@ header .navbar .nav-item {
   padding: 15px;
 }
 .action__slide.n1 {
-  background: url("../img/swiper/1.jpeg") center/cover no-repeat;
+  background: url("../img/swiper/1.webp") center/cover no-repeat;
 }
 .action__slide.n2 {
-  background: url("../img/swiper/2.jpeg") center/cover no-repeat;
+  background: url("../img/swiper/2.webp") center/cover no-repeat;
 }
 .action__slide.n3 {
-  background: url("../img/swiper/3.jpeg") center/cover no-repeat;
+  background: url("../img/swiper/3.webp") center/cover no-repeat;
 }
 .action__slide.n4 {
-  background: url("../img/swiper/4.jpeg") center/cover no-repeat;
+  background: url("../img/swiper/4.webp") center/cover no-repeat;
 }
 .action__slide .action__slide-btn {
   background-color: transparent;
@@ -360,12 +313,6 @@ header .navbar .nav-item {
   border: 1px solid #0066B5;
   border-radius: 8px;
 }
-@media (min-width: 1200px) {
-  .action .swiper-backface-hidden .swiper-slide {
-    padding-right: 13%;
-  }
-}
-
 .form__politic-text {
   color: rgb(143, 148, 150);
 }
@@ -535,16 +482,82 @@ header .navbar .nav-item {
   background: url("../img/icons/broadcast-tower.svg") center/cover no-repeat;
 }
 .catalog .model_item .swiper {
-  height: 380px;
+  height: auto;
+}
+@media (min-width: 769px) {
+  .catalog .model_item .swiper {
+    height: 380px;
+  }
 }
 .catalog .model_item .swiper .swiper-slide {
   display: flex;
   width: 150px;
   height: 85px;
 }
+.offer-banner .banner__block {
+  position: relative;
+  background: url("../img/banner/offers-full.webp") center/cover no-repeat;
+  width: 100%;
+  min-height: 340px;
+  border-radius: 20px;
+}
+.offer-banner .banner__block .banner__data {
+  top: 7%;
+  left: 3%;
+  right: auto;
+  bottom: 7%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+}
+@media (min-width: 769px) {
+  .offer-banner .banner__block .banner__data {
+    position: absolute;
+  }
+}
+.offer-banner .banner__block .banner__data img {
+  width: 100%;
+}
+.offer-banner .banner__block .banner__data form {
+  display: flex;
+  flex-flow: column;
+}
+@media (min-width: 769px) {
+  .offer-banner .banner__block .banner__data form .row {
+    flex-wrap: nowrap;
+    max-width: 93%;
+  }
+}
+.offer-banner .banner__block .banner__data form input {
+  height: 58px;
+}
+.offer-banner .banner__block .banner__data form span {
+  display: inline-flex;
+}
+.offer-banner .banner__block .banner__data form input[type=submit] {
+  color: white;
+  border: 1px solid rgb(0, 102, 181);
+  background: rgb(0, 102, 181);
+  border-radius: 8px;
+}
+.offer-banner .banner__block .banner__data form input[type=tel]:not(.is-invalid):not(.is-valid) {
+  border: 1px solid rgb(224, 224, 224);
+  color: grey;
+}
+.offer-banner .banner__block .banner__data form .form__politic-text {
+  color: rgb(143, 148, 150);
+  font-size: 12px;
+  text-align: left;
+}
 img {
   max-width: 100%;
   height: auto;
+}
+
+@media (min-width: 1200px) {
+  .action .swiper-backface-hidden .swiper-slide {
+    padding-right: 13%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
