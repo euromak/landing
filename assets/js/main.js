@@ -59,9 +59,10 @@ function checkedForm(form,status) {
 /* Таймер обратного счета */
 function timer($value){
     let timeNow = new Date();
+    console.log(new Date()+3)
     let countDownDate = (timeNow.getDate() >= 15) ?
             new Date(timeNow.getFullYear(),timeNow.getMonth()+1,1,24,0).getTime():
-            new Date(timeNow.getFullYear(),timeNow.getMonth(),15,24,0).getTime();
+            new Date(timeNow.getFullYear(),timeNow.getMonth(),15,0,0).getTime();
 
     let result,
         elDate = document.querySelector('.date .timer__block-value'),
@@ -93,6 +94,20 @@ function timer($value){
     },1000)
 
     return result;
+}
+
+function setCountdown(saleDate){
+
+    countdown(
+        new Date(saleDate),
+        function(ts) {
+            $('.date .timer__block-value').text(ts.days.toString().padStart(2,'0'))
+            $('.hour .timer__block-value').text(ts.hours.toString().padStart(2,'0'))
+            $('.minute .timer__block-value').text(ts.minutes.toString().padStart(2,'0'))
+            $('.second .timer__block-value').text(ts.seconds.toString().padStart(2,'0'))
+        },
+        countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
 }
 
 window.addEventListener('submit', function(e){
@@ -150,6 +165,6 @@ window.addEventListener('load', function(e) {
     })
 
     app.init();
-    timer();
+    setCountdown(saleTime);
     setInputMask();
 })

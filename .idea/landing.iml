@@ -7,5 +7,6 @@
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="functions" />
     <orderEntry type="module" module-name="moscow-avtohous.local" />
+    <orderEntry type="module" module-name="lawyer" />
   </component>
 </module>

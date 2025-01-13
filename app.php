@@ -6,6 +6,8 @@ $price_old = null;
 $price = null;
 $price_max = null;
 $profit = null;
+$sale_time = get_time_end_action();
+$sale_date = get_date_end_action();
 
 $db = new DB;
 $result = $db->getAll('body');
