@@ -1,4 +1,20 @@
-<body >
+<body>
+<section>
+    <?php foreach ($result_out as $index => $value): ?>
+        <?php
+
+
+		if(isset($value['live_photo_data'])) {
+            echo $value['mark'] . ' ' . $value['model'] .  "<br>";
+            var_dump($value['live_photo_data']);
+            foreach ($value['live_photo_data'] as $photo) {
+                echo "<img src='$photo.webp' alt='' width='200'>";
+            }
+            echo "<br>";
+        } ?>
+    <?php endforeach; ?>
+</section>
+
 <header class="header fixed-top bg-white">
     <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
@@ -42,6 +58,7 @@
         </nav>
     </div>
 </header>
+
 <main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2">
     <section class="banner">
         <div class="banner__block">
@@ -241,12 +258,18 @@
                             <div class="f-carousel" id="myCarousel<?=$index?>">
                                 <div class="f-carousel__viewport">
                                     <div class="f-carousel__track">
-										<?php if(!empty($value['live_photo'])):?>
-											<?php foreach($value['live_photo'] as $img):?>
-											<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
-												<img alt="" src="<?=$img?>" />
-											</a>
+										<?php if(!empty($value['live_photo_data'])):?>
+											<?php foreach($value['live_photo_data'] as $img):?>
+												<a href="<?=$img?>.webp" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>.webp" />
+												</a>
 											<?php endforeach; ?>
+                                        <?php elseif(empty($value['live_photo_data']) && !empty($value['live_photo'])): ?>
+                                            <?php foreach($value['live_photo'] as $img):?>
+												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>" />
+												</a>
+                                            <?php endforeach; ?>
                                         <?php else: ?>
                                             <?php foreach($value['images'] as $img):?>
 												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">

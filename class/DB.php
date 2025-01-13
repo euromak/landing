@@ -70,7 +70,7 @@ class DB
             mark.image2 AS 'mark_logo2',
             mark.video_link AS 'video',
             mark.banner AS 'banner',
-            model.id AS 'model_id   ',
+            model.id AS 'model_id',
             model.name AS 'model',
             model.picture AS 'picture',
             body.name AS 'body_name',
@@ -106,30 +106,40 @@ class DB
 
     function get_complectation($id){
         $result = $this->query("SELECT
-    price.id,
-    price.body_id,
-    price.modification_id,
-    price.complectation_id ,
-    price.price_old,
-    price.price,
-    modification.name,
-    complectation.name,
-    modification.engine_displacement,
-    modification.power,
-    modification.engine_type,
-    modification.gearbox,
-    modification.max_torque,
-    modification.max_speed,
-    modification.drive
-
-FROM price
-         INNER JOIN modification ON price.modification_id = modification.id
-         INNER JOIN complectation ON price.complectation_id = complectation.id
-WHERE
-    price.body_id = $id ORDER BY price.price DESC");
+                price.id,
+                price.body_id,
+                price.modification_id,
+                price.complectation_id ,
+                price.price_old,
+                price.price,
+                modification.name,
+                complectation.name,
+                modification.engine_displacement,
+                modification.power,
+                modification.engine_type,
+                modification.gearbox,
+                modification.max_torque,
+                modification.max_speed,
+                modification.drive
+            
+            FROM price
+                     INNER JOIN modification ON price.modification_id = modification.id
+                     INNER JOIN complectation ON price.complectation_id = complectation.id
+            WHERE
+                price.body_id = $id ORDER BY price.price DESC"
+        );
 
 
         return $result;
     }
 
+    function get_colors_data($id){
+        $result = $this->query("SELECT * FROM color WHERE body_id = $id");
+        return $result;
+    }
+
+    function get_live_photo($id){
+        $result = $this->query("SELECT picture FROM used_car WHERE model_id = $id");
+        return (isset($result[0]['picture'])) ? $result[0]['picture'] : false;
+    }
 }
