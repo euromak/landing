@@ -10,6 +10,7 @@ const app = {
         }
 
         this.currentCordY = window.pageYOffset;
+
     },
     init: function() {
         window.addEventListener('scroll',(e)=>{
@@ -94,9 +95,6 @@ function timer($value){
     return result;
 }
 
-app.init();
-timer();
-
 window.addEventListener('submit', function(e){
     e.preventDefault();
     let formValues = new FormData(e.target);
@@ -104,11 +102,9 @@ window.addEventListener('submit', function(e){
     fetch("mail.php", {
         method: "POST",
         body: formValues
-    })
-        .then((response) => {
+    }).then((response) => {
         return response.text();
-    })
-        .then((data) => {
+    }).then((data) => {
         checkedForm(e.target,data);
     })
 
@@ -126,15 +122,21 @@ window.addEventListener('load', function(e) {
         center: false,
         slidesPerPage: 'auto',
         transition: true,
-    }, { Thumbs }),
-        cartSwiper = new Carousel(document.getElementById("myCarousel"), {
-        Dots: false,
-        Thumbs: {
-            type: "classic",
-        },
-
     }, { Thumbs });
-    let hamburger = document.querySelector('.hamburger');
+
+    $('.f-carousel').each(function (item){
+        return new Carousel(this, {
+            Dots: false,
+            interval: 5,
+            ride: true,
+            transition: true,
+            infinite: true,
+            Thumbs: {
+                type: "classic",
+            },
+
+        }, { Thumbs });
+    })
 
     Fancybox.bind('[data-fancybox="gallery"]', {
         Thumbs : {
@@ -142,9 +144,12 @@ window.addEventListener('load', function(e) {
         }
     },{ Thumbs });
 
+    let hamburger = document.querySelector('.hamburger');
     hamburger.addEventListener('click',function(){
         this.classList.toggle('is-active');
     })
 
+    app.init();
+    timer();
     setInputMask();
 })

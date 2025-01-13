@@ -3,11 +3,6 @@ function get_min_price($db,$id){
     $query = "SELECT MIN(price) AS price_min FROM price WHERE body_id = $id";
     $res = $db->query($query);
 
-    foreach ($res as $row){
-//        var_dump($row);
-        return $row;
-    }
-
 }
 function get_old_price($db,$id){
     $query = "SELECT price_old FROM price WHERE body_id = $id";
@@ -31,21 +26,6 @@ WHERE
       mark.name = 'changan' AND model.active = 1 AND body.active = 1";
     $query = $db->query($query);
     $data = [];
-
-
-    foreach($query as $row){
-//        var_dump($row);
-        $data[]=array(
-            "id" => $row["body_id"],
-            "mark" => $row["mark"],
-            "model" => $row["model"],
-            "image" => $row["image"],
-            "preview" => $row["preview"],
-            "live_photo" => $row["live_photo"],
-            "price" => get_min_price($db,$row["body_id"]),
-            "price_old" => get_old_price($db,$row["body_id"]),
-        );
-    }
 
 
 // перебор данных из запроса БД

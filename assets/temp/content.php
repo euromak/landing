@@ -1,4 +1,20 @@
-<body >
+<body>
+<section>
+    <?php foreach ($result_out as $index => $value): ?>
+        <?php
+
+
+		if(isset($value['live_photo_data'])) {
+            echo $value['mark'] . ' ' . $value['model'] .  "<br>";
+            var_dump($value['live_photo_data']);
+            foreach ($value['live_photo_data'] as $photo) {
+                echo "<img src='$photo.webp' alt='' width='200'>";
+            }
+            echo "<br>";
+        } ?>
+    <?php endforeach; ?>
+</section>
+
 <header class="header fixed-top bg-white">
     <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
@@ -42,6 +58,7 @@
         </nav>
     </div>
 </header>
+
 <main class="main" data-bs-spy="scroll" data-bs-target="#navbar-example2">
     <section class="banner">
         <div class="banner__block">
@@ -53,7 +70,7 @@
                 <img class="img-fluid" src="<?= ASSETS . '/img/4.webp'?>" alt="banner" />
             </picture>
             <div class="banner__data d-none d-xl-flex">
-                <form method="post" id="callback_form" class="form gap-3 p-4">
+                <form method="post" id="callback_form" class="form gap-3 p-4" enctype="multipart/form-data">
                     <input
                             name="form_subject"
                             type="hidden"
@@ -86,7 +103,7 @@
     <section id="timer-block">
         <div class="container">
             <div class="timer p-3">
-                <h2>До 01.02 держим выгоды на CHANGAN до 25%!</h2>
+                <h2>До <span class="timeless-value">01.02</span> держим выгоды на <?=$mark?> <b>до 25%!</b></h2>
                 <div class="row d-flex flex-row-reverse">
                     <div class="col-lg-6 d-flex align-items-start">
                         <div class="timer__block date">
@@ -180,12 +197,12 @@
                 <h2>Модельный ряд <span><?=$mark?></span></h2>
             </div>
             <div class="row">
-                <?php foreach ($res as $value): ?>
-                <div class="model_item" data-car="">
+                <?php foreach ($result_out as $index => $value): ?>
+                <div class="model_item" data-car="<?=$value['id']?>">
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
-                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span></h3>
+                                <h3 class="mt-3 mb-1"><span class="n1"><?=$value['mark']?></span> <span class="n2"><?=$value['model']?></span> <?=$value['body']?></h3>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
@@ -196,11 +213,14 @@
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
                             <div class="model_item__price d-flex">
-                                <span class="price-value">от <?=$value['price']['price_min']?> Р</span>
-                                <span class="price-old-value d-flex align-items-center"><s>от <?=$value['price_old']['price_old']?> Р</s></span>
+                                <span class="price-value">от <?= $value['price'] ?> Р</span>
+                                <span class="price-old-value d-flex align-items-center"><s>от <?= $value['price_old']?> Р</s></span>
                             </div>
+							<div class="model_item__profit">
+								<span>выгода до <b><?= $value['profit']?> Р</b></span>
+							</div>
                             <div class="model_item__credit-rate">
-                                <span>в кредит от <?=$value['payment']?> Р</span>
+                                <span>в кредит от <b><?= $value['credit_payment']?> Р</b></span>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-lg-8 cart-btns-block">
@@ -211,17 +231,21 @@
                                 </div>
                                 <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block ps-3 ps-xl-5">
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">1.5 л.</span>
-                                        <span class="n2">Двигатель</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['engine_displacement']?> л.</span>
+                                        <span class="n2">Двигатель</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">7 DCT</span>
-                                        <span class="n2">КПП</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['gearbox']?></span>
+                                        <span class="n2">КПП</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">280 h/m</span>
-                                        <span class="n2">Крут. момент</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['max_speed']?> км/ч</span>
+                                        <span class="n2">Макс. скорость</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">167 л.с.</span>
-                                        <span class="n2">Мощность</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['power']?> л.с.</span>
+                                        <span class="n2">Мощность</span>
+									</div>
                                 </div>
 
                             </div>
@@ -231,27 +255,28 @@
                                 <img src="<?=$value['preview']?>" alt="" class="car_photo">
                                 <img src="assets/img/cars/unit_lable.png" alt="" class="label">
                             </div>
-                            <div class="f-carousel" id="myCarousel">
+                            <div class="f-carousel" id="myCarousel<?=$index?>">
                                 <div class="f-carousel__viewport">
                                     <div class="f-carousel__track">
-                                        <a href="assets/img/cars/1.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt="" src="assets/img/cars/1.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/2.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/2.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/3.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/3.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/4.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/4.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/5.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/5.jpg" />
-                                        </a>
-                                        <a href="assets/img/cars/6.jpg" class="f-carousel__slide" data-fancybox="gallery">
-                                            <img alt=""  src="assets/img/cars/6.jpg" />
-                                        </a>
+										<?php if(!empty($value['live_photo_data'])):?>
+											<?php foreach($value['live_photo_data'] as $img):?>
+												<a href="<?=$img?>.webp" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>.webp" />
+												</a>
+											<?php endforeach; ?>
+                                        <?php elseif(empty($value['live_photo_data']) && !empty($value['live_photo'])): ?>
+                                            <?php foreach($value['live_photo'] as $img):?>
+												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>" />
+												</a>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <?php foreach($value['images'] as $img):?>
+												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
+													<img alt="" src="<?=$img?>" />
+												</a>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -382,112 +407,3 @@
         </div>
     </section>
 </main>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="logo"></div>
-            <a class="phone" href="tel:+7(831)2117651">+7 (831) 211-76-51</a>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <h3>Меню</h3>
-                <div class="nav-item">Модельный ряд</div>
-                <div class="nav-item">Авто в наличии</div>
-                <div class="nav-item">Комплектации</div>
-                <div class="nav-item">Автокредит</div>
-                <div class="nav-item">Трейд-in</div>
-                <div class="nav-item">Контакты</div>
-            </div>
-            <div class="col-6">
-                <span>Ежедневно с 9:00 до 22:00</span>
-                <span>г. Нижний Новгород, ул. Июльских Дней, д. 1г</span>
-                <button>Заказать звонок</button>
-            </div>
-        </div>
-        <div class="row">
-            <h3>Модельный ряд</h3>
-            <div class="row">
-                <div class="model">ALSVIN</div>
-                <div class="model">EADOplus</div>
-                <div class="model">CS95NEW</div>
-                <div class="model">CS85COUPE</div>
-                <div class="model">LAMORE</div>
-                <div class="model">UNI-V</div>
-            </div>
-        </div>
-        <hr>
-        <div class="info">
-            <p>ООО «АВТОХАУС», ОГРН 1186658046222, ИНН 6658517825 Юр. адрес: 300012,
-                Тульская область, г. Тула, ул. Рязанская, д. 28б, помещ. 1</p>
-            <p>Стоимость подарка не зависит от стоимости купленного а/м, покупатель может выбрать любой подарок из
-                перечисленных при покупке а/м. Обращаем Ваше внимание на то, что данный сайт носит
-                исключительно информационный характер и ни при каких условиях не является публичной
-                офертой, определяемой положениями статьи 437 Гражданского кодекса Российской Федерации.
-                Для получения более подробной информации об указанных акциях, а также о стоимости
-                автомобилей обращайтесь к менеджерам по продажам.</p>
-            <p>
-                Наш сайт использует файлы cookies для повышения удобства пользователей.
-                Продолжая пользоваться сайтом, вы соглашаетесь с использованием файлов
-                cookies и принимаете нашу Политику конфиденциальности.
-            </p>
-        </div>`
-    </div>
-</footer>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Заказать звонок</h1>
-                    <p>Получите эксклюзивное предложение на автомобиль Changan</p>
-                        <div class="form-floating mb-3">
-                            <input type="tel" class="form-control" id="floatingInput" placeholder="999-99-99">
-                            <label for="floatingInput">Ваш телефон</label>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" value="Получить предложение" class="btn btn-lg btn-form">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script>
-    var data_car = <?=json_encode($res)?>;
-    data_car.forEach((value)=>{
-        console.log(value.model);
-    })
-
-    // сортировка
-    var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
-    var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
-
-    // агрегирование значения из все значений
-    var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
-
-    // Возвращаяет первый объект где выполнен поиск по значению поля model
-    var data_car3 = data_car.find((item)=>{
-        return item.model == "CS35PLUS";
-    });
-
-    // Возвращаяет первый объект где выполнен поиск по значению поля model
-    var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
-
-</script>
-<script src="<?= 'app.js'?>"></script>
-<script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
-<!--<script src="--><?//= '/node_modules/dist/floating-ui.mjs'?><!--"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.min.js'?>"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
-<script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
-<script src="<?= ASSETS . '/js/main.js'?>"></script>
-</body>
-</html>

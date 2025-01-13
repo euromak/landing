@@ -1,7 +1,145 @@
 <?php
+// use PDO - нужно только в том случае, если вы
+// Используете namespace выше. Далее по коду он будет
+// Но если он вам не нужен - спокойно удаляйте
+//$sql - переменная с текстом SQL запроса.
+//$params - переменная с какими-то параметрами для запроса.
+//getAll() - двумерный массив, индексированный числами по порядку
+//getRow() - одномерный массив, первую строку результата
+//getOne() - возвращает первый элемент первой строки результата
+//getCol() - возвращает 1 колонку таблицы
 
+//use PDO;
 
 class DB
 {
+    // Объект класса PDO
+    private $db;
 
+    // Соединение с БД
+    public function __construct()
+    {
+        $dbinfo = require './dbinfo.php';
+        $this->db = new PDO('mysql:host=' . $dbinfo['db_host'] . ';dbname=' . $dbinfo['db_name'], $dbinfo['db_user'], $dbinfo['password']);
+    }
+
+    // Операции над БД
+    public function query($sql, $params = [])
+    {
+        // Подготовка запроса
+        $stmt = $this->db->prepare($sql);
+
+        // Обход массива с параметрами
+        // и подставляем значения
+        if ( !empty($params) ) {
+//            var_dump($params);
+            foreach ($params as $key => $value) {
+                $stmt->bindValue(":$key", $value);
+            }
+        }
+
+        // Выполняя запрос
+        $stmt->execute();
+        // Возвращаем ответ
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function activeModals(){
+        return $this->query("SELECT 
+            body.id AS 'id',
+            mark.name AS 'Марка', 
+            model.name AS 'Модель', 
+            modification.name AS 'Модификация', 
+            price.price AS 'Цена', price.price_old AS 'Старая цена', 
+            complectation.name AS 'Комплектация',body.active
+            FROM mark
+            INNER JOIN model ON mark.id = model.mark_id
+            INNER JOIN body ON model.id = body.model_id
+            INNER JOIN modification ON body.id = modification.body_id
+            INNER JOIN price ON body.id = price.body_id
+            INNER JOIN complectation ON body.id = complectation.body_id
+            WHERE body.active = 1 AND  mark.name = 'changan'"
+        );
+    }
+    public function getAll($table, $sql = '', $params = [])
+    {
+        return $this->query("SELECT body.id AS 'body_id',
+            mark.id AS 'mark_id',
+            mark.name AS 'mark_name',
+            mark.image AS 'mark_logo1',
+            mark.image2 AS 'mark_logo2',
+            mark.video_link AS 'video',
+            mark.banner AS 'banner',
+            model.id AS 'model_id',
+            model.name AS 'model',
+            model.picture AS 'picture',
+            body.name AS 'body_name',
+            body.image AS 'image',
+            body.preview AS 'preview',
+            body.live_photo AS 'live_photo',
+            body.video_link AS 'video_link'
+            FROM mark
+         INNER JOIN model ON mark.id = model.mark_id
+         INNER JOIN body ON model.id = body.model_id
+            WHERE
+      mark.name = 'changan' AND model.active = 1 AND body.active = 1 ORDER BY model.name" . $sql, $params);
+    }
+
+    public function getRow($table, $sql = '', $params = [])
+    {
+        $result = $this->query("SELECT * FROM $table" . $sql, $params);
+        return $result[0];
+    }
+
+    public function get_old_max_price($id){
+        $result = $this->query("SELECT max(price_old) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
+    }
+    function get_max_price($id){
+        $result = $this->query("SELECT max(price) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
+    }
+    function get_min_price($id){
+        $result = $this->query("SELECT min(price) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
+    }
+
+    function get_complectation($id){
+        $result = $this->query("SELECT
+                price.id,
+                price.body_id,
+                price.modification_id,
+                price.complectation_id ,
+                price.price_old,
+                price.price,
+                modification.name,
+                complectation.name,
+                modification.engine_displacement,
+                modification.power,
+                modification.engine_type,
+                modification.gearbox,
+                modification.max_torque,
+                modification.max_speed,
+                modification.drive
+            
+            FROM price
+                     INNER JOIN modification ON price.modification_id = modification.id
+                     INNER JOIN complectation ON price.complectation_id = complectation.id
+            WHERE
+                price.body_id = $id ORDER BY price.price DESC"
+        );
+
+
+        return $result;
+    }
+
+    function get_colors_data($id){
+        $result = $this->query("SELECT * FROM color WHERE body_id = $id");
+        return $result;
+    }
+
+    function get_live_photo($id){
+        $result = $this->query("SELECT picture FROM used_car WHERE model_id = $id");
+        return (isset($result[0]['picture'])) ? $result[0]['picture'] : false;
+    }
 }

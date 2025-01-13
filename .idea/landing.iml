@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="functions" />
+    <orderEntry type="module" module-name="moscow-avtohous.local" />
   </component>
 </module>
