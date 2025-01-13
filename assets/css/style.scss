@@ -35,6 +35,7 @@ $fs: 16px;
 $main_color:rgb(0, 93, 210);
 $hover_color: rgb(0, 102, 181);
 $black_color: rgb(51, 51, 51);
+$border-radius:8px;
 
 
 
@@ -51,7 +52,9 @@ $black_color: rgb(51, 51, 51);
   color: $color;
   border-radius: 8px;
 }
-
+* {
+  outline: 1px dotted rgba(229, 1, 1, 0.9);
+}
 body {
   font-size: $fs;
   font-family: changan;
@@ -247,36 +250,48 @@ header {
 
 .banner__block {
   position: relative;
-  text-align: center;
+  background: url("../img/banner/offers-full.jpg") center / cover no-repeat;
+  width: 100%;
+  min-height: 340px;
+  border-radius: $border-radius;
 
-  img {
-    width: 100%;
-  }
-
-  h1 {
-    position: absolute;
-    top: 5%;
-  }
   .banner__data {
-    position: absolute;
-    top: 23%;
-    left: 60%;
-    right: 17%;
-    box-sizing: border-box;
-    border: 1px solid white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.14);
-    backdrop-filter: blur(18px);
-    background: rgba(227, 227, 227, 0.1);
 
+    top: 7%;
+    left: 3%;
+    right: auto;
+    bottom: 7%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: column;
+    @media (min-width: 769px){
+      & {
+        position: absolute;
+      }
+    }
+    img {
+      width: 100%;
+    }
     form {
       display: flex;
       flex-flow: column;
 
+      .row {
+        @media (min-width: 769px){
+          & {
+            flex-wrap: nowrap;
+            max-width: 93%;
+          }
+        }
+      }
+
       input {
         height: 58px;
       }
-
+      span {
+        display: inline-flex;
+      }
       input[type='submit'] {
         color: white;
         border: 1px solid $hover_color;
@@ -292,7 +307,12 @@ header {
         font-size: 12px;
         text-align: left;
       }
+
     }
+    h2 {
+
+    }
+
   }
 
 }
@@ -506,6 +526,9 @@ header {
       .n1 {
         font-size: clamp(12px, 2vw, 22px);
         font-weight: 700;
+      }
+      .n2 {
+        font-size: clamp(12px, 2vw, 22px);
       }
     }
     .swiper__big {

@@ -29,6 +29,10 @@
 }
 /*Переменные*/
 /*Миксины*/
+* {
+  outline: 1px dotted rgba(229, 1, 1, 0.9);
+}
+
 body {
   font-size: 16px;
   font-family: changan;
@@ -211,33 +215,44 @@ header .navbar .nav-item {
 
 .banner__block {
   position: relative;
-  text-align: center;
-}
-.banner__block img {
+  background: url("../img/banner/offers-full.jpg") center/cover no-repeat;
   width: 100%;
-}
-.banner__block h1 {
-  position: absolute;
-  top: 5%;
+  min-height: 340px;
+  border-radius: 8px;
 }
 .banner__block .banner__data {
-  position: absolute;
-  top: 23%;
-  left: 60%;
-  right: 17%;
+  top: 7%;
+  left: 3%;
+  right: auto;
+  bottom: 7%;
   box-sizing: border-box;
-  border: 1px solid white;
   border-radius: 8px;
-  box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.14);
-  backdrop-filter: blur(18px);
-  background: rgba(227, 227, 227, 0.1);
+  display: flex;
+  flex-flow: column;
+}
+@media (min-width: 769px) {
+  .banner__block .banner__data {
+    position: absolute;
+  }
+}
+.banner__block .banner__data img {
+  width: 100%;
 }
 .banner__block .banner__data form {
   display: flex;
   flex-flow: column;
 }
+@media (min-width: 769px) {
+  .banner__block .banner__data form .row {
+    flex-wrap: nowrap;
+    max-width: 93%;
+  }
+}
 .banner__block .banner__data form input {
   height: 58px;
+}
+.banner__block .banner__data form span {
+  display: inline-flex;
 }
 .banner__block .banner__data form input[type=submit] {
   color: white;
@@ -254,7 +269,6 @@ header .navbar .nav-item {
   font-size: 12px;
   text-align: left;
 }
-
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
@@ -474,6 +488,9 @@ header .navbar .nav-item {
 .catalog .model_item .info-car__item .n1 {
   font-size: clamp(12px, 2vw, 22px);
   font-weight: 700;
+}
+.catalog .model_item .info-car__item .n2 {
+  font-size: clamp(12px, 2vw, 22px);
 }
 .catalog .model_item .swiper__big {
   position: relative;

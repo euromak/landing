@@ -182,7 +182,7 @@
             </div>
             <div class="row">
                 <?php foreach ($result_out as $index => $value): ?>
-                <div class="model_item" data-car="<?=$value['id']?>">
+                <div class="model_item my-2 my-lg-3" data-car="<?=$value['id']?>">
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
@@ -283,15 +283,21 @@
         </div>
     </section>
     <section id="s2" data-section="s2">
-        <div class="container banner_block">
-			<h2>Второй заголовок</h2>
-            <h3>Уже есть предложение?</h3>
-            <p>Оставьте заявку и мы сделаем выгоднее!</p>
-            <form action="/" method="post">
-                <input type="tel" name="telephone" value="Ваш телефон">
-                <input type="submit" placeholder="Получить предложение">
-                <span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
-            </form>
+        <div class="container banner__block">
+			<div class="banner__data">
+				<h2>Уже есть предложение?</h2>
+				<p>Оставьте заявку и мы сделаем выгоднее!</p>
+
+				<form method="post" class="container mt-auto">
+					<div class="row gap-2">
+						<input class="col-12 col-lg-6" type="tel" name="telephone" value="Ваш телефон">
+						<input class="col-12 col-lg-6" type="submit" placeholder="Получить предложение">
+					</div>
+
+					<span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
+				</form>
+			</div>
+
         </div>
     </section>
     <section id="s3"data-section="s3">
