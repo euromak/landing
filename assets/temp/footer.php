@@ -73,10 +73,9 @@
     </div>
 </div>
 <script>
-    var data_car ='<?= $result_out ?>';
-
+	var data_car = <?=$data_front?>;
     console.log(data_car);
-    console.log(1)
+
 
     // // сортировка
     // var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);

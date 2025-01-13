@@ -82,7 +82,7 @@ class DB
          INNER JOIN model ON mark.id = model.mark_id
          INNER JOIN body ON model.id = body.model_id
             WHERE
-      mark.name = 'changan' AND model.active = 1 AND body.active = 1" . $sql, $params);
+      mark.name = 'changan' AND model.active = 1 AND body.active = 1 ORDER BY model.name" . $sql, $params);
     }
 
     public function getRow($table, $sql = '', $params = [])
@@ -91,14 +91,17 @@ class DB
         return $result[0];
     }
 
-    public function get_old_price($id){
-
-        return $this->query("SELECT max(price_old) FROM price WHERE body_id = $id");
+    public function get_old_max_price($id){
+        $result = $this->query("SELECT max(price_old) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
     }
-
+    function get_max_price($id){
+        $result = $this->query("SELECT max(price) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
+    }
     function get_min_price($id){
-        return $this->query("SELECT MIN(price) AS price_min FROM price WHERE body_id = $id");
-
+        $result = $this->query("SELECT min(price) AS price FROM price WHERE body_id = $id");
+        return $result[0]['price'];
     }
 
 }

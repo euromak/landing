@@ -196,11 +196,14 @@
                     <div class="row">
                         <div class="model_item__info col-12 col-lg-6">
                             <div class="model_item__price d-flex">
-                                <span class="price-value">от 0 Р</span>
-                                <span class="price-old-value d-flex align-items-center"><s>от 0 Р</s></span>
+                                <span class="price-value">от <?= $value['price'] ?> Р</span>
+                                <span class="price-old-value d-flex align-items-center"><s>от <?= $value['price_old']?> Р</s></span>
                             </div>
+							<div class="model_item__profit">
+								<span>выгода до <b><?= $value['profit']?> Р</b></span>
+							</div>
                             <div class="model_item__credit-rate">
-                                <span>в кредит от 0 Р</span>
+                                <span>в кредит от <b><?= $value['credit_payment']?> Р</b></span>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-lg-8 cart-btns-block">
