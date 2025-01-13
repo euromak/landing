@@ -20,7 +20,7 @@
 
             <div class="header__work d-none d-xl-flex flex-column text-start align-items-start">
                 <span><?=$work_time?></span>
-                <a class="phone phone__header" href="tel:+79112223344"><?=$phone?></a>
+                <a class="phone phone__header" href="tel:<?=$phone?>"><?=$phone?></a>
             </div>
 
             <div class="callmodal d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -33,7 +33,14 @@
             <a class="phone " href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
         <nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
-            <a class="nav-link" href="#s1" aria-current="page">Модельный ряд</a>
+            <a class="nav-link" href="#s1" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Модельный ряд</a>
+			<li class="nav-item dropdown">
+				<ul class="dropdown-menu">
+                    <?php foreach ($result_out as $index => $value): ?>
+						<li><a class="dropdown-item" href="#<?=$value['id']?>"><?="{$value['mark']} {$value['model']}"?></a></li>
+					<?php endforeach;?>
+				</ul>
+			</li>
             <a class="nav-link" href="#s2">Авто в наличии</a>
             <a class="nav-link" href="#s3">Комплектации</a>
             <a class="nav-link" href="#s4">Автокредит</a>
@@ -60,7 +67,7 @@
 						<p>+ РАССРОЧКА 0% на 24 месяца!</p>
 						<div class="sale">Скидка 100 000 ₽ в день звонка!</div>
 					</div>
-					<div class="row banner">
+					<div class="row banner_utp">
 						<div class="col n1">Ставка от 6.5%!</div>
 						<div class="col n2">
 							<p class="n1">Одобряем 99%</p>
@@ -82,7 +89,7 @@
 					</picture>
 					<div class="swiper-data n2">
 						<h5>Эксклюзивные условия до <?=$sale_date?></h5>
-						<div class="h1">Держим старый курс цены на новые <span><?=$mark?>!</span> </div>
+						<h2 class="h1">Держим старый курс цены на новые <span><?=$mark?>!</span> </h2>
 						<p>Ограниченная партия с выгодой до 25%!</p>
 					</div>
 
@@ -116,7 +123,7 @@
                         >
                         <label for="phone">Ваш телефон</label>
                     </div>
-                    <input type="submit" class="form-control btn btn-lg btn-primary" value="Получить предложение">
+                    <input type="submit" class="form-control btn btn-lg btn-primary mt-1" value="Получить предложение">
                     <span class="form__politic-text">* Отправляя данную форму, вы соглашаетесь с <u>политикой
                             обработки персональных данных.</u>
                     </span>
@@ -225,7 +232,7 @@
             </div>
             <div class="row">
                 <?php foreach ($result_out as $index => $value): ?>
-                <div class="model_item my-2 my-lg-3" data-car="<?=$value['id']?>">
+                <div id="<?=$value['id']?>" class="model_item my-2 my-lg-3" data-car="<?=$value['id']?>">
                     <div class="row cart_action__block">
                         <div class="col-12 col-md-6 order-2 order-md-0">
                             <div class="model_item__name">
@@ -281,26 +288,26 @@
 							<div class="row h-100 d-flex align-items-center">
 								<div class="swiper__big col-lg-9">
 									<img src="<?=$value['preview']?>" alt="" class="car_photo">
-									<img src="assets/img/cars/unit_lable.png" alt="" class="label">
+									<img src="<?=$value['model_picture']?>" alt="" class="label">
 								</div>
 								<div class="swiper col-lg-3"  id="myCarousel<?=$index?>">
 									<div class="swiper-wrapper">
                                         <?php if(!empty($value['live_photo_data'])):?>
                                             <?php foreach($value['live_photo_data'] as $img):?>
 												<a href="<?=$img?>.webp" class="swiper-slide" data-fancybox="gallery">
-													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>.webp"/>
+													<img class="img-fluid" alt="" width="150" height="85" src="<?=$img?>.webp"/>
 												</a>
                                             <?php endforeach; ?>
                                         <?php elseif(empty($value['live_photo_data']) && !empty($value['live_photo'])): ?>
                                             <?php foreach($value['live_photo'] as $img):?>
 												<a href="<?=$img?>" class="swiper-slide" data-fancybox="gallery">
-													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>" />
+													<img class="img-fluid" alt="" width="150" height="85" src="<?=$img?>" />
 												</a>
                                             <?php endforeach; ?>
                                         <?php else: ?>
                                             <?php foreach($value['images'] as $img):?>
 												<a href="<?=$img?>" class="swiper-slide" data-fancybox="gallery">
-													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>" />
+													<img class="img-fluid" alt="" width="150" height="85" src="<?=$img?>" />
 												</a>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
