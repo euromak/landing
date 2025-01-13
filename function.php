@@ -1,38 +1,31 @@
 <?php
-function get_min_price($db,$id){
-    $query = "SELECT MIN(price) AS price_min FROM price WHERE body_id = $id";
-    $res = $db->query($query);
+function get_time_end_action(){
+    $lstDate = date('Y-m-d', strtotime('first day of next month'));
+    $date = strtotime(date("Y-m-d"));
+    $date = (date('j',$date) >= 15) ? strtotime($lstDate) : strtotime(date('Y-m-15'));
+    $result = date("Y-m-d H:i:s", $date-1);
 
+    return $result;
 }
-function get_old_price($db,$id){
-    $query = "SELECT price_old FROM price WHERE body_id = $id";
-    $res = $db->query($query);
+function get_date_end_action(){
+    $monthRussian = [
+        'января',
+        'февраля',
+        'марта',
+        'апреля',
+        'мая',
+        'июня',
+        'июля',
+        'августа',
+        'сентября',
+        'октября',
+        'ноября',
+        'декабря'
+    ];
+    $lstDate = date('Y-m-d', strtotime('first day of next month'));
+    $date = strtotime(date("Y-m-d"));
+    $date = (date('j',$date) >= 15) ? $date = strtotime($lstDate)-1 : strtotime(date('Y-m-15'));
+    $result = date('j',$date) . ' ' . $monthRussian[ intval(date("m", $date)-1) ];
 
-    foreach ($res as $row){
-        return  $row;
-    }
-}
-function get_data_catalog($db){
-    $query = "SELECT body.id AS 'body_id',
-       mark.name AS 'mark',
-       model.name AS 'model',
-       body.image AS 'image',
-       body.preview AS 'preview',
-       body.live_photo AS 'live_photo'
-FROM mark
-         INNER JOIN model ON mark.id = model.mark_id
-         INNER JOIN body ON model.id = body.model_id
-WHERE
-      mark.name = 'changan' AND model.active = 1 AND body.active = 1";
-    $query = $db->query($query);
-    $data = [];
-
-
-// перебор данных из запроса БД
-    if(!$query) die('Ошибка запроса');
-
-// закрытие соединения с БД
-    $db->close();
-
-    return $data;
+    return $result;
 }

@@ -73,9 +73,8 @@
     </div>
 </div>
 <script>
-	var data_car = <?=$data_front?>;
-    console.log(data_car);
-
+	let data_car = <?=$data_front?>;
+    let saleTime = "<?=$sale_time?>";
 
     // // сортировка
     // var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
@@ -102,6 +101,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
+<script src="<?= ASSETS . '/lib/countdown.min.js'?>"></script>
 <script src="<?= ASSETS . '/js/main.js'?>"></script>
 </body>
 </html>

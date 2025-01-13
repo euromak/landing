@@ -1,20 +1,4 @@
 <body>
-<section>
-    <?php foreach ($result_out as $index => $value): ?>
-        <?php
-
-
-		if(isset($value['live_photo_data'])) {
-            echo $value['mark'] . ' ' . $value['model'] .  "<br>";
-            var_dump($value['live_photo_data']);
-            foreach ($value['live_photo_data'] as $photo) {
-                echo "<img src='$photo.webp' alt='' width='200'>";
-            }
-            echo "<br>";
-        } ?>
-    <?php endforeach; ?>
-</section>
-
 <header class="header fixed-top bg-white">
     <div class="container-fluid container-lg ">
         <div class="header__top d-flex justify-content-between text-center">
@@ -103,7 +87,7 @@
     <section id="timer-block">
         <div class="container">
             <div class="timer p-3">
-                <h2>До <span class="timeless-value">01.02</span> держим выгоды на <?=$mark?> <b>до 25%!</b></h2>
+                <h2>До <span class="timeless-value"><?=$sale_date?></span> держим выгоды на <?=$mark?> <b>до 25%!</b></h2>
                 <div class="row d-flex flex-row-reverse">
                     <div class="col-lg-6 d-flex align-items-start">
                         <div class="timer__block date">
@@ -206,7 +190,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-6 d-flex justify-content-end align-items-center gap-2 order-1">
-                            <span class="d-flex cart_action__item red h-md-50 col-auto">Акция до 01.02</span>
+                            <span class="d-flex cart_action__item red h-md-50 col-auto">Акция до <?=$sale_date?></span>
                             <span class="d-flex cart_action__item green h-md-50 col-auto">Авто в наличии</span>
                         </div>
                     </div>
