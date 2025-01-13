@@ -58,7 +58,15 @@ body {
   width: 100%;
   height: 100%;
 }
-
+h1 {
+  font-size: clamp(45px,1vw,50px);
+}
+h2 {
+  font-size: clamp(35px,1vw,40px);
+}
+h3 {
+  font-size: clamp(25px,1vw,35px);
+}
 input {
   font-size: 1rem;
 }
@@ -275,7 +283,7 @@ header {
         background: $hover_color;
         border-radius: 8px;
       }
-      input[type='tel']:not(.is-invalid)::not(.is-valid) {
+      input[type='tel']:not(.is-invalid):not(.is-valid) {
         border: 1px solid rgb(224, 224, 224);
         color: grey;
       }
@@ -513,12 +521,51 @@ header {
         font-size: 1.4rem;
         font-weight: 600;
       }
+      .utp_list {
+        gap: 10px;
+        .utp_list__i  {
+          border-radius: 2px;
+          box-shadow: 0px 1px 4px 0px rgba(0, 64, 114, 0.3);
+          padding: 0px 4px;
+          background: #daefff;
+          display: flex;
+          align-items: center;
 
-      .utp_list__i  {
-        border-radius: 2px;
-        box-shadow: 0px 1px 4px 0px rgba(0, 64, 114, 0.3);
-        background: #daefff;
-        padding: .2rem 1rem .2rem 2rem;
+          gap: 2px;
+          flex: auto;
+          font-size: clamp(13px,1vw,15px);
+
+          @media (min-width: 769px) {
+
+            & {
+              justify-content: center;
+              }
+          }
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+          }
+          &.n1:before {
+            background: url('../img/icons/Gift.svg') center/cover no-repeat;
+          }
+          &.n2:before {
+            background: url('../img/icons/Shield-tick.svg') center/cover no-repeat;
+          }
+          &.n3:before {
+            background: url('../img/icons/Wheel.svg') center/cover no-repeat;
+          }
+          &.n4:before {
+            background: url('../img/icons/Video.svg') center/cover no-repeat;
+          }
+          &.n5:before {
+            background: url('../img/icons/Badge.svg') center/cover no-repeat;
+          }
+          &.n6:before {
+            background: url('../img/icons/broadcast-tower.svg') center/cover no-repeat;
+          }
+        }
       }
 
     }
