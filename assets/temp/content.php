@@ -214,17 +214,21 @@
                                 </div>
                                 <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block ps-3 ps-xl-5">
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">1.5 л.</span>
-                                        <span class="n2">Двигатель</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['engine_displacement']?> л.</span>
+                                        <span class="n2">Двигатель</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">7 DCT</span>
-                                        <span class="n2">КПП</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['gearbox']?></span>
+                                        <span class="n2">КПП</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">280 h/m</span>
-                                        <span class="n2">Крут. момент</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['max_speed']?> км/ч</span>
+                                        <span class="n2">Макс. скорость</span>
+									</div>
                                     <div class="row mt-3 info-car__item">
-                                        <span class="n1">167 л.с.</span>
-                                        <span class="n2">Мощность</span></div>
+                                        <span class="n1"><?= $value['complecation_data'][0]['power']?> л.с.</span>
+                                        <span class="n2">Мощность</span>
+									</div>
                                 </div>
 
                             </div>

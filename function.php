@@ -28,21 +28,6 @@ WHERE
     $data = [];
 
 
-    foreach($query as $row){
-//        var_dump($row);
-        $data[]=array(
-            "id" => $row["body_id"],
-            "mark" => $row["mark"],
-            "model" => $row["model"],
-            "image" => $row["image"],
-            "preview" => $row["preview"],
-            "live_photo" => $row["live_photo"],
-            "price" => get_min_price($db,$row["body_id"]),
-            "price_old" => get_old_price($db,$row["body_id"]),
-        );
-    }
-
-
 // перебор данных из запроса БД
     if(!$query) die('Ошибка запроса');
 

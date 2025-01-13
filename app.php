@@ -10,7 +10,7 @@ $price_max = null;
 $profit = null;
 
 $db = new DB;
-$result = $db->getAll('body',);
+$result = $db->getAll('body');
 
 // преобразование данных
 foreach ($result as $row) {
@@ -19,6 +19,8 @@ foreach ($result as $row) {
     $price = $db->get_min_price($row['body_id']);
     $price_max = $db->get_max_price($row['body_id']);
     $profit = $price_old - $price_max;
+    $credit_payment = floor(($mountMinPercentPayment * (1 + $mountMinPercentPayment)**84 / ((1 + $mountMinPercentPayment)**84 - 1)) * ($price - $price*$first_payment));
+    $complectation_data = $db->get_complectation($row['body_id']);
 
     $result_out[] = [
         "id" => $row['body_id'],
@@ -37,7 +39,9 @@ foreach ($result as $row) {
         "price_old" => number_format($price_old, 0,'', ' '),
         "price" => number_format($price, 0,'', ' '),
         "profit" => number_format($profit, 0,'', ' '),
-        "credit_payment" => number_format(floor(($mountMinPercentPayment * (1 + $mountMinPercentPayment)**84 / ((1 + $mountMinPercentPayment)**84 - 1)) * ($price - $price*$first_payment)),0, '', ' '),
+        "credit_payment" => number_format($credit_payment,0, '', ' '),
+        "complecation_data" => $complectation_data,
+        "colors_data" => [],
     ];
 };
 

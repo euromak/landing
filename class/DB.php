@@ -104,4 +104,32 @@ class DB
         return $result[0]['price'];
     }
 
+    function get_complectation($id){
+        $result = $this->query("SELECT
+    price.id,
+    price.body_id,
+    price.modification_id,
+    price.complectation_id ,
+    price.price_old,
+    price.price,
+    modification.name,
+    complectation.name,
+    modification.engine_displacement,
+    modification.power,
+    modification.engine_type,
+    modification.gearbox,
+    modification.max_torque,
+    modification.max_speed,
+    modification.drive
+
+FROM price
+         INNER JOIN modification ON price.modification_id = modification.id
+         INNER JOIN complectation ON price.complectation_id = complectation.id
+WHERE
+    price.body_id = $id ORDER BY price.price DESC");
+
+
+        return $result;
+    }
+
 }
