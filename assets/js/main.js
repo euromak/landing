@@ -127,30 +127,50 @@ window.addEventListener('submit', function(e){
 })
 
 window.addEventListener('load', function(e) {
-    const
-        swiperActions = new Carousel(document.getElementById("actionsCarousel"), {
-        Dots: true,
-        Thumbs: {
-            type: "classic",
+    const swiperAction = new Swiper('#actionsCarousel',{
+        speed: 4000,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 5000
         },
-        infinite: true,
-        center: false,
-        slidesPerPage: 'auto',
-        transition: true,
-    }, { Thumbs });
+        loop: true,
+        slidesPerView: 1,
 
-    $('.f-carousel').each(function (item){
-        return new Carousel(this, {
-            Dots: false,
-            interval: 5,
-            ride: true,
-            transition: true,
-            infinite: true,
-            Thumbs: {
-                type: "classic",
+        pagination: {
+            el: '#actionsCarousel .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 1
+        },
+        navigation: {
+            nextEl: '#actionsCarousel .swiper-button-next',
+            prevEl: '#actionsCarousel .swiper-button-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
             },
+            992: {
+                slidesPerView: 2.5,
+            }
+        },
+    })
+    $('.model_item__info .swiper').each(function (index,item){
 
-        }, { Thumbs });
+
+    })
+
+    let swiper1 = new Swiper(".model_item__info .swiper",{
+        speed: 4000,
+        spaceBetween: 10,
+        // autoplay: {
+        //     delay: 5000
+        // },
+        loop: true,
+        slidesPerView: 4,
+        direction: 'vertical',
+        freeMode: true,
+        // autoHeight: true,
     })
 
     Fancybox.bind('[data-fancybox="gallery"]', {

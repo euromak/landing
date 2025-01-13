@@ -2,6 +2,7 @@
 @import "../lib/bootstrap/css/bootstrap-reboot.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
 @import "../lib/bootstrap/css/bootstrap-grid.css";
+@import "../../node_modules/swiper/swiper-bundle.min.css";
 @import "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
 @import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
 @import "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
@@ -32,7 +33,8 @@
 
 /*Переменные*/
 $fs: 16px;
-$main_color:rgb(0, 93, 210);
+$main_color:#0066B5;
+$akcent-color: #0066B5;
 $hover_color: rgb(0, 102, 181);
 $black_color: rgb(51, 51, 51);
 $border-radius:8px;
@@ -63,12 +65,15 @@ body {
 }
 h1 {
   font-size: clamp(45px,1vw,50px);
+  font-weight: 700;
 }
 h2 {
   font-size: clamp(35px,1vw,40px);
+  font-weight: 700;
 }
 h3 {
-  font-size: clamp(25px,1vw,35px);
+  font-size: clamp(25px,1vw,40px);
+  font-weight: 700;
 }
 input {
   font-size: 1rem;
@@ -253,16 +258,14 @@ header {
   background: url("../img/banner/offers-full.jpg") center / cover no-repeat;
   width: 100%;
   min-height: 340px;
-  border-radius: $border-radius;
+  border-radius: 20px;
 
   .banner__data {
-
     top: 7%;
     left: 3%;
     right: auto;
     bottom: 7%;
     box-sizing: border-box;
-    border-radius: 8px;
     display: flex;
     flex-flow: column;
     @media (min-width: 769px){
@@ -371,17 +374,17 @@ header {
     color: rgb(143, 148, 150);
   }
   input[type="submit"] {
-    @include btn-color($main_color);
+    @include btn-color($akcent-color);
     height: 58px;
   }
 }
 .action {
-  --f-carousel-slide-padding: 1.4rem 1.2rem;
-  --f-carousel-spacing: 1rem;
-  &__slide {
+  &.swiper {
     width: 100%;
     height: 230px;
-    padding-right: 7%;
+  }
+  &__slide {
+    padding: 15px;
     &.n1 {
       background: url("../img/swiper/1.jpeg") center/cover no-repeat;
     }
@@ -408,12 +411,13 @@ header {
   }
   @media screen and (min-width: 768px) {
     &__slide {
-      width: calc(100% / 2);
+
     }
   }
-  @media screen and (min-width: 1200px) {
-    &__slide {
-      width: calc(100% / 3);
+
+  @media (min-width: 1200px) {
+    .swiper-backface-hidden .swiper-slide {
+      padding-right: 13%;
     }
   }
 }
@@ -426,19 +430,6 @@ header {
 }
 
 .catalog {
-  .f-carousel {
-    --f-carousel-slide-width: calc(100% / 4);
-    --f-carousel-slide-padding: .2rem;
-    //--f-carousel-spacing: 8px;
-    .f-carousel__slide {
-      max-height: 7rem;
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
   h2 {
     font-size: clamp(30px,3vw,48px);
     font-weight: 600;
@@ -448,10 +439,14 @@ header {
   }
   .model_item {
     position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 475px;
     border-radius: 8px;
     box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.2);
     background: rgb(255, 255, 255);
     padding: 1rem;
+
     .model_item__name {
       .n2 {
         color: $main-color;
@@ -592,6 +587,19 @@ header {
       }
 
     }
+    .swiper {
+      height: 380px;
+
+      .swiper-slide {
+        display: flex;
+        width: 150px;
+        height: 85px;
+
+        img {
+          //object-fit: cover;
+        }
+      }
+    }
   }
 }
 
@@ -600,13 +608,3 @@ img {
   height: auto;
 }
 
-#myCarousel {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-#myCarousel .f-carousel__slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

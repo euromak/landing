@@ -94,8 +94,9 @@
 </script>
 <script src="<?= 'app.js'?>"></script>
 <script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
+<script src="<?= '/node_modules/swiper/swiper-bundle.min.js'?>"></script>
+<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.min.js'?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>

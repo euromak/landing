@@ -87,7 +87,7 @@
     <section id="timer-block">
         <div class="container">
             <div class="timer p-3">
-                <h2>До <span class="timeless-value"><?=$sale_date?></span> держим выгоды на <?=$mark?> <b>до 25%!</b></h2>
+                <h3>До <span class="timeless-value"><?=$sale_date?></span> держим выгоды на <?=$mark?> <b>до 25%!</b></h3>
                 <div class="row d-flex flex-row-reverse">
                     <div class="col-lg-6 d-flex align-items-start">
                         <div class="timer__block date">
@@ -146,32 +146,32 @@
     </section>
     <section id="swiper-actions">
         <div class="container">
-            <div class="action d-flex f-carousel" id="actionsCarousel">
-                <div class="f-carousel__viewport">
-                    <div class="f-carousel__track">
-                        <div class="f-carousel__slide action__slide d-flex flex-column n1 rounded-4">
-                            <h3 class="action__slide-title">Большая семья</h3>
-                            <span class="action__slide-desc">Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
-                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
-                        </div>
-                        <div class="f-carousel__slide action__slide d-flex flex-column n2 rounded-4">
-                            <h3 class="action__slide-title">Военным</h3>
-                            <span class="action__slide-desc">Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
-                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
-                        </div>
-                        <div class="f-carousel__slide action__slide d-flex flex-column n3 rounded-4">
-                            <h3 class="action__slide-title">Песнионерам</h3>
-                            <span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
-                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
-                        </div>
-                        <div class="f-carousel__slide action__slide d-flex flex-column n4 rounded-4">
-                            <h3 class="action__slide-title">Медработникам</h3>
-                            <span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
-                            <button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="action swiper" id="actionsCarousel">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide action__slide d-flex flex-column n1 rounded-4">
+						<h3 class="action__slide-title">Большая семья</h3>
+						<span class="action__slide-desc">Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
+						<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+					</div>
+					<div class="swiper-slide action__slide d-flex flex-column n2 rounded-4">
+						<h3 class="action__slide-title">Военным</h3>
+						<span class="action__slide-desc">Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
+						<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+					</div>
+					<div class="swiper-slide action__slide d-flex flex-column n3 rounded-4">
+						<h3 class="action__slide-title">Песнионерам</h3>
+						<span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
+						<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+					</div>
+					<div class="swiper-slide action__slide d-flex flex-column n4 rounded-4">
+						<h3 class="action__slide-title">Медработникам</h3>
+						<span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
+						<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
@@ -195,7 +195,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="model_item__info col-12 col-lg-6">
+                        <div class="model_item__info col-12 col-lg-5">
                             <div class="model_item__price d-flex">
                                 <span class="price-value">от <?= $value['price'] ?> Р</span>
                                 <span class="price-old-value d-flex align-items-center"><s>от <?= $value['price_old']?> Р</s></span>
@@ -213,7 +213,7 @@
                                     <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
                                     <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
                                 </div>
-                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block ps-3 ps-xl-5">
+                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block">
                                     <div class="row mt-3 info-car__item">
                                         <span class="n1"><?= $value['complecation_data'][0]['engine_displacement']?> л.</span>
                                         <span class="n2">Двигатель</span>
@@ -234,36 +234,37 @@
 
                             </div>
                         </div>
-                        <div class="model_item__info col-12 col-lg-6">
-                            <div class="swiper__big text-center py-5">
-                                <img src="<?=$value['preview']?>" alt="" class="car_photo">
-                                <img src="assets/img/cars/unit_lable.png" alt="" class="label">
-                            </div>
-                            <div class="f-carousel" id="myCarousel<?=$index?>">
-                                <div class="f-carousel__viewport">
-                                    <div class="f-carousel__track">
-										<?php if(!empty($value['live_photo_data'])):?>
-											<?php foreach($value['live_photo_data'] as $img):?>
-												<a href="<?=$img?>.webp" class="f-carousel__slide" data-fancybox="gallery">
-													<img alt="" src="<?=$img?>.webp" />
+                        <div class="model_item__info col-12 col-lg-7">
+							<div class="row h-100 d-flex align-items-center">
+								<div class="swiper__big col-lg-9">
+									<img src="<?=$value['preview']?>" alt="" class="car_photo">
+									<img src="assets/img/cars/unit_lable.png" alt="" class="label">
+								</div>
+								<div class="swiper col-lg-3"  id="myCarousel<?=$index?>">
+									<div class="swiper-wrapper">
+                                        <?php if(!empty($value['live_photo_data'])):?>
+                                            <?php foreach($value['live_photo_data'] as $img):?>
+												<a href="<?=$img?>.webp" class="swiper-slide" data-fancybox="gallery">
+													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>.webp"/>
 												</a>
-											<?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         <?php elseif(empty($value['live_photo_data']) && !empty($value['live_photo'])): ?>
                                             <?php foreach($value['live_photo'] as $img):?>
-												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
-													<img alt="" src="<?=$img?>" />
+												<a href="<?=$img?>" class="swiper-slide" data-fancybox="gallery">
+													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>" />
 												</a>
                                             <?php endforeach; ?>
                                         <?php else: ?>
                                             <?php foreach($value['images'] as $img):?>
-												<a href="<?=$img?>" class="f-carousel__slide" data-fancybox="gallery">
-													<img alt="" src="<?=$img?>" />
+												<a href="<?=$img?>" class="swiper-slide" data-fancybox="gallery">
+													<img class="img-fluid" alt="" width="150" height="85px" src="<?=$img?>" />
 												</a>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
+									</div>
+								</div>
+							</div>
+
                         </div>
                     </div>
                     <div class="row utp">
