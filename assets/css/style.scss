@@ -79,7 +79,7 @@ h1, .h {
 }
 
 h2 {
-  font-size: clamp(35px,2vw,40px);
+  font-size: clamp(35px,2vw,50px);
   font-weight: 700;
 }
 h3 {
@@ -88,6 +88,9 @@ h3 {
 }
 input {
   font-size: 1rem;
+}
+section {
+  position: relative;
 }
 header {
   user-select: none;
@@ -279,12 +282,26 @@ header {
   margin-top: 13vh;
 }
 #timer-block {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 2;
-
+  width: 100%;
+  //min-height: 500px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position: relative;
+  .container {
+    //position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    &.n1 {
+      top: -10px;
+    }
+    &.n2 {
+      bottom: 0;
+    }
+  }
   .timer {
+
     border-radius: 8px;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
     background: rgb(255, 255, 255);
@@ -586,6 +603,51 @@ header {
     color: white;
   }
 }
+.complectation-block {
+.complectation-value {
+  background: rgb(245, 245, 245);
+  background: linear-gradient(90deg, rgba(245, 245, 245, 0) 45%, rgb(200, 227, 248) 101%);
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--bs-box-shadow) !important;
+  }
+}
+.complectation-data {
+  .name {
+    font-size: clamp(16px,1vw,28px);
+    text-transform: uppercase;
+    font-weight:700;
+  }
+  .name_compl {
+    color: $main-color;
+    font-size: clamp(16px,1vw,28px);
+    text-transform: uppercase;
+    font-weight:700;
+    line-height: 25px;
+  }
+  .compl {
+
+  }
+  .item {
+    .n1 {
+      color: gray;
+      font-size: 14px;
+    }
+    .n2 {
+      color: black;
+      font-size: clamp(16px,1vw,20px);
+      font-weight: 500;
+    }
+  }
+}
+  @media (min-width: 991px){
+    form {
+      flex-flow: row;
+    }
+  }
+}
 form {
   display: flex;
   flex-flow: column;
@@ -697,3 +759,6 @@ footer {
   }
 }
 
+section:not(section.active), header,footer {
+  display: none !important;
+}

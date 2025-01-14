@@ -11,12 +11,12 @@
             <a class="phone col-12 col-lg-6 text-end" href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
         <div class="row mt-3">
-            <div class="col-8">
+            <div class="col-9">
                 <h3>Меню</h3>
 				<div class="row">
                     <?php include 'assets/temp/menu.php'?>
 					<h3>Модельный ряд</h3>
-					<div class="row w-50">
+					<div class="row w-50 ">
 						<div class="model col">ALSVIN</div>
 						<div class="model col">EADOplus</div>
 						<div class="model col">CS95NEW</div>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
             </div>
-            <div class="col-4 d-flex justify-content-start flex-column align-items-end">
+            <div class="col-3 d-flex justify-content-end flex-column align-items-end text-end">
                 <span>Ежедневно с 9:00 до 22:00</span>
                 <span class="my-3">г. Нижний Новгород, ул. Июльских Дней, д. 1г</span>
                 <button class="callmodal d-none d-md-flex align-items-center justify-content-center"

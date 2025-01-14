@@ -52,7 +52,7 @@ h1, .h {
 }
 
 h2 {
-  font-size: clamp(35px, 2vw, 40px);
+  font-size: clamp(35px, 2vw, 50px);
   font-weight: 700;
 }
 
@@ -63,6 +63,10 @@ h3 {
 
 input {
   font-size: 1rem;
+}
+
+section {
+  position: relative;
 }
 
 header {
@@ -243,10 +247,22 @@ header .navbar .nav-item {
 }
 
 #timer-block {
-  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position: relative;
+}
+#timer-block .container {
   left: 0;
   right: 0;
   z-index: 2;
+}
+#timer-block .container.n1 {
+  top: -10px;
+}
+#timer-block .container.n2 {
+  bottom: 0;
 }
 #timer-block .timer {
   border-radius: 8px;
@@ -526,6 +542,42 @@ header .navbar .nav-item {
   color: white;
 }
 
+.complectation-block .complectation-value {
+  background: rgb(245, 245, 245);
+  background: linear-gradient(90deg, rgba(245, 245, 245, 0) 45%, rgb(200, 227, 248) 101%);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.complectation-block .complectation-value:hover {
+  box-shadow: var(--bs-box-shadow) !important;
+}
+.complectation-block .complectation-data .name {
+  font-size: clamp(16px, 1vw, 28px);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.complectation-block .complectation-data .name_compl {
+  color: #0066B5;
+  font-size: clamp(16px, 1vw, 28px);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 25px;
+}
+.complectation-block .complectation-data .item .n1 {
+  color: gray;
+  font-size: 14px;
+}
+.complectation-block .complectation-data .item .n2 {
+  color: black;
+  font-size: clamp(16px, 1vw, 20px);
+  font-weight: 500;
+}
+@media (min-width: 991px) {
+  .complectation-block form {
+    flex-flow: row;
+  }
+}
+
 form {
   display: flex;
   flex-flow: column;
@@ -637,6 +689,9 @@ h1 {
   .action .swiper-backface-hidden .swiper-slide {
     padding-right: 13%;
   }
+}
+section:not(section.active), header, footer {
+  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,12 +1,5 @@
 <?php
 require_once './class/DB.php';
-require './vendor/autoload.php';
-
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Imagick\Driver;
-
-
-
 
 $result_out = array();
 $price_old = null;
@@ -15,6 +8,7 @@ $price_max = null;
 $profit = null;
 $sale_time = get_time_end_action();
 $sale_date = get_date_end_action();
+$data_id = array();
 
 $db = new DB;
 $result = $db->getAll('body');
@@ -26,7 +20,11 @@ foreach ($result as $row) {
     $price_max = $db->get_max_price($row['body_id']);
     $profit = $price_old - $price_max;
     $credit_payment = floor(($mountMinPercentPayment * (1 + $mountMinPercentPayment)**84 / ((1 + $mountMinPercentPayment)**84 - 1)) * ($price - $price*$first_payment));
-
+    $data_id[] = [
+        "id_model" => $row['model_id'],
+        "id_mark" => $row['mark_id'],
+        "data_compl" => $db->get_complectation($row['body_id']),
+    ];
     $result_out[] = [
         "id" => $row['body_id'],
         "id_model" => $row['model_id'],
@@ -53,6 +51,17 @@ foreach ($result as $row) {
     ];
 };
 
+foreach ($data_id as $ind => $value) {
+    foreach ($value['data_compl'] as $index => $item) {
+//        var_dump($item['body_id']);
+//        var_dump($item['modification_id']);
+//        var_dump($item['complectation_id']);
+    }
+}
+
+exit();
+
+//exit();
 $data_front = json_encode($result_out);
 
 require_once 'assets/temp/head.php';

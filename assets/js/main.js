@@ -214,10 +214,14 @@ window.addEventListener('load', function(e) {
     hamburger.addEventListener('click',function(){
         this.classList.toggle('is-active');
     })
-    window.addEventListener('keyup',(e)=>{
-        document.body.classList.toggle('debug');
-    });
     window.addEventListener('keydown',(e)=>{
-        document.body.classList.add('line');
+        document.body.classList.toggle('line');
+        // document.body.classList.toggle('debug');
+    })
+    window.addEventListener('change',(e)=>{
+        console.log(e)
+    })
+    window.addEventListener('input',(e)=>{
+        console.log(e)
     })
 })
