@@ -1,37 +1,40 @@
 <footer class="footer">
-    <div class="container">
+    <div class="container pt-5">
         <div class="row">
-            <div class="logo"></div>
-            <a class="phone" href="tel:+7(831)2117651">+7 (831) 211-76-51</a>
+            <div class="logo col-12 col-lg-6">
+				<a class="logo d-flex" href="#">
+					<img class="logo__brand" src="<?= ASSETS . '/img/logo.svg'?>" alt="logo brand">
+					<span></span>
+					<img class="logo__avtohous" src="<?= ASSETS . '/img/logo_avt.svg'?>" alt="logo avtohous">
+				</a>
+			</div>
+            <a class="phone col-12 col-lg-6 text-end" href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
-        <div class="row">
-            <div class="col-6">
+        <div class="row mt-3">
+            <div class="col-8">
                 <h3>Меню</h3>
-                <div class="nav-item">Модельный ряд</div>
-                <div class="nav-item">Авто в наличии</div>
-                <div class="nav-item">Комплектации</div>
-                <div class="nav-item">Автокредит</div>
-                <div class="nav-item">Трейд-in</div>
-                <div class="nav-item">Контакты</div>
+				<div class="row">
+                    <?php include 'assets/temp/menu.php'?>
+					<h3>Модельный ряд</h3>
+					<div class="row w-50">
+						<div class="model col">ALSVIN</div>
+						<div class="model col">EADOplus</div>
+						<div class="model col">CS95NEW</div>
+						<div class="model col">CS85COUPE</div>
+						<div class="model col">LAMORE</div>
+						<div class="model col">UNI-V</div>
+					</div>
+				</div>
             </div>
-            <div class="col-6">
+            <div class="col-4 d-flex justify-content-start flex-column align-items-end">
                 <span>Ежедневно с 9:00 до 22:00</span>
-                <span>г. Нижний Новгород, ул. Июльских Дней, д. 1г</span>
-                <button>Заказать звонок</button>
+                <span class="my-3">г. Нижний Новгород, ул. Июльских Дней, д. 1г</span>
+                <button class="callmodal d-none d-md-flex align-items-center justify-content-center"
+						data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать звонок</button>
             </div>
         </div>
-        <div class="row">
-            <h3>Модельный ряд</h3>
-            <div class="row">
-                <div class="model">ALSVIN</div>
-                <div class="model">EADOplus</div>
-                <div class="model">CS95NEW</div>
-                <div class="model">CS85COUPE</div>
-                <div class="model">LAMORE</div>
-                <div class="model">UNI-V</div>
-            </div>
-        </div>
-        <hr>
+
+        <hr class="my-4">
         <div class="info">
             <p>ООО «АВТОХАУС», ОГРН 1186658046222, ИНН 6658517825 Юр. адрес: 300012,
                 Тульская область, г. Тула, ул. Рязанская, д. 28б, помещ. 1</p>

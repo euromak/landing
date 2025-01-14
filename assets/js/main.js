@@ -177,11 +177,6 @@ window.addEventListener('load', function(e) {
             }
         },
     });
-
-    $('.model_item__info .swiper').each(function (index,item){
-
-
-    })
     let swiper1 = new Swiper(".model_item__info .swiper",{
         speed: 4000,
         spaceBetween: 10,
@@ -189,30 +184,40 @@ window.addEventListener('load', function(e) {
         //     delay: 5000
         // },
         loop: true,
-        slidesPerView: 2.5,
+        slidesPerView: 3.5,
+        slidesPerView: 3.5,
 
         freeMode: true,
         // autoHeight: true,
         breakpoints: {
-            992: {
+            991: {
                 direction: 'vertical',
                 slidesPerView: 4,
             }
         },
     })
+    let hamburger = document.querySelector('.hamburger');
 
+
+    $('.hidden, h1').animate({'opacity':'1','top':'5%'},'slow',"linear");
     Fancybox.bind('[data-fancybox="gallery"]', {
         Thumbs : {
             type: "classic",
         }
     },{ Thumbs });
 
-    let hamburger = document.querySelector('.hamburger');
-    hamburger.addEventListener('click',function(){
-        this.classList.toggle('is-active');
-    })
+
 
     app.init();
     setCountdown(saleTime);
     setInputMask();
+    hamburger.addEventListener('click',function(){
+        this.classList.toggle('is-active');
+    })
+    window.addEventListener('keyup',(e)=>{
+        document.body.classList.toggle('debug');
+    });
+    window.addEventListener('keydown',(e)=>{
+        document.body.classList.add('line');
+    })
 })

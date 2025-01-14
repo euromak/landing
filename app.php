@@ -1,5 +1,12 @@
 <?php
 require_once './class/DB.php';
+require './vendor/autoload.php';
+
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Imagick\Driver;
+
+
+
 
 $result_out = array();
 $price_old = null;

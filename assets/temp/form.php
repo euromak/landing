@@ -1,27 +1,8 @@
-<form method="post" id="callback_form" class="form gap-3 p-4">
-    <input
-            name="form_subject"
-            type="hidden"
-            value="Обратная связь">
-    <input
-            name="check_bot"
-            type="hidden"
-            id="form_name"
-            value="false"
-    >
-    <div class="form-floating">
-        <input
-                name="tele`phone"
-                type="tel"
-                id="telephone"
-                class="form-control w-100"
-                placeholder="Ваш телефон"
-                autocomplete="off"
-        >
-        <label for="phone">Ваш телефон</label>
+<form method='post' class='container mt-auto' enctype='multipart/form-data'>
+    <div class='row gap-2'>
+        <input class='col-12 col-lg-6' type='tel' name='telephone' value='Ваш телефон'>
+        <input class='col-12 col-lg-6' type='submit' placeholder='Получить предложение'>
     </div>
-    <input type="submit" class="form-control" value="Получить предложение">
-    <span class="form__politic-text">* Отправляя данную форму, вы соглашаетесь с <u>политикой
-                            обработки персональных данных.</u>
-                    </span>
+
+    <span>* Отправляя данную форму, вы соглашаетесь с политикой обработки персональных данных.</span>
 </form>
