@@ -112,6 +112,7 @@ function setCountdown(saleDate){
 
 window.addEventListener('submit', function(e){
     e.preventDefault();
+    console.log(e.target);  
     let formValues = new FormData(e.target);
 
     fetch("mail.php", {
@@ -185,10 +186,12 @@ window.addEventListener('load', function(e) {
         // },
         loop: true,
         slidesPerView: 3.5,
-        slidesPerView: 3.5,
-
         freeMode: true,
         // autoHeight: true,
+        navigation: {
+            nextEl: '.model_item__info .swiper-button-next',
+            prevEl: '.model_item__info .swiper-button-prev',
+        },
         breakpoints: {
             991: {
                 direction: 'vertical',
@@ -218,10 +221,39 @@ window.addEventListener('load', function(e) {
         document.body.classList.toggle('line');
         // document.body.classList.toggle('debug');
     })
-    window.addEventListener('change',(e)=>{
-        console.log(e)
+    $('form').on('change',(e)=>{
+        
+
+        filterComp(e.target.value);
     })
     window.addEventListener('input',(e)=>{
-        console.log(e)
+        // console.log(e.target.value)
     })
+
 })
+      
+function filterComp(value){
+    console.log(value);
+    console.log(data_car);
+    data_car.forEach((item)=>{
+        console.log(item);
+    })
+    let result;
+
+
+    $.each($('.complectation-value'), function( index, item ) {
+
+      ($(this).data('model') == value) ? $(this).show() : $(this).hide();
+
+    });
+    $.each($('#modlSelect option'),function( index, item ){
+        ($(this).data('model') == value) ? $(this).show() : $(this).hide();
+    console.log(item);
+    });
+
+    $('#modlSelect').removeAttr('disabled');
+    // console.log($('#modlSelect').removeAttr('disabled'));
+
+
+    return true;
+}

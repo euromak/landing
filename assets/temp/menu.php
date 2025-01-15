@@ -1,6 +1,5 @@
-<div class="nav-item col">Модельный ряд</div>
-<div class="nav-item col">Авто в наличии</div>
-<div class="nav-item col">Комплектации</div>
-<div class="nav-item col">Автокредит</div>
-<div class="nav-item col">Трейд-in</div>
-<div class="nav-item col">Контакты</div>
+<a class="nav-link" href="#s2">Авто в наличии</a>
+<a class="nav-link" href="#s3">Комплектации</a>
+<a class="nav-link" href="#s4">Автокредит</a>
+<a class="nav-link" href="#s5">Трейд-in</a>
+<a class="nav-link" href="#s6">Контакты</a>

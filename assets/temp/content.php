@@ -313,6 +313,9 @@
 	                                            <?php endforeach; ?>
 	                                        <?php endif; ?>
 										</div>
+										<div class="swiper-pagination"></div>
+										<div class="swiper-button-prev"></div>
+										<div class="swiper-button-next"></div>
 									</div>
 								</div>
 
@@ -348,30 +351,36 @@
 	        <div class="container complectation-filter">
 	            <h2 class="mt-5 mb-3">Подберите комплектацию</h2>
 				<form class="form gap-lg-4 grid" method="get">
-					<select class="w-100 form-select form-select-lg mb-3" aria-label=".form-select-lg пример">
+					<select class="w-100 form-select form-select-lg mb-3" aria-label="form-select-lg">
 						<option selected>Модель</option>
-						<option value="1">Один</option>
-						<option value="2">Два</option>
-						<option value="3">Три</option>
+					<?php foreach($compl_data as $item):?>
+						<option value="<?=$item['id_model']?>"><?=$item['model_name']?></option>
+					<?php endforeach; ?>				
 					</select>
-					<select class="w-100 form-select form-select-lg mb-3" aria-label=".form-select-lg пример">
+					<select class="w-100 form-select form-select-lg mb-3" id="modlSelect" aria-label="modlSelect" disabled>
 						<option selected>Двигатель</option>
-						<option value="1">Один</option>
-						<option value="2">Два</option>
-						<option value="3">Три</option>
+					<?php foreach($compl_data as $item):?>
+						<option data-model="<?=$item['id_model']?>" data-body="<?=$item['body_id']?>" data-body="<?=$item['slug']?>" value="<?=$item['modification_id']?>"><?=$item['modification_id']?></option>
+					<?php endforeach; ?>
 					</select>
-					<select class="w-100 form-select form-select-lg mb-3" aria-label=".form-select-lg пример" disabled >
+					<select class="w-100 form-select form-select-lg mb-3" id="complSelect" aria-label="complSelect" disabled>
 						<option selected>Комплектация</option>
-						<option value="1">Один</option>
-						<option value="2">Два</option>
-						<option value="3">Три</option>
+					<?php foreach($compl_data as $item):?>
+						<option value="<?=$item['complectation_id']?>"><?=$item['complectation_id']?></option>
+					<?php endforeach; ?>
 					</select>
 				</form>
 	        </div>
 			<div class="container complectation-result">
 				<?php foreach ($result_out as $value): ?>
                     <?php foreach ($value['complecation_data'] as $item): ?>
-				<div class="rounded-3 row my-2 mx-1 shadow-sm complectation-value my-3 px-3 py-4"  id="<?=$value['id']?>-<?=$value['id_model']?>" data-mark="<?=$value['id_model']?>" data-body="<?=$value['id']?>">
+				<div class="rounded-3 row my-2 mx-1 shadow-sm complectation-value my-3 px-3 py-4"  
+					id="<?=$value['id']?>-<?=$value['id_model']?>-<?=$item['modification_id']?>-<?=$item['complectation_id']?>" data-id="<?=$value['id']?>"
+					data-model="<?=$value['id_model']?>" 
+					data-body="<?=$item['body_id']?>"
+					data-idmod="<?=$item['modification_id']?>"
+					data-idcomp="<?=$item['id']?>"
+					>
 					<div class="col-12 col-lg-4">
 						<img src="assets/img/modification/1.png" alt="">
 					</div>
@@ -381,25 +390,29 @@
 
 							<div class="name_compl"><?=$item['name']?></div>
 							<div class="info d-flex mt-3">
-								<div class="item col-4 d-flex flex-column justify-content-center align-items-start">
+								<div class="item col d-flex flex-column justify-content-center align-items-start">
 									<span class="n1">Двигатель:</span>
-									<span class="n2">1.5T (147 л.с)</span>
+									<span class="n2"><?=$item['engine_displacement']?> л.</span>
 								</div>
-								<div class="item col-4 d-flex flex-column justify-content-center align-items-start">
-									<span class="n1">Привод:</span>
-									<span class="n2">Передний</span>
+								<div class="item col d-flex flex-column justify-content-center align-items-start">
+									<span class="n1">Мощность:</span>
+									<span class="n2"><?=$item['power']?> л.с.</span>
 								</div>
-								<div class="item col-4 d-flex flex-column justify-content-center align-items-start">
+								<div class="item col d-flex flex-column justify-content-center align-items-start">
+									<span class="n1">Привод:</span> 
+									<span class="n2"><?=$item['drive']?></span>
+								</div>
+								<div class="item col d-flex flex-column justify-content-center align-items-start">
 									<span class="n1">КПП:</span>
-									<span class="n2">7 DCT</span>
+									<span class="n2"><?=$item['gearbox']?></span>
 								</div>
 							</div>
 
 						</div>
 					</div>
 					<div class="col-12 col-lg-3 my-4">
-						<button class="btn btn-lg fs-5 btn-primary w-100">Рассчитать кредит</button>
-						<button class="btn btn-lg btn-outline-primary w-100 mt-2">Узнать цену</button>
+						<button class="btn btn-lg fs-5 btn-primary w-100 calmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит</button>
+						<button class="btn btn-lg btn-outline-primary w-100 mt-2 calmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">Узнать цену</button>
 					</div>
 				</div>
                     <?php endforeach; ?>

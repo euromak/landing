@@ -24,6 +24,10 @@ foreach ($result as $row) {
         "id_model" => $row['model_id'],
         "id_mark" => $row['mark_id'],
         "data_compl" => $db->get_complectation($row['body_id']),
+        "slug" => "{$row['mark_name']} {$row['model']} {$row['body_name']}",
+        "mark" => $row['mark_name'],
+        "model" => $row['model'],
+        "mod_name" => null,
     ];
     $result_out[] = [
         "id" => $row['body_id'],
@@ -33,14 +37,14 @@ foreach ($result as $row) {
         "model" => $row['model'],
         "body" => $row['body_name'],
         "preview" => $row['preview'],
-        "images" =>  (!empty($row['image'])) ? json_decode($row['image']) : false,
+        "images" =>  (!empty($row['image'])) ? json_decode($row['image']) : null,
         "marks_logo1" => $row['mark_logo1'],
         "marks_logo2" => $row['mark_logo2'],
         "marks_video" => $row['video_link'],
         "body_video" => $row['video_link'],
         "model_picture" => $row['picture'],
         "mark_picture" => $row['banner'],
-        "live_photo" =>  (!empty($row['live_photo'])) ? json_decode($row['live_photo']) : false,
+        "live_photo" =>  (!empty($row['live_photo'])) ? json_decode($row['live_photo']) : null,
         "price_old" => number_format($price_old, 0,'', ' '),
         "price" => number_format($price, 0,'', ' '),
         "profit" => number_format($profit, 0,'', ' '),
@@ -51,17 +55,26 @@ foreach ($result as $row) {
     ];
 };
 
+$compl_data = [];
 foreach ($data_id as $ind => $value) {
+
     foreach ($value['data_compl'] as $index => $item) {
-//        var_dump($item['body_id']);
-//        var_dump($item['modification_id']);
-//        var_dump($item['complectation_id']);
+ 
+            $compl_data[$item['body_id']] = [
+                "body_id"=>$item['body_id'],
+                "id_model"=>$value['id_model'],
+                "modification_id"=>$item['modification_id'],
+                "complectation_id"=>$item['complectation_id'],
+                "slug"=>$value['slug'],
+                "mark_name"=>$value['mark'],       
+                "model_name"=>$value['model'],
+                "mod_name"=>$value['mod_name'],
+
+                ];
+
     }
 }
 
-exit();
-
-//exit();
 $data_front = json_encode($result_out);
 
 require_once 'assets/temp/head.php';
