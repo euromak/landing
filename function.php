@@ -1,4 +1,5 @@
 <?php
+define('ASSETS' , '/assets');
 function get_time_end_action(){
     $lstDate = date('Y-m-d', strtotime('first day of next month'));
     $date = strtotime(date("Y-m-d"));

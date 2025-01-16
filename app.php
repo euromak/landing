@@ -1,5 +1,18 @@
 <?php
+require_once 'config.php';
+require_once 'function.php';
 require_once './class/DB.php';
+
+if(isset($_GET['controller']) && !empty($_GET['controller'])) {
+    $json = file_get_contents('customization.json');
+    $_SESSION['mapData'] = json_decode($json, true);
+    echo $json;
+};
+
+if(isset($_POST['phone']) && !empty($_POST['phone'])) {
+
+    return true;
+};
 
 $result_out = array();
 $price_old = null;

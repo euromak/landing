@@ -27,6 +27,12 @@
   font-display: swap;
 }
 /*Переменные*/
+header .nav-link.active {
+  color: #005DD2;
+  border-color: #005DD2;
+  font-weight: normal;
+}
+
 /*Миксины*/
 body {
   font-family: changan;
@@ -77,21 +83,29 @@ header .header__top, header .header__bottom {
   min-height: 6vh;
   align-items: center;
 }
-header .header__top .logo, header .header__bottom .logo {
-  justify-content: start;
-  align-items: center;
-}
-header .header__top .logo span, header .header__bottom .logo span {
-  width: 1px;
-  height: 60%;
-  margin: 0 0.6rem;
-  background: black;
-}
 header .header__top img.logo__brand, header .header__bottom img.logo__brand {
   height: 3vh;
 }
 header .header__top img.logo__avtohous, header .header__bottom img.logo__avtohous {
   height: 3vh;
+}
+header .phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+header .phone:before {
+  content: "";
+  display: inline-flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url("../img/phone.svg") center/cover no-repeat;
+}
+header .phone.phone__header:before {
+  content: none;
 }
 header .hamburger {
   position: relative;
@@ -210,6 +224,12 @@ header .navbar {
 }
 header .navbar .nav-item {
   cursor: pointer;
+}
+header .navbar .nav-link {
+  transition: all 0.4s linear;
+}
+header .navbar .nav-link:hover {
+  color: #005DD2;
 }
 
 .banner .banner__block {
@@ -596,8 +616,8 @@ form span {
 }
 form input[type=submit] {
   color: white;
-  border: 1px solid rgb(0, 102, 181);
-  background: rgb(0, 102, 181);
+  border: 1px solid #005DD2;
+  background: #0066B5;
   border-radius: 8px;
 }
 form input[type=tel]:not(.is-invalid):not(.is-valid) {
@@ -613,25 +633,6 @@ form .form__politic-text {
 img {
   max-width: 100%;
   height: auto;
-}
-
-.phone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-.phone:before {
-  content: "";
-  display: inline-flex;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: url("../img/phone.svg") center/cover no-repeat;
-}
-.phone.phone__header:before {
-  content: none;
 }
 
 .form-control:focus {
@@ -671,13 +672,168 @@ img {
 footer {
   background-color: #F5F5F5;
 }
+footer .phone {
+  font-size: clamp(24px, 1vw, 28px);
+  font-weight: bold;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  justify-content: start;
+  align-items: center;
+}
+.logo span {
+  width: 1px;
+  height: 30px;
+  margin: 0 1rem;
+  background: black;
+}
 
 h1 {
   opacity: 0;
 }
 
+.nav-link {
+  transition: all 0.4s linear;
+}
+.nav-link:hover {
+  color: #005DD2;
+}
+
 .contact {
+  width: 100%;
   min-height: 600px;
+}
+.contact #map {
+  position: relative;
+  height: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+@media (min-width: 991px) {
+  .contact .container {
+    align-items: center;
+    justify-content: end;
+  }
+}
+.contact .contacts-info {
+  width: 100%;
+  background: white;
+}
+.contact .contacts-info .callmodal {
+  max-width: 100%;
+}
+.contact .contacts-info .phone {
+  position: relative;
+  flex-flow: column;
+  justify-content: end;
+  align-items: start;
+  font-weight: 500;
+}
+.contact .contacts-info .phone:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  margin-top: -12.5px;
+  background: url("../img/icons/phone-blue.svg") center/cover no-repeat;
+}
+.contact .contacts-info .phone span {
+  padding-left: 2rem;
+}
+.contact .contacts-info .adress {
+  position: relative;
+  flex-flow: column;
+  justify-content: end;
+  align-items: start;
+  font-weight: 500;
+}
+.contact .contacts-info .adress:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  margin-top: -12.5px;
+  background: url("../img/icons/map-blue.svg") center/cover no-repeat;
+}
+.contact .contacts-info .adress span {
+  padding-left: 2rem;
+}
+.contact .contacts-info .work {
+  position: relative;
+  flex-flow: column;
+  justify-content: end;
+  align-items: start;
+  font-weight: 500;
+}
+.contact .contacts-info .work:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  margin-top: -12.5px;
+  background: url("../img/icons/watch-blue.svg") center/cover no-repeat;
+}
+.contact .contacts-info .work span {
+  padding-left: 2rem;
+}
+.contact .contacts-info .phone span:first-child, .contact .contacts-info .adress span:first-child, .contact .contacts-info .work span:first-child {
+  font-size: 14px;
+  color: #666666;
+  display: block;
+}
+.contact .contacts-info .phone span:last-child, .contact .contacts-info .adress span:last-child, .contact .contacts-info .work span:last-child {
+  font-size: clamp(17px, 1vw, 20px);
+  color: black;
+  display: block;
+  font-weight: 600;
+}
+.contact .ymaps-2-1-79-map-copyrights-promo, .contact .ymaps-2-1-79-copyright_logo_no {
+  display: none;
+}
+.contact .ymaps-layers-pane {
+  filter: hue-rotate(90deg);
+  -ms-filter: hue-rotate(90deg);
+  -webkit-filter: hue-rotate(90deg);
+  -moz-filter: hue-rotate(90deg);
+  -o-filter: hue-rotate(90deg);
+}
+.contact #map .ymaps-2-1-79-ground-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+@media (min-width: 991px) {
+  .contact .contacts-info {
+    max-width: 400px;
+  }
+  .contact .contact .container {
+    position: absolute;
+    z-index: 2;
+  }
+  .contact #map {
+    height: 600px;
+  }
 }
 
 @media (min-width: 991px) {
@@ -689,9 +845,6 @@ h1 {
   .action .swiper-backface-hidden .swiper-slide {
     padding-right: 13%;
   }
-}
-section:not(section.active), header, footer {
-  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

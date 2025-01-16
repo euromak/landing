@@ -120,15 +120,8 @@
 				<a class="phone " href="tel:<?=$phone?>"><?=$phone?></a>
 			</div>
 			<nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
-				<a class="nav-link" href="#s1" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Модельный ряд</a>
-				<ul class="dropdown-menu">
-	                <?php foreach ($result_out as $index => $value): ?>
-						<li>
-							<a class="dropdown-item" href="#<?=$value['id']?>"><?="{$value['mark']} {$value['model']}"?></a>
-						</li>
-	                <?php endforeach;?>
-				</ul>
-				<a class="nav-link" href="#s2">Авто в наличии</a>
+				<a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Модельный ряд</a>
+				<a class="nav-link" href="#s1">Авто в наличии</a>
 				<a class="nav-link" href="#s3">Комплектации</a>
 				<a class="nav-link" href="#s4">Автокредит</a>
 				<a class="nav-link" href="#s5">Трейд-in</a>
@@ -233,7 +226,7 @@
 	            </div>
 	            <div class="row">
 	                <?php foreach ($result_out as $index => $value): ?>
-	                <div id="<?=$value['id']?>" class="model_item my-2 my-lg-3 p-4" data-bs-target="#navbar-example3" data-car="<?=$value['id']?>">
+	                <div id="<?=$value['id']?>" class="model_item my-2 my-lg-3 p-4" data-bs-spy="scroll"  data-bs-target="#navbar-example3" data-car="<?=$value['id']?>">
 	                    <div class="row cart_action__block">
 	                        <div class="col-12 col-md-6 order-2 order-md-0">
 	                            <div class="model_item__name">
@@ -374,7 +367,7 @@
 			<div class="container complectation-result">
 				<?php foreach ($result_out as $value): ?>
                     <?php foreach ($value['complecation_data'] as $item): ?>
-				<div class="rounded-3 row my-2 mx-1 shadow-sm complectation-value my-3 px-3 py-4"  
+				<div class="rounded-3 row my-4 mx-1 shadow-sm complectation-value my-3 px-1 px-md-3 3 py-4"
 					id="<?=$value['id']?>-<?=$value['id_model']?>-<?=$item['modification_id']?>-<?=$item['complectation_id']?>" data-id="<?=$value['id']?>"
 					data-model="<?=$value['id_model']?>" 
 					data-body="<?=$item['body_id']?>"
@@ -419,10 +412,7 @@
                 <?php endforeach; ?>
 			</div>
 	    </section>
-	    <section id="s4">
-
-	    </section>
-	    <section id="s5" class="offer-banner my-5">
+	    <section id="s4" class="offer-banner my-5">
 	        <div class="banner_credit">
 	            <div class="container">
 	                <div class="row">
@@ -433,7 +423,7 @@
 	            </div>
 	        </div>
 	    </section>
-	    <section class="offer-banner">
+	    <section id="s5" class="offer-banner">
 	        <div class="banner_tradein">
 	            <div class="container">
 	                <div class="row">
@@ -452,29 +442,28 @@
 	            </div>
 	        </div>
 	    </section>
-	    <section id="s6" class="contact">
-	        <div class="container-fluid" id="map">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-lg-4 text-start">
-						<h2>Контакты</h2>
-						<div class="phone">
+	    <section id="s6" class="contact d-flex justify-content-center">
+	        <div id="map">
+				<div class="container py-3">
+					<div class="contacts-info col-12 col-lg-4 text-start px-3 py-4 rounded-4 shadow scroll-item">
+						<h2 class="mb-3">Контакты</h2>
+						<div class="phone mb-3">
 							<span>Телефон:</span>
 							<span><?=$phone?></span>
 						</div>
-						<div class="adress">
+						<div class="adress mb-3">
 							<span>Адрес:</span>
 							<span><?=$adress?></span>
 						</div>
-						<div class="work">
+						<div class="work mb-4">
 							<span>Режим работы:</span>
-							<span>Ежедневно с 9:00 до 22:00</span>
+							<span><?=$work_time?></span>
 						</div>
-						<button class="callmodal d-none d-md-flex align-items-center justify-content-center"
+						<button class="w-100 callmodal d-md-flex align-items-center justify-content-center"
 								data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать звонок</button>
 					</div>
 				</div>
-			</div>
+
 	        </div>
 	    </section>
 	</main>

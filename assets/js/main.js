@@ -112,7 +112,7 @@ function setCountdown(saleDate){
 
 window.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log(e.target);  
+    console.log(e.target);
     let formValues = new FormData(e.target);
 
     fetch("mail.php", {
@@ -130,9 +130,9 @@ window.addEventListener('submit', function(e){
 window.addEventListener('load', function(e) {
     const swiperMain = new Swiper('#main-swiper',{
         speed: 4000,
-        autoplay: {
-            delay: 5000
-        },
+        // autoplay: {
+        //     delay: 5000
+        // },
         loop: true,
         slidesPerView: 1,
 
@@ -153,9 +153,9 @@ window.addEventListener('load', function(e) {
     const swiperAction = new Swiper('#actionsCarousel',{
         speed: 3000,
         spaceBetween: 10,
-        autoplay: {
-            delay: 5000
-        },
+        // autoplay: {
+        //     delay: 5000
+        // },
         loop: true,
         slidesPerView: 1,
 
@@ -201,7 +201,6 @@ window.addEventListener('load', function(e) {
     })
     let hamburger = document.querySelector('.hamburger');
 
-
     $('.hidden, h1').animate({'opacity':'1','top':'5%'},'slow',"linear");
     Fancybox.bind('[data-fancybox="gallery"]', {
         Thumbs : {
@@ -209,46 +208,39 @@ window.addEventListener('load', function(e) {
         }
     },{ Thumbs });
 
-
-
-    app.init();
-    setCountdown(saleTime);
-    setInputMask();
     hamburger.addEventListener('click',function(){
         this.classList.toggle('is-active');
     })
     window.addEventListener('keydown',(e)=>{
         document.body.classList.toggle('line');
-        // document.body.classList.toggle('debug');
+    })
+    window.addEventListener('scroll',(e)=>{
+        scrollAnimation();
     })
     $('form').on('change',(e)=>{
-        
-
         filterComp(e.target.value);
     })
-    window.addEventListener('input',(e)=>{
-        // console.log(e.target.value)
-    })
 
+    app.init();
+    setCountdown(saleTime);
+    setInputMask();
+    scrollAnimation();
 })
-      
-function filterComp(value){
-    console.log(value);
-    console.log(data_car);
-    data_car.forEach((item)=>{
-        console.log(item);
-    })
-    let result;
 
+
+
+
+
+function filterComp(value){
+    let result;
 
     $.each($('.complectation-value'), function( index, item ) {
 
-      ($(this).data('model') == value) ? $(this).show() : $(this).hide();
+      ($(this).data('model') == value || $(this).data('idcomp') == value || $(this).data('idmod') == value) ? $(this).show() : $(this).hide();
 
     });
     $.each($('#modlSelect option'),function( index, item ){
         ($(this).data('model') == value) ? $(this).show() : $(this).hide();
-    console.log(item);
     });
 
     $('#modlSelect').removeAttr('disabled');
@@ -256,4 +248,66 @@ function filterComp(value){
 
 
     return true;
+}
+
+function scrollAnimation () {
+    let scrollItems = document.querySelectorAll('.scroll-item');
+    let windowCenter = (window.innerHeight / 2) + window.scrollY;
+
+    if(window.map != "load") {
+        if((document.querySelector('#map').offsetTop - 1000) <= window.scrollY) {
+            window.map="load";
+            initYandexMap();
+        }
+    }
+
+    scrollItems.forEach(el => {
+
+
+        let scrollOffset = el.offsetTop + (el.offsetHeight / 2);
+        // console.log(scrollOffset)
+        if (windowCenter >= scrollOffset) {
+            el.classList.add('animation-class');
+        } else {
+            el.classList.remove('animation-class');
+        }
+    });
+}
+
+function initYandexMap() {
+
+    ymaps.ready(function () {
+        var _ball_bg = 'assets/img/map_point.svg';
+        var _ball_Offset = [0, -35];
+        var _ball_Size = [50, 50];
+        var myMap = new ymaps.Map('map', {
+            center: [56.305988, 43.943823],
+            zoom: 17,
+            controls: []
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+        var myPlacemark1 = new ymaps.Placemark([56.306693, 43.944308], {
+            hintContent: "г. Нижний Новгород, ул. Июльских Дней, 1г"
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: _ball_bg,
+            iconImageSize: _ball_Size,
+            iconImageOffset: _ball_Offset
+        });
+
+        var zoomControl = new ymaps.control.ZoomControl({
+            options: {
+                size: "small",
+                position: {
+                    top: 0,
+                    left: 'auto',
+                    right: 0,
+                }
+            }
+        });
+        myMap.geoObjects.add(myPlacemark1);
+        // myMap.controls.add(zoomControl);
+        myMap.behaviors.disable('scrollZoom');
+    })
 }

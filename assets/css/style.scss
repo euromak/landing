@@ -33,12 +33,17 @@
 $fs: 16px;
 $main_color:#0066B5;
 $akcent-color: #0066B5;
-$hover_color: rgb(0, 102, 181);
+$main-hover: #005DD2;
 $black_color: rgb(51, 51, 51);
 $light-blue: #C8E3F8;
 $border-radius:8px;
 $bg_footer: #F5F5F5;
 
+header .nav-link.active{
+  color: $main-hover;
+  border-color: $main-hover;
+  font-weight: normal;
+}
 
 
 /*Миксины*/
@@ -100,17 +105,7 @@ header {
     min-height: 6vh;
     align-items: center;
 
-    .logo {
-      justify-content: start;
-      align-items: center;
 
-      span {
-        width: 1px;
-        height: 60%;
-        margin: 0 .6rem;
-        background: black;
-      }
-    }
 
     img {
 
@@ -123,7 +118,27 @@ header {
       }
     }
   }
+  .phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 
+    &:before {
+      content: '';
+      display: inline-flex;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: url("../img/phone.svg") center / cover no-repeat;
+    }
+
+    &.phone__header:before {
+      content: none;
+    }
+
+  }
   .hamburger {
     position: relative;
     display: inline-flex;
@@ -244,6 +259,12 @@ header {
     .nav-item {
       cursor: pointer;
     }
+    .nav-link {
+      transition: all .4s linear;
+      &:hover {
+        color: $main-hover;
+      }
+    }
   }
 }
 .banner {
@@ -283,13 +304,11 @@ header {
 }
 #timer-block {
   width: 100%;
-  //min-height: 500px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   position: relative;
   .container {
-    //position: absolute;
     left: 0;
     right: 0;
     z-index: 2;
@@ -316,7 +335,7 @@ header {
       justify-content: center;
       .timer__block-value {
         font-size: clamp(38px, 5vw, 84px);
-        color: $main_color;
+        color: $main-color;
         text-align: center;
       }
       .timer__block-name {
@@ -669,8 +688,8 @@ form {
   }
   input[type='submit'] {
     color: white;
-    border: 1px solid $hover_color;
-    background: $hover_color;
+    border: 1px solid $main-hover;
+    background: $main-color;
     border-radius: 8px;
   }
   input[type='tel']:not(.is-invalid):not(.is-valid) {
@@ -688,27 +707,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-.phone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
 
-  &:before {
-    content: '';
-    display: inline-flex;
-    width: 1.6rem;
-    height: 1.6rem;
-    background: url("../img/phone.svg") center / cover no-repeat;
-  }
-
-  &.phone__header:before {
-    content: none;
-  }
-
-}
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
@@ -738,13 +737,171 @@ img {
 
 footer {
   background-color: $bg_footer;
+
+  .phone {
+    font-size: clamp(24px,1vw,28px);
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+  }
+}
+.logo {
+  justify-content: start;
+  align-items: center;
+
+  span {
+    width: 1px;
+    height: 30px;
+    margin: 0 1rem;
+    background: black;
+  }
 }
  h1 {
   opacity: 0;
 }
 
+.nav-link {
+  transition: all .4s linear;
+  &:hover {
+    color: $main-hover;
+  }
+}
+
 .contact {
+  width: 100%;
   min-height: 600px;
+  #map {
+    position: relative;
+    height: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left:  0;
+    bottom: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    
+    @media (min-width: 991px) {
+      & {
+        align-items: center;
+        justify-content: end;
+      }
+    }
+  }
+  .contacts-info {
+    width: 100%;
+    background: white;
+
+    .callmodal {
+      max-width: 100%;
+    }
+    .phone {
+      position: relative;
+      flex-flow: column;
+      justify-content: end;
+      align-items: start;
+      font-weight: 500;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        margin-top: -12.5px;
+        background: url("../img/icons/phone-blue.svg") center / cover no-repeat;
+      }
+      span {
+        padding-left: 2rem;
+      }
+    }
+    .adress {
+      position: relative;
+      flex-flow: column;
+      justify-content: end;
+      align-items: start;
+      font-weight: 500;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        margin-top: -12.5px;
+        background: url("../img/icons/map-blue.svg") center / cover no-repeat;
+      }
+      span {
+        padding-left: 2rem;
+      }
+    }
+    .work {
+      position: relative;
+      flex-flow: column;
+      justify-content: end;
+      align-items: start;
+      font-weight: 500;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        margin-top: -12.5px;
+        background: url("../img/icons/watch-blue.svg") center / cover no-repeat;
+      }
+      span {
+        padding-left: 2rem;
+      }
+    }
+    .phone span:first-child, .adress span:first-child, .work span:first-child {
+      font-size: 14px;
+      color: #666666;
+      display: block;
+    }
+    .phone span:last-child, .adress span:last-child, .work span:last-child {
+      font-size: clamp(17px,1vw,20px);
+      color: black;
+      display: block;
+      font-weight: 600;
+    }
+  }
+  .ymaps-2-1-79-map-copyrights-promo,.ymaps-2-1-79-copyright_logo_no {
+    display: none;
+  }
+  .ymaps-layers-pane {
+    filter: hue-rotate(90deg);
+    -ms-filter: hue-rotate(90deg);
+    -webkit-filter: hue-rotate(90deg);
+    -moz-filter: hue-rotate(90deg);
+    -o-filter: hue-rotate(90deg);
+  }
+  #map .ymaps-2-1-79-ground-pane {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  @media (min-width: 991px) {
+    .contacts-info {
+      max-width: 400px;
+    }
+    .contact .container {
+      position: absolute;
+      z-index: 2;
+    }
+    #map {
+      height: 600px;
+    }
+  }
 }
 
 @media (min-width:991px) {
@@ -759,6 +916,3 @@ footer {
   }
 }
 
-section:not(section.active), header,footer {
-  display: none !important;
-}

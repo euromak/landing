@@ -1,3 +1,20 @@
 body {
 
 }
+
+section:not(.contact), header,footer {
+    /*display: none !important;*/
+}
+#map {
+
+}
+
+.main {
+    /*margin: 0;*/
+}
+.contact {
+    /* min-height: 100vh; */
+}
+
+
+

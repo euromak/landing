@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/euromak/landing#readme",
   "dependencies": {
+    "@yandex/ymaps3-default-ui-theme": "0.0.19",
     "bootstrap": "^5.3.3",
     "floating-ui": "^5.2.8",
     "g": "^2.0.1",

@@ -8,29 +8,29 @@
 					<img class="logo__avtohous" src="<?= ASSETS . '/img/logo_avt.svg'?>" alt="logo avtohous">
 				</a>
 			</div>
-            <a class="phone col-12 col-lg-6 text-end" href="tel:<?=$phone?>"><?=$phone?></a>
+            <a class="phone col-12 col-lg-6 mt-4" href="tel:<?=$phone?>"><?=$phone?></a>
         </div>
         <div class="row mt-3">
-            <div class="col-9">
-                <h3>Меню</h3>
-				<div class="row">
-                    <?php include 'assets/temp/menu.php'?>
-					<h3>Модельный ряд</h3>
-					<div class="row w-50 ">
-						<div class="model col">ALSVIN</div>
-						<div class="model col">EADOplus</div>
-						<div class="model col">CS95NEW</div>
-						<div class="model col">CS85COUPE</div>
-						<div class="model col">LAMORE</div>
-						<div class="model col">UNI-V</div>
-					</div>
-				</div>
-            </div>
-            <div class="col-3 d-flex justify-content-end flex-column align-items-end text-end">
-                <span>Ежедневно с 9:00 до 22:00</span>
-                <span class="my-3">г. Нижний Новгород, ул. Июльских Дней, д. 1г</span>
-                <button class="callmodal d-none d-md-flex align-items-center justify-content-center"
+			<div class="col-12 col-lg-3 d-flex justify-content-around flex-column align-items-start align-items-lg-end text-end order-lg-last">
+				<span><?=$work_time?></span>
+				<span class="my-3"><?=$adress?></span>
+				<button class="callmodal d-none d-md-flex align-items-center justify-content-center"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать звонок</button>
+			</div>
+            <div class="col-12 col-lg-9">
+                <h3 class="mt-3">Меню</h3>
+				<div class="d-flex column-gap-3 flex-wrap flex-lg-nowrap">
+                    <?php include 'assets/temp/menu.php'?>
+				</div>
+				<h3 class="mt-3">Модельный ряд</h3>
+				<div class="d-flex column-gap-3 flex-wrap flex-lg-nowrap">
+					<div class="model">ALSVIN</div>
+					<div class="model">EADOplus</div>
+					<div class="model">CS95NEW</div>
+					<div class="model">CS85COUPE</div>
+					<div class="model">LAMORE</div>
+					<div class="model">UNI-V</div>
+				</div>
             </div>
         </div>
 
@@ -78,34 +78,18 @@
 <script>
 	let data_car = <?=$data_front?>;
     let saleTime = "<?=$sale_time?>";
-
-    // // сортировка
-    // var data_car1 = data_car.sort((a,b)=>a.price.price_min-b.price.price_min);
-    // var data_car2 = data_car.sort((a,b)=>b.price.price_min-a.price.price_min);
-    //
-    // // агрегирование значения из все значений
-    // var summ = data_car.reduce((aggregator,item)=> aggregator + +item.price.price_min,0);
-    //
-    // // Возвращаяет первый объект где выполнен поиск по значению поля model
-    // var data_car3 = data_car.find((item)=>{
-    //     return item.model == "CS35PLUS";
-    // });
-    //
-    // // Возвращаяет первый объект где выполнен поиск по значению поля model
-    // var data_car4 = data_car.filter((item) => item.model == "CS35PLUS");
-
 </script>
-<script src="<?= 'app.js'?>"></script>
 <script src="<?= '/node_modules/jquery/dist/jquery.min.js'?>"></script>
 <script src="<?= '/node_modules/swiper/swiper-bundle.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="<?= ASSETS . '/lib/just-validate.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/inputmask.min.js'?>"></script>
 <script src="<?= ASSETS . '/lib/countdown.min.js'?>"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=0753bd14-17f0-480b-840a-8c1f0547dd69&lang=ru_RU"></script>
 <script src="<?= ASSETS . '/js/main.js'?>"></script>
+<script src="<?= 'app.js'?>"></script>
 </body>
 </html>

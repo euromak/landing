@@ -1,5 +1,8 @@
 <?php
-define('ASSETS' , '/assets');
-require_once 'config.php';
-require_once 'function.php';
-require_once 'app.php';
+//session_start();
+//unset($_SESSION['username']);
+$controller = $_GET['controller'] ?? 'index';
+
+$routes = require 'routes.php';
+
+require_once $routes[$controller] ?? "view/404.php";
