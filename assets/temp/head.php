@@ -14,5 +14,4 @@
     <meta name="apple-mobile-web-app-title" content="MyWebSite" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="<?= ASSETS . '/css/style.css' ?>">
-    <link rel="stylesheet" href="<?= ASSETS . '/css/custom.css' ?>">
 </head>

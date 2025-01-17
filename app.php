@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'function.php';
-require_once './class/DB.php';
+require_once './controller/DB.php';
 
 if(isset($_GET['controller']) && !empty($_GET['controller'])) {
     $json = file_get_contents('customization.json');
@@ -26,6 +26,7 @@ $data_id = array();
 $db = new DB;
 $result = $db->getAll('body');
 
+//exit();
 // преобразование данных
 foreach ($result as $row) {
     $price_old = $db->get_old_max_price($row['body_id']);
@@ -33,15 +34,7 @@ foreach ($result as $row) {
     $price_max = $db->get_max_price($row['body_id']);
     $profit = $price_old - $price_max;
     $credit_payment = floor(($mountMinPercentPayment * (1 + $mountMinPercentPayment)**84 / ((1 + $mountMinPercentPayment)**84 - 1)) * ($price - $price*$first_payment));
-    $data_id[] = [
-        "id_model" => $row['model_id'],
-        "id_mark" => $row['mark_id'],
-        "data_compl" => $db->get_complectation($row['body_id']),
-        "slug" => "{$row['mark_name']} {$row['model']} {$row['body_name']}",
-        "mark" => $row['mark_name'],
-        "model" => $row['model'],
-        "mod_name" => null,
-    ];
+
     $result_out[] = [
         "id" => $row['body_id'],
         "id_model" => $row['model_id'],
@@ -50,6 +43,7 @@ foreach ($result as $row) {
         "model" => $row['model'],
         "body" => $row['body_name'],
         "preview" => $row['preview'],
+        "slug" => "{$row['mark_name']} {$row['model']} {$row['body_name']}",
         "images" =>  (!empty($row['image'])) ? json_decode($row['image']) : null,
         "marks_logo1" => $row['mark_logo1'],
         "marks_logo2" => $row['mark_logo2'],
@@ -68,26 +62,16 @@ foreach ($result as $row) {
     ];
 };
 
-$compl_data = [];
-foreach ($data_id as $ind => $value) {
-
-    foreach ($value['data_compl'] as $index => $item) {
- 
-            $compl_data[$item['body_id']] = [
-                "body_id"=>$item['body_id'],
-                "id_model"=>$value['id_model'],
-                "modification_id"=>$item['modification_id'],
-                "complectation_id"=>$item['complectation_id'],
-                "slug"=>$value['slug'],
-                "mark_name"=>$value['mark'],       
-                "model_name"=>$value['model'],
-                "mod_name"=>$value['mod_name'],
-
+foreach ($result_out as $ind => $value) {
+    foreach ($value['complecation_data'] as $index => $item) {
+        $value['complecation_data'][$index] = [
+                "modname"=>$item['modname'],
+                "compname"=>$item['compname'],
+                "speed"=>$item['max_speed'],
                 ];
-
     }
 }
-
+//var_dump($result_out[0]);
 $data_front = json_encode($result_out);
 
 require_once 'assets/temp/head.php';

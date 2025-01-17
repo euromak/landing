@@ -2,8 +2,8 @@ body {
 
 }
 
-section:not(.contact), header,footer {
-    /*display: none !important;*/
+section:not(.complectation-block), header,footer {
+    display: none !important;
 }
 #map {
 

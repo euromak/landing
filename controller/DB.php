@@ -112,8 +112,8 @@ class DB
                 price.complectation_id ,
                 price.price_old,
                 price.price,
-                modification.name,
-                complectation.name,
+                modification.name AS modname,
+                complectation.name AS compname,
                 modification.engine_displacement,
                 modification.power,
                 modification.engine_type,
@@ -128,8 +128,6 @@ class DB
             WHERE
                 price.body_id = $id ORDER BY price.price DESC"
         );
-
-
         return $result;
     }
 

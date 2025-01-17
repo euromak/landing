@@ -9,7 +9,7 @@
 								<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main_md.webp'?>" media="(max-width: 1000px)" />
 								<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main_lg.webp'?>" media="(max-width: 1400px)" />
 								<source srcset="<?= ASSETS . '/img/banner/slide_1/banner_main.webp'?>" media="(max-width: 1920px)" />
-								<img class="img-fluid" src="<?= ASSETS . '/img/banner/slide_1/banner_main_4k.webp'?>" alt="banner" />
+								<img class="img-fluid img-thumbnail" src="<?= ASSETS . '/img/banner/slide_1/banner_main_4k.webp'?>" alt="banner" />
 							</picture>
 						<div class="swiper-data n1 hidden">
 							<div class="container">
@@ -36,7 +36,7 @@
 							<source srcset="<?= ASSETS . '/img/banner/slide_2/md.webp'?>" media="(max-width: 960px)" />
 							<source srcset="<?= ASSETS . '/img/banner/slide_2/lg.webp'?>" media="(max-width: 1200px)" />
 							<source srcset="<?= ASSETS . '/img/banner/slide_2/1920.webp'?>" media="(max-width: 1920px)" />
-							<img class="img-fluid" src="<?= ASSETS . '/img/banner/slide_2/full.webp'?>" alt="banner" />
+							<img class="img-fluid img-thumbnail" src="<?= ASSETS . '/img/banner/slide_2/full.webp'?>" alt="banner" />
 						</picture>
 						<div class="swiper-data n2 hidden">
 							<div class="container">
@@ -82,8 +82,8 @@
 	                </form>
 	            </div>
 				<div class="swiper-pagination"></div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev d-none d-lg-block"></div>
+				<div class="swiper-button-next d-none d-lg-block"></div>
 	        </div>
 	    </section>
 		<header class="header fixed-top bg-white">
@@ -110,7 +110,7 @@
 					<a class="phone phone__header" href="tel:<?=$phone?>"><?=$phone?></a>
 				</div>
 
-				<div class="callmodal d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<div class="callmodal btn btn-primary px-1 d-none d-md-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					Заказать звонок
 				</div>
 
@@ -119,7 +119,7 @@
 			<div class="header__bottom d-flex align-items-center d-md-none">
 				<a class="phone " href="tel:<?=$phone?>"><?=$phone?></a>
 			</div>
-			<nav id="navbar-example2" class="navbar nav-underline d-none d-md-flex justify-content-around">
+			<nav id="navbar-example2" class="navbar d-none d-md-flex justify-content-around">
 				<a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Модельный ряд</a>
 				<a class="nav-link" href="#s1">Авто в наличии</a>
 				<a class="nav-link" href="#s3">Комплектации</a>
@@ -134,7 +134,7 @@
 	            <div class="timer p-3 hidden">
 	                <h3>До <span class="timeless-value"><?=$sale_date?></span> держим выгоды на <?=$mark?> <b>до 25%!</b></h3>
 	                <div class="row d-flex flex-row-reverse">
-	                    <div class="col-lg-6 d-flex align-items-center">
+	                    <div class="col-lg-6 d-flex align-items-center align-items-lg-start">
 	                        <div class="timer__block date">
 	                            <span class="timer__block-value"></span>
 	                            <span class="timer__block-name">дней</span>
@@ -178,7 +178,7 @@
 	                                >
 	                                <label for="phone">Ваш телефон</label>
 	                            </div>
-	                            <input type="submit" class="form-control" value="Получить предложение">
+	                            <input type="submit" class="btn btn-lg btn-primary" value="Получить предложение">
 	                            <span class="form__politic-text">* Отправляя данную форму, вы соглашаетесь с <u>политикой
 	                            обработки персональных данных.</u>
 	                    </span>
@@ -194,27 +194,27 @@
 						<div class="swiper-slide action__slide d-flex flex-column n1 rounded-4">
 							<h3 class="action__slide-title">Большая семья</h3>
 							<span class="action__slide-desc">Дарим скидку 7% на покупку нового CHANGAN многодетным семьям</span>
-							<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+							<button class="btn btn-outline-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
 						</div>
 						<div class="swiper-slide action__slide d-flex flex-column n2 rounded-4">
 							<h3 class="action__slide-title">Военным</h3>
 							<span class="action__slide-desc">Дарим скидку 5% на покупку нового CHANGAN военнослужащим</span>
-							<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+							<button class="btn btn-outline-primary btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
 						</div>
 						<div class="swiper-slide action__slide d-flex flex-column n3 rounded-4">
 							<h3 class="action__slide-title">Песнионерам</h3>
 							<span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN пенсионерам</span>
-							<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+							<button class="btn btn-outline-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
 						</div>
 						<div class="swiper-slide action__slide d-flex flex-column n4 rounded-4">
 							<h3 class="action__slide-title">Медработникам</h3>
 							<span class="action__slide-desc">Дарим скидку 10% на покупку нового CHANGAN медицинским работникам</span>
-							<button class="action__slide-btn btn btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
+							<button class="btn btn-outline-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить предложение</button>
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev d-none d-lg-block"></div>
+					<div class="swiper-button-next d-none d-lg-block"></div>
 				</div>
 			</div>
 	    </section>
@@ -252,10 +252,10 @@
 	                            </div>
 	                            <div class="row">
 	                                <div class="col-12 col-lg-8 cart-btns-block">
-	                                    <button class="btn btn-lg w-100 cart-btn n1" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
-	                                    <button class="btn btn-lg w-100 cart-btn n2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от <?=$credit_rate?>%</button>
-	                                    <button class="btn btn-lg w-100 cart-btn n3" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку 0%</button>
-	                                    <button class="btn btn-lg w-100 cart-btn n4" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
+	                                    <button class="btn btn-primary btn-lg w-100 n1 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Получить спец. цену</button>
+	                                    <button class="btn btn-dark btn-lg w-100 n2 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит от <b><?=$credit_rate?>%</b></button>
+	                                    <button class="btn btn-outline-primary btn-lg w-100 n3 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">В рассрочку <b>0%</b></button>
+	                                    <button class="btn btn-outline-primary btn-lg w-100 n4 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Подобрать комплектацию</button>
 	                                </div>
 	                                <div class="d-flex d-lg-block col-12 col-lg-4 info-car__block">
 	                                    <div class="row mt-3 info-car__item">
@@ -281,8 +281,8 @@
 	                        <div class="model_item__info col-12 col-lg-7">
 								<div class="row h-100 d-flex align-items-center">
 									<div class="swiper__big col-lg-9 p-0">
-										<img src="<?=$value['preview']?>" alt="preview" class="car_photo">
-										<img src="<?=$value['model_picture']?>" alt="model" class="label">
+										<img src="<?=$value['preview']?>" alt="preview" class="img-fluid car_photo">
+										<img src="<?=$value['model_picture']?>" alt="model" class="img-fluid label">
 									</div>
 									<div class="swiper col-lg-3"  id="myCarousel<?=$index?>">
 										<div class="swiper-wrapper">
@@ -307,15 +307,15 @@
 	                                        <?php endif; ?>
 										</div>
 										<div class="swiper-pagination"></div>
-										<div class="swiper-button-prev"></div>
-										<div class="swiper-button-next"></div>
+										<div class="swiper-button-prev d-none d-lg-block"></div>
+										<div class="swiper-button-next d-none d-lg-block"></div>
 									</div>
 								</div>
 
 	                        </div>
 	                    </div>
 	                    <div class="row utp">
-	                        <h4 class="my-3 my-lg-1">Подарки при покупке:</h4>
+	                        <h4 class="my-3">Подарки при покупке:</h4>
 	                        <div class="utp_list d-flex flex-wrap justify-content-between">
 	                            <div class="utp_list__i n1 py-1">Скидка 100 000₽ в день звонка</div>
 	                            <div class="utp_list__i n2 py-1">Полис КАСКО</div>
@@ -345,22 +345,30 @@
 	            <h2 class="mt-5 mb-3">Подберите комплектацию</h2>
 				<form class="form gap-lg-4 grid" method="get">
 					<select class="w-100 form-select form-select-lg mb-3" aria-label="form-select-lg">
-						<option selected>Модель</option>
-					<?php foreach($compl_data as $item):?>
-						<option value="<?=$item['id_model']?>"><?=$item['model_name']?></option>
+						<option class="d-none" selected>Модель</option>
+					<?php foreach($result_out as $item):?>
+						<option value="<?=$item['id_model']?>"><?=$item['model']?></option>
 					<?php endforeach; ?>				
 					</select>
 					<select class="w-100 form-select form-select-lg mb-3" id="modlSelect" aria-label="modlSelect" disabled>
-						<option selected>Двигатель</option>
-					<?php foreach($compl_data as $item):?>
-						<option data-model="<?=$item['id_model']?>" data-body="<?=$item['body_id']?>" data-body="<?=$item['slug']?>" value="<?=$item['modification_id']?>"><?=$item['modification_id']?></option>
-					<?php endforeach; ?>
+						<option class="d-none" selected>Модификация</option>
+                        <?php foreach($result_out as $value):?>
+                        	<?php foreach($value['complecation_data'] as $item):?>
+								<option class="opt1" data-id="<?=$value['id_model']?>" value="<?=$value['id_model']?>">
+									<?= $item['modname']?>
+								</option>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 					</select>
 					<select class="w-100 form-select form-select-lg mb-3" id="complSelect" aria-label="complSelect" disabled>
-						<option selected>Комплектация</option>
-					<?php foreach($compl_data as $item):?>
-						<option value="<?=$item['complectation_id']?>"><?=$item['complectation_id']?></option>
-					<?php endforeach; ?>
+						<option class="d-none" selected>Комплектация</option>
+                        <?php foreach($result_out as $value):?>
+                            <?php foreach($value['complecation_data'] as $item):?>
+								<option class="opt2" data-id="<?=$value['id_model']?>" value="<?=$item['complectation_id']?>">
+                                    <?= $item['compname']?>
+								</option>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 					</select>
 				</form>
 	        </div>
@@ -372,31 +380,31 @@
 					data-model="<?=$value['id_model']?>" 
 					data-body="<?=$item['body_id']?>"
 					data-idmod="<?=$item['modification_id']?>"
-					data-idcomp="<?=$item['id']?>"
+					data-idcomp="<?=$item['complectation_id']?>"
 					>
 					<div class="col-12 col-lg-4">
-						<img src="assets/img/modification/1.png" alt="">
+						<img src="assets/img/modification/1.png" class="img-fluid" alt="">
 					</div>
 					<div class="col-12 col-lg-5">
 						<div class="row complectation-data">
-							<div class="name"><?=$value['mark']?> <?=$value['model']?></div>
+							<div class="name"><?="{$value['mark']} {$value['model']} {$item['compname']}"?> </div>
 
-							<div class="name_compl"><?=$item['name']?></div>
+							<div class="name_compl"> </div>
 							<div class="info d-flex mt-3">
 								<div class="item col d-flex flex-column justify-content-center align-items-start">
-									<span class="n1">Двигатель:</span>
-									<span class="n2"><?=$item['engine_displacement']?> л.</span>
+									<span class="n1 d-none d-sm-inline n1">Двигатель:</span>
+									<span class="n2"><?=$item['engine_displacement']?>л.</span>
 								</div>
 								<div class="item col d-flex flex-column justify-content-center align-items-start">
-									<span class="n1">Мощность:</span>
-									<span class="n2"><?=$item['power']?> л.с.</span>
+									<span class="d-none d-sm-inline n1">Мощность:</span>
+									<span class="n2"><?=$item['power']?>л.с.</span>
 								</div>
 								<div class="item col d-flex flex-column justify-content-center align-items-start">
-									<span class="n1">Привод:</span> 
+									<span class="n1 d-none d-sm-inline n1">Привод:</span>
 									<span class="n2"><?=$item['drive']?></span>
 								</div>
 								<div class="item col d-flex flex-column justify-content-center align-items-start">
-									<span class="n1">КПП:</span>
+									<span class="n1 d-none d-sm-inline n1">КПП:</span>
 									<span class="n2"><?=$item['gearbox']?></span>
 								</div>
 							</div>
@@ -404,7 +412,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-lg-3 my-4">
-						<button class="btn btn-lg fs-5 btn-primary w-100 calmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит</button>
+						<button class="btn btn-lg btn-primary w-100 calmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">Рассчитать кредит</button>
 						<button class="btn btn-lg btn-outline-primary w-100 mt-2 calmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">Узнать цену</button>
 					</div>
 				</div>
@@ -459,7 +467,7 @@
 							<span>Режим работы:</span>
 							<span><?=$work_time?></span>
 						</div>
-						<button class="w-100 callmodal d-md-flex align-items-center justify-content-center"
+						<button class="w-100 callmodal btn btn-primary d-md-flex align-items-center justify-content-center"
 								data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать звонок</button>
 					</div>
 				</div>

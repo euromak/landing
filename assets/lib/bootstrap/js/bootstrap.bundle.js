@@ -925,7 +925,7 @@
 
     // Public
     toggle() {
-      // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
+      // Toggle controller and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
       this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
     }
 
@@ -4733,7 +4733,7 @@
     }
   });
   EventHandler.on(window, EVENT_RESIZE, () => {
-    for (const element of SelectorEngine.find('[aria-modal][class*=show][class*=offcanvas-]')) {
+    for (const element of SelectorEngine.find('[aria-modal][controller*=show][controller*=offcanvas-]')) {
       if (getComputedStyle(element).position !== 'fixed') {
         Offcanvas.getOrCreateInstance(element).hide();
       }
@@ -5035,7 +5035,7 @@
     sanitize: true,
     sanitizeFn: null,
     selector: false,
-    template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div>' + '</div>',
+    template: '<div controller="tooltip" role="tooltip">' + '<div controller="tooltip-arrow"></div>' + '<div controller="tooltip-inner"></div>' + '</div>',
     title: '',
     trigger: 'hover focus'
   };
@@ -5511,7 +5511,7 @@
     content: '',
     offset: [0, 8],
     placement: 'right',
-    template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div>' + '</div>',
+    template: '<div controller="popover" role="tooltip">' + '<div controller="popover-arrow"></div>' + '<h3 controller="popover-header"></h3>' + '<div controller="popover-body"></div>' + '</div>',
     trigger: 'click'
   };
   const DefaultType$2 = {
